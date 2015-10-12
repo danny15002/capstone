@@ -35,4 +35,4 @@
 [createEvent]: ./wireframes/create_event.png
 [viewPictures]: ./wireframes/pictures.png
 [location]: ./wireframes/location.png
-[component-heirarchy]: (./wireframes/heirarchy.png =200x)
+[component-heirarchy]: ./wireframes/heirarchy.png 
