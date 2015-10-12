@@ -1,4 +1,4 @@
-# FacebookClone
+# Friendz
 
 [Heroku link][heroku] **NB:** This should be a link to your production site
 
@@ -6,8 +6,8 @@
 
 ## Minimum Viable Product
 
-FacebookClone is a web application inspired by Facebook built using Ruby on
-Rails and React.js. FacebookClone allows users to:
+Friendz is a web application inspired by Facebook built using Ruby on
+Rails and React.js. Friendz allows users to:
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
