@@ -1,4 +1,4 @@
-# Phase 4: Add Friends (1.5 days)
+# Phase 9: Clean Up (3 days)
 
 ## Rails
 ### Models
@@ -6,7 +6,6 @@
 ### Controllers
 
 ### Views
-* Profile
 
 ## Flux
 ### Views (React Components)

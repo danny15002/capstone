@@ -1,4 +1,4 @@
-# Phase 4: Add Friends (1.5 days)
+# Phase 8: Location  (1 day)
 
 ## Rails
 ### Models
@@ -6,7 +6,6 @@
 ### Controllers
 
 ### Views
-* Profile
 
 ## Flux
 ### Views (React Components)

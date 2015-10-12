@@ -1,35 +1,26 @@
-# Phase 5: Reminders and Garbage Collection
+# Phase 5: Create fully functional messaging (1.5 days)
 
 ## Rails
 ### Models
-* Reminder
 
 ### Controllers
-* Api::RemindersController (create, destroy, index, show, update)
 
 ### Views
-* reminders/index.json.jbuilder
 
 ## Flux
 ### Views (React Components)
-* RemindersIndex
-  - ReminderIndexItem
-* ReminderShow
-* ReminderForm
+* Messages
+  * Message views
 
 ### Stores
-* Reminder
+* Messages
 
 ### Actions
-* ApiActions.receiveAllReminders
-* ApiActions.receiveSingleReminder
-* ApiActions.deleteReminder
+* ApiActions.sendMessage
+* ApiActions.receiveInViewMessages
 
 ### ApiUtil
-* ApiUtil.fetchAllReminders
-* ApiUtil.fetchSingleReminder
-* ApiUtil.createReminder
-* ApiUtil.updateReminder
-* ApiUtil.destroyReminder
+* ApiUtil.fetchInViewMessages
+* ApiUtil.createMessage
 
 ## Gems/Libraries

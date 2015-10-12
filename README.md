@@ -79,13 +79,13 @@ Phase 7 is implementing picture interaction and UI.
 
 [Details][phase-seven]
 
-### Phase 8: (1 day)(11)
+### Phase 8: Location (1 day)(11)
 
 In phase 8 I will create interaction to share your location with your friends.
 
 [Details][phase-eight]
 
-### Phase 9: (2 days)(13)
+### Phase 9: Clean Up (3 days)(13)
 
 In phase 9 I will finish up any styling that still needs to be done. In case of
 falling behind schedule, this time will be used to make up for lost time.
@@ -103,3 +103,7 @@ falling behind schedule, this time will be used to make up for lost time.
 [phase-three]: ./docs/phases/phase3.md
 [phase-four]: ./docs/phases/phase4.md
 [phase-five]: ./docs/phases/phase5.md
+[phase-six]: ./docs/phases/phase6.md
+[phase-seven]: ./docs/phases/phase7.md
+[phase-eight]: ./docs/phases/phase8.md
+[phase-nine]: ./docs/phases/phase9.md

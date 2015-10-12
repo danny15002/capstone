@@ -1,33 +1,24 @@
-# Phase 2: Flux Architecture and Note CRUD (2 days)
+# Phase 2: Set up back end (1 day)
 
 ## Rails
 ### Models
+* Messages
+* Events
+* Friends
 
 ### Controllers
-
+* Api::MessagesController (create, new, show)
+* Api::EventsController (create, new, show, update, destroy)
 ### Views
 
 ## Flux
 ### Views (React Components)
-* NotesIndex
-  - NotesIndexItem
-* NoteForm
 
 ### Stores
 * Note
 
 ### Actions
-* ApiActions.receiveAllNotes
-* ApiActions.receiveSingleNote
-* ApiActions.deleteNote
 
 ### ApiUtil
-* ApiUtil.fetchAllNotes
-* ApiUtil.fetchSingleNote
-* ApiUtil.createNote
-* ApiUtil.editNote
-* ApiUtil.destroyNote
 
 ## Gems/Libraries
-* Flux Dispatcher
-* Twitter Bootstrap
