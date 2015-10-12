@@ -6,8 +6,8 @@
 
 ## Minimum Viable Product
 
-FacebookClone is a web application inspired by Facebook built using Ruby on Rails
-and React.js. FacebookClone allows users to:
+FacebookClone is a web application inspired by Facebook built using Ruby on
+Rails and React.js. FacebookClone allows users to:
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
