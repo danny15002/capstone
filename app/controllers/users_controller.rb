@@ -1,12 +1,4 @@
 class UsersController < ApplicationController
-  # before_action :check_login, except: :destroy
-
-  # def check_login
-  #   unless current_user
-  #     flash.now[:errors] = "You must log in."
-  #     redirect_to new_session_url
-  #   end
-  # end
 
   def new
     @user = User.new
@@ -18,7 +10,7 @@ class UsersController < ApplicationController
 
     if @user.save
       log_in!(@user)
-      redirect_to user_url(@user)
+      redirect_to root_url
     else
       flash.now[:errors] = @user.errors.full_messages
       render :new

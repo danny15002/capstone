@@ -9,8 +9,8 @@ class ApplicationController < ActionController::Base
   end
 
   def check_login
-    if current_user
-      redirect_to user_url(current_user)
+    unless current_user
+      redirect_to new_session_url
     end
   end
 

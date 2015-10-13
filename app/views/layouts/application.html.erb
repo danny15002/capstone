@@ -15,12 +15,7 @@
       <%= " The #{UsersHelper.adjective} #{current_user.username}!" %>
     </h2>
   <% else %>
-    <br>
-    <h4 align = "center">
-      <%= " We're sure you're #{UsersHelper.adjective},
-            so go ahead and create an account!" %>
-      <%= link_to "Sign Up", new_user_url, method: :get %>
-    </h4>
+
   <% end %>
 
   <% if flash.now[:errors] %>
@@ -41,14 +36,12 @@
 <footer>
     <div class="container">
       <div class = "row">
-        <div class="col-xs-1">
         </div>
 
         <% if current_user %>
           <%= button_to "Log Out", session_url, method: :delete,
-                        style: "float:right", class: "col-xs-1" %>
+                        style: "float:right", class: "logout"%>
         <% end %>
-      </div>
     </div>
 </footer>
 
