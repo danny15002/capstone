@@ -1,10 +1,10 @@
 var MessageIndex = React.createClass( {
 
   getInitialState: function () {
-    return {messages: {}}
+    return {messages: []}
   },
   componentDidMount: function () {
-    UserStore.addChangeListener(FriendzConstants.MESSAGES_RECEIVED, this.getUser);
+    MessageStore.addChangeListener(FriendzConstants.MESSAGES_RECEIVED, this.getMessages);
     ApiUtil.fetchMessages();
   },
   getMessages: function () {
@@ -12,8 +12,18 @@ var MessageIndex = React.createClass( {
   },
   render: function () {
     return (
-      <div classname={"message-index"}>
+      <div className={"message-index"}>
+        <ul>
+          {this.state.messages.map( function (message) {
+            console.log(message);
+            return (
+              <Message key={message.id}>
+                <p>{message.from_id} {message.created_at}</p>
+                <p>{message.body}</p>
+              </Message>)
+          })}
 
+        </ul>
       </div>
     )
   }
