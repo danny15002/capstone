@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: messages
+#
+#  id         :integer          not null, primary key
+#  from_id    :integer          not null
+#  to_id      :integer          not null
+#  body       :text             not null
+#  public     :boolean          default(FALSE)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 require 'test_helper'
 
 class MessageTest < ActiveSupport::TestCase

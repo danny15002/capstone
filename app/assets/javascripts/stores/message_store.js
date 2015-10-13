@@ -22,7 +22,7 @@
       switch(payload.actionType) {
         case FriendzConstants.MESSAGES_RECEIVED:
           setMessages(payload.messages);
-          UserStore.emit(FriendzConstants.MESSAGES_RECEIVED);
+          MessageStore.emit(FriendzConstants.MESSAGES_RECEIVED);
       }
     })
   });

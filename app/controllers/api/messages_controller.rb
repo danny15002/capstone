@@ -1,8 +1,8 @@
-class API::MessagesController < ApplicationController
+class Api::MessagesController < ApplicationController
 
   def index
-    @messages = Message.all
+    @messages = current_user.receivedMessages
 
-    render @messages
+    render json: @messages
   end
 end
