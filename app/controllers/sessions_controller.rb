@@ -19,6 +19,12 @@ class SessionsController < ApplicationController
     end
   end
 
+  def show
+    @user = current_user
+
+    render json: @user
+  end
+
   def destroy
     log_out!
     redirect_to new_session_url

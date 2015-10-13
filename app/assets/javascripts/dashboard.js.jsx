@@ -2,20 +2,25 @@ var Route = ReactRouter.Route;
 var Router = ReactRouter.Router;
 var IndexRoute = ReactRouter.IndexRoute;
 
-var App = React.createClass({
+var Dashboard = React.createClass({
+  getInitialState: function () {
+    return {currentUser: ""};
+  },
+  componentDidMount: function () {
+    
+  },
   render: function () {
     return (
-      <div>
-        <header>
-          <h1>Friendz</h1>
-        </header>
+      <div className={"dashboard"}>
+
       </div>
-    );
+    )
   }
 });
 
 var routes = (
-  <Route path="/" component={App}>
+  <Route path="/" component={MessageIndex}>
+
   </Route>
 )
 
