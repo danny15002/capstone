@@ -7,5 +7,14 @@ ApiUtil = {
         ApiActions.receiveCurrentUser(user);
       }
     });
+  },
+  fetchMessages: function () {
+    $.ajax({
+      url: 'api/messages',
+      method: 'get',
+      success: function (messages) {
+        ApiActions.receiveMessages(messages);
+      }
+    });
   }
 }
