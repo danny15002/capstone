@@ -1,8 +1,8 @@
 class Api::MessagesController < ApplicationController
 
   def index
-    @messages = current_user.receivedMessages
+    @messages = current_user.receivedMessages.includes(:user_to)
 
-    render json: @messages
+    render :index
   end
 end

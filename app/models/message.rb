@@ -18,4 +18,13 @@ class Message < ActiveRecord::Base
     foreign_key: :to_id,
     class_name: "User"
   )
+
+  belongs_to(
+    :user_from,
+    primary_key: :id,
+    foreign_key: :from_id,
+    class_name: "User"
+  )
+
+
 end

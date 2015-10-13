@@ -17,12 +17,13 @@ var MessageIndex = React.createClass( {
           {this.state.messages.map( function (message) {
             console.log(message);
             return (
-              <Message key={message.id}>
-                <p>{message.from_id} {message.created_at}</p>
+              <li>
+                <p>{message.sender_name}</p>
+                <p>{message.created_at}</p>
                 <p>{message.body}</p>
-              </Message>)
+              </li>
+            )
           })}
-
         </ul>
       </div>
     )

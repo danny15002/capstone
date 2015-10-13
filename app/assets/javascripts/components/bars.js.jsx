@@ -2,7 +2,9 @@ var LeftBar = React.createClass ({
   render: function () {
     return (
       <div className={"bar left-bar"}>
-
+        <ul>
+          <li></li>
+        </ul>
       </div>
     )
   }
