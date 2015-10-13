@@ -36,10 +36,12 @@ ability to sign up.
 
 [Details][phase-one]
 
-### Phase 2: Set up backend (1 day)(2)
+### Phase 2: Set up Public Messages (1 day)(2)
 
-In Phase 2, I will set up the tables for friends, messages and events. I will
-also set up the controllers for messages and events.
+In Phase 2, I will set up the table for posting messages on people's profiles.
+I will also set up the necessary react components for posting on people's
+profiles. On login, a user will see his public messages first. They will appear
+in chronological order.
 
 [Details][phase-two]
 

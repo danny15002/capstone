@@ -4,7 +4,7 @@
 ### Models
 
 ### Controllers
-
+* Api::EventsController (create, new, show, update, destroy)
 ### Views
 * home
 
