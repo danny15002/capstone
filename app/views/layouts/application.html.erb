@@ -1,14 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SampleProjectProposalMaster</title>
+  <title>CrewManager</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
 
-<%= yield %>
+<body>
+<header>
+
+  <% if current_user %>
+    <h2 align = "center">
+      <%= " The #{UsersHelper.adjective} #{current_user.username}!" %>
+    </h2>
+  <% else %>
+    <br>
+    <h4 align = "center">
+      <%= " We're sure you're #{UsersHelper.adjective},
+            so go ahead and create an account!" %>
+      <%= link_to "Sign Up", new_user_url, method: :get %>
+    </h4>
+  <% end %>
+
+  <% if flash.now[:errors] %>
+    <ul>
+      <% flash.now[:errors].each do |error| %>
+        <li> <%= error %> </li>
+      <% end  %>
+    </ul>
+  <% end %>
+</header>
+
+
+<div class = "container">
+  <%= yield %>
+</div>
+
+
+<footer>
+    <div class="container">
+      <div class = "row">
+        <div class="col-xs-1">
+        </div>
+
+        <% if current_user %>
+          <%= button_to "Log Out", session_url, method: :delete,
+                        style: "float:right", class: "col-xs-1" %>
+        <% end %>
+      </div>
+    </div>
+</footer>
+
 
 </body>
 </html>
