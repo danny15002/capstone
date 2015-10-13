@@ -3,21 +3,25 @@
 ## Rails
 ### Models
 * Messages
-* Events
-* Friends
 
 ### Controllers
-* Api::MessagesController (create, new, show)
-* Api::EventsController (create, new, show, update, destroy)
+* Api::PublicMessagesController (create, new, show)
+
 ### Views
 
 ## Flux
 ### Views (React Components)
+* MessageIndex
+ - Message
 
 ### Stores
+* PublicMessages
 
 ### Actions
+* ApiActions.getMessages
 
 ### ApiUtil
+* ApiUtil.fetchMessages
+* ApiUtil.createMessage
 
 ## Gems/Libraries
