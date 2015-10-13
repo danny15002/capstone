@@ -20,7 +20,12 @@ class User < ActiveRecord::Base
     class_name: "Message"
   )
 
-
+  has_many(
+    :sentMessages,
+    primary_key: :id,
+    foreign_key: :from_id,
+    class_name: "Message"
+  )
 
   attr_reader :password
   attr_reader :password_confirmation
