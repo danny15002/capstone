@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-  # before_action :check_login, only: :new
 
   def new
     @user = User.new
@@ -12,7 +11,7 @@ class SessionsController < ApplicationController
 
     if @user
       log_in!(@user)
-      redirect_to user_url(@user)
+      redirect_to root_url
     else
       flash.now[:errors] = ['Wrong username or password.']
       @user = User.new
