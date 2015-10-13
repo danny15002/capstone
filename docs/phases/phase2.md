@@ -15,7 +15,6 @@
 ### Views (React Components)
 
 ### Stores
-* Note
 
 ### Actions
 
