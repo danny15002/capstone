@@ -339,3 +339,78 @@
 [10/14/15 01:52:26 -0700 Daniels-MacBook-Pro-3.local (56394)] INFO : Installing Rails 4 Error instrumentation
 [10/14/15 01:52:26 -0700 Daniels-MacBook-Pro-3.local (56394)] INFO : Finished instrumentation
 [10/14/15 01:53:26 -0700 Daniels-MacBook-Pro-3.local (56293)] INFO : Starting Agent shutdown
+[10/14/15 08:57:28 -0700 Daniels-MacBook-Pro-3.local (56766)] INFO : Starting the New Relic agent in "development" environment.
+[10/14/15 08:57:28 -0700 Daniels-MacBook-Pro-3.local (56766)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[10/14/15 08:57:28 -0700 Daniels-MacBook-Pro-3.local (56766)] WARN : No configuration file found. Working directory = /Users/SilverSurfer/Documents/Capstone
+[10/14/15 08:57:28 -0700 Daniels-MacBook-Pro-3.local (56766)] WARN : Looked in these locations (based on defaults): /Users/SilverSurfer/Documents/Capstone/config/newrelic.yml, /Users/SilverSurfer/Documents/Capstone/newrelic.yml, /Users/SilverSurfer/Documents/Capstone/config/newrelic.yml, /Users/SilverSurfer/Documents/Capstone/newrelic.yml, /Users/SilverSurfer/.newrelic/newrelic.yml, /Users/SilverSurfer/newrelic.yml
+[10/14/15 08:57:28 -0700 Daniels-MacBook-Pro-3.local (56766)] INFO : Environment: development
+[10/14/15 08:57:28 -0700 Daniels-MacBook-Pro-3.local (56766)] INFO : No known dispatcher detected.
+[10/14/15 08:57:28 -0700 Daniels-MacBook-Pro-3.local (56766)] INFO : Application: development
+[10/14/15 08:57:28 -0700 Daniels-MacBook-Pro-3.local (56766)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[10/14/15 08:57:28 -0700 Daniels-MacBook-Pro-3.local (56766)] INFO : Installing ActiveJob instrumentation
+[10/14/15 08:57:28 -0700 Daniels-MacBook-Pro-3.local (56766)] INFO : Installing ActiveRecord 4 instrumentation
+[10/14/15 08:57:29 -0700 Daniels-MacBook-Pro-3.local (56766)] INFO : Installing Net instrumentation
+[10/14/15 08:57:29 -0700 Daniels-MacBook-Pro-3.local (56766)] INFO : Installing deferred Rack instrumentation
+[10/14/15 08:57:29 -0700 Daniels-MacBook-Pro-3.local (56766)] INFO : Installing Rack::Builder middleware instrumentation
+[10/14/15 08:57:29 -0700 Daniels-MacBook-Pro-3.local (56766)] INFO : Installing Rails 3+ middleware instrumentation
+[10/14/15 08:57:29 -0700 Daniels-MacBook-Pro-3.local (56766)] INFO : Installing Rails 4 Controller instrumentation
+[10/14/15 08:57:29 -0700 Daniels-MacBook-Pro-3.local (56766)] INFO : Installing Rails 4 view instrumentation
+[10/14/15 08:57:29 -0700 Daniels-MacBook-Pro-3.local (56766)] INFO : Installing Rails 4 Error instrumentation
+[10/14/15 08:57:29 -0700 Daniels-MacBook-Pro-3.local (56766)] INFO : Finished instrumentation
+[10/14/15 09:02:52 -0700 Daniels-MacBook-Pro-3.local (56873)] INFO : Starting the New Relic agent in "development" environment.
+[10/14/15 09:02:52 -0700 Daniels-MacBook-Pro-3.local (56873)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[10/14/15 09:02:52 -0700 Daniels-MacBook-Pro-3.local (56873)] WARN : No configuration file found. Working directory = /Users/SilverSurfer/Documents/Capstone
+[10/14/15 09:02:52 -0700 Daniels-MacBook-Pro-3.local (56873)] WARN : Looked in these locations (based on defaults): /Users/SilverSurfer/Documents/Capstone/config/newrelic.yml, /Users/SilverSurfer/Documents/Capstone/newrelic.yml, /Users/SilverSurfer/Documents/Capstone/config/newrelic.yml, /Users/SilverSurfer/Documents/Capstone/newrelic.yml, /Users/SilverSurfer/.newrelic/newrelic.yml, /Users/SilverSurfer/newrelic.yml
+[10/14/15 09:02:52 -0700 Daniels-MacBook-Pro-3.local (56873)] INFO : Environment: development
+[10/14/15 09:02:52 -0700 Daniels-MacBook-Pro-3.local (56873)] INFO : No known dispatcher detected.
+[10/14/15 09:02:52 -0700 Daniels-MacBook-Pro-3.local (56873)] INFO : Application: development
+[10/14/15 09:02:52 -0700 Daniels-MacBook-Pro-3.local (56873)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[10/14/15 09:02:52 -0700 Daniels-MacBook-Pro-3.local (56873)] INFO : Installing ActiveJob instrumentation
+[10/14/15 09:02:52 -0700 Daniels-MacBook-Pro-3.local (56873)] INFO : Installing ActiveRecord 4 instrumentation
+[10/14/15 09:02:52 -0700 Daniels-MacBook-Pro-3.local (56873)] INFO : Installing Net instrumentation
+[10/14/15 09:02:52 -0700 Daniels-MacBook-Pro-3.local (56873)] INFO : Installing deferred Rack instrumentation
+[10/14/15 09:02:52 -0700 Daniels-MacBook-Pro-3.local (56873)] INFO : Installing Rack::Builder middleware instrumentation
+[10/14/15 09:02:52 -0700 Daniels-MacBook-Pro-3.local (56873)] INFO : Installing Rails 3+ middleware instrumentation
+[10/14/15 09:02:52 -0700 Daniels-MacBook-Pro-3.local (56873)] INFO : Installing Rails 4 Controller instrumentation
+[10/14/15 09:02:52 -0700 Daniels-MacBook-Pro-3.local (56873)] INFO : Installing Rails 4 view instrumentation
+[10/14/15 09:02:52 -0700 Daniels-MacBook-Pro-3.local (56873)] INFO : Installing Rails 4 Error instrumentation
+[10/14/15 09:02:52 -0700 Daniels-MacBook-Pro-3.local (56873)] INFO : Finished instrumentation
+[10/14/15 09:06:17 -0700 Daniels-MacBook-Pro-3.local (57089)] INFO : Starting the New Relic agent in "development" environment.
+[10/14/15 09:06:17 -0700 Daniels-MacBook-Pro-3.local (57089)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[10/14/15 09:06:17 -0700 Daniels-MacBook-Pro-3.local (57089)] WARN : No configuration file found. Working directory = /Users/SilverSurfer/Documents/Capstone
+[10/14/15 09:06:17 -0700 Daniels-MacBook-Pro-3.local (57089)] WARN : Looked in these locations (based on defaults): /Users/SilverSurfer/Documents/Capstone/config/newrelic.yml, /Users/SilverSurfer/Documents/Capstone/newrelic.yml, /Users/SilverSurfer/Documents/Capstone/config/newrelic.yml, /Users/SilverSurfer/Documents/Capstone/newrelic.yml, /Users/SilverSurfer/.newrelic/newrelic.yml, /Users/SilverSurfer/newrelic.yml
+[10/14/15 09:06:17 -0700 Daniels-MacBook-Pro-3.local (57089)] INFO : Environment: development
+[10/14/15 09:06:17 -0700 Daniels-MacBook-Pro-3.local (57089)] INFO : No known dispatcher detected.
+[10/14/15 09:06:17 -0700 Daniels-MacBook-Pro-3.local (57089)] INFO : Application: development
+[10/14/15 09:06:17 -0700 Daniels-MacBook-Pro-3.local (57089)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[10/14/15 09:06:18 -0700 Daniels-MacBook-Pro-3.local (57089)] INFO : Installing ActiveJob instrumentation
+[10/14/15 09:06:18 -0700 Daniels-MacBook-Pro-3.local (57089)] INFO : Installing ActiveRecord 4 instrumentation
+[10/14/15 09:06:18 -0700 Daniels-MacBook-Pro-3.local (57089)] INFO : Installing Net instrumentation
+[10/14/15 09:06:18 -0700 Daniels-MacBook-Pro-3.local (57089)] INFO : Installing deferred Rack instrumentation
+[10/14/15 09:06:18 -0700 Daniels-MacBook-Pro-3.local (57089)] INFO : Installing Rack::Builder middleware instrumentation
+[10/14/15 09:06:18 -0700 Daniels-MacBook-Pro-3.local (57089)] INFO : Installing Rails 3+ middleware instrumentation
+[10/14/15 09:06:18 -0700 Daniels-MacBook-Pro-3.local (57089)] INFO : Installing Rails 4 Controller instrumentation
+[10/14/15 09:06:18 -0700 Daniels-MacBook-Pro-3.local (57089)] INFO : Installing Rails 4 view instrumentation
+[10/14/15 09:06:18 -0700 Daniels-MacBook-Pro-3.local (57089)] INFO : Installing Rails 4 Error instrumentation
+[10/14/15 09:06:18 -0700 Daniels-MacBook-Pro-3.local (57089)] INFO : Finished instrumentation
+[10/14/15 09:06:33 -0700 Daniels-MacBook-Pro-3.local (57113)] INFO : Starting the New Relic agent in "development" environment.
+[10/14/15 09:06:33 -0700 Daniels-MacBook-Pro-3.local (57113)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[10/14/15 09:06:33 -0700 Daniels-MacBook-Pro-3.local (57113)] WARN : No configuration file found. Working directory = /Users/SilverSurfer/Documents/Capstone
+[10/14/15 09:06:33 -0700 Daniels-MacBook-Pro-3.local (57113)] WARN : Looked in these locations (based on defaults): /Users/SilverSurfer/Documents/Capstone/config/newrelic.yml, /Users/SilverSurfer/Documents/Capstone/newrelic.yml, /Users/SilverSurfer/Documents/Capstone/config/newrelic.yml, /Users/SilverSurfer/Documents/Capstone/newrelic.yml, /Users/SilverSurfer/.newrelic/newrelic.yml, /Users/SilverSurfer/newrelic.yml
+[10/14/15 09:06:33 -0700 Daniels-MacBook-Pro-3.local (57113)] INFO : Environment: development
+[10/14/15 09:06:33 -0700 Daniels-MacBook-Pro-3.local (57113)] INFO : Dispatcher: webrick
+[10/14/15 09:06:33 -0700 Daniels-MacBook-Pro-3.local (57113)] INFO : Application: development
+[10/14/15 09:06:33 -0700 Daniels-MacBook-Pro-3.local (57113)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[10/14/15 09:06:33 -0700 Daniels-MacBook-Pro-3.local (57113)] INFO : Installing ActiveJob instrumentation
+[10/14/15 09:06:33 -0700 Daniels-MacBook-Pro-3.local (57113)] INFO : Installing ActiveRecord 4 instrumentation
+[10/14/15 09:06:33 -0700 Daniels-MacBook-Pro-3.local (57113)] INFO : Installing Net instrumentation
+[10/14/15 09:06:33 -0700 Daniels-MacBook-Pro-3.local (57113)] INFO : Installing deferred Rack instrumentation
+[10/14/15 09:06:33 -0700 Daniels-MacBook-Pro-3.local (57113)] INFO : Installing Rack::Builder middleware instrumentation
+[10/14/15 09:06:33 -0700 Daniels-MacBook-Pro-3.local (57113)] INFO : Installing Rails 3+ middleware instrumentation
+[10/14/15 09:06:33 -0700 Daniels-MacBook-Pro-3.local (57113)] INFO : Installing Rails 4 Controller instrumentation
+[10/14/15 09:06:33 -0700 Daniels-MacBook-Pro-3.local (57113)] INFO : Installing Rails 4 view instrumentation
+[10/14/15 09:06:33 -0700 Daniels-MacBook-Pro-3.local (57113)] INFO : Installing Rails 4 Error instrumentation
+[10/14/15 09:06:33 -0700 Daniels-MacBook-Pro-3.local (57113)] INFO : Finished instrumentation
+[10/14/15 09:06:33 -0700 Daniels-MacBook-Pro-3.local (57113)] INFO : Doing deferred dependency-detection before Rack startup
+[10/14/15 09:06:38 -0700 Daniels-MacBook-Pro-3.local (57113)] ERROR : Invalid license key, please contact support@newrelic.com
+[10/14/15 09:06:38 -0700 Daniels-MacBook-Pro-3.local (57113)] ERROR : Visit NewRelic.com to obtain a valid license key, or to upgrade your account.
