@@ -27,6 +27,33 @@ class User < ActiveRecord::Base
     class_name: "Message"
   )
 
+  has_many(
+    :created_events,
+    primary_key: :id,
+    foreign_key: :creator_id,
+    class_name: "Event"
+  )
+
+  has_many(
+    :requested_friends,
+    primary_key: :id,
+    foreign_key: :requester_id,
+    class_name: "Friend"
+  )
+
+  has_many :friends, through: :requested_friends, source: :accepter
+
+  has_many(
+    :accepted_friends,
+    primary_key: :id,
+    foreign_key: :accepter_id,
+    class_name: "Friend"
+  )
+
+  has_many :friends2, through: :accepted_friends, source: :requester
+
+
+
   attr_reader :password
   attr_reader :password_confirmation
 
