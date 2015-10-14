@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resource :session, only: [:new, :create, :show, :destroy]
   resources :users, only: [:new, :create, :show]
+  resources :users, :index, defaults: {format: :json}
   root to: 'static_pages#root'
   # get '*unmatched_route', to: 'application#not_found'
 

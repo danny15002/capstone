@@ -16,5 +16,14 @@ ApiUtil = {
         ApiActions.receiveMessages(messages);
       }
     });
+  },
+  fetchFriends: function () {
+    $.ajax({
+      url: 'users',
+      method: 'get',
+      success: function (friends) {
+        ApiActions.receiveFriends(friends);
+      }
+    })
   }
 }
