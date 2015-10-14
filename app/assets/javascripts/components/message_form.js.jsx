@@ -15,10 +15,10 @@ var MessageForm = React.createClass( {
     if (this.state.recipientId === undefined) {
       return <div></div>
     }
-    
+
     return (
       <div className={"message-form"}>
-        <Conversation/>
+        <Conversation params={this.props.params}/>
         Message for: {UserStore.getFriendById(this.state.recipientId).name}
         <textarea className={"message-text"}></textarea>
       </div>)
