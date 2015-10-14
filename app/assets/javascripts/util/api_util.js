@@ -8,11 +8,17 @@ ApiUtil = {
       }
     });
   },
-  fetchMessages: function (type) {
+  fetchMessages: function (type, id) {
+    var data;
+    if (id === undefined) {
+      data = {public: type}
+    } else {
+      data = {public:type, user_id: id}
+    }
     $.ajax({
       url: 'api/messages',
       method: 'get',
-      data: {public: type},
+      data: data,
       success: function (messages) {
         ApiActions.receiveMessages(messages);
       }

@@ -25,14 +25,18 @@ var UserList = React.createClass({
 
   render: function () {
     return (
-      <div onClick={this.handleClick} className="bar user-list">
-        {this.state.friends.map(function (friend){
-          return (
-            <div id={friend.id} key={friend.id} selected={false} className={"nav nav-friend"}>
-              {friend.name}
-            </div>
-          )
-        })}
+      <div>
+        <div onClick={this.handleClick} className="bar user-list">
+          {this.state.friends.map(function (friend){
+            return (
+              <div id={friend.id} key={friend.id} selected={false} className={"nav nav-friend"}>
+                {friend.name}
+              </div>
+            )
+          })}
+
+        </div>
+        {this.props.children || <div>Welcome to Your Inbox</div>}
       </div>
     );
   }

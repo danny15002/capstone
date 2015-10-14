@@ -14,14 +14,14 @@ class User < ActiveRecord::Base
   extend UsersHelper
 
   has_many(
-    :receivedMessages,
+    :received_messages,
     primary_key: :id,
     foreign_key: :to_id,
     class_name: "Message"
   )
 
   has_many(
-    :sentMessages,
+    :sent_messages,
     primary_key: :id,
     foreign_key: :from_id,
     class_name: "Message"
