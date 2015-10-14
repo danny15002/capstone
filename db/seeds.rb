@@ -15,12 +15,20 @@
   )
 end
 
-50.times do
+300.times do
   Message.create(
     from_id: rand(1..25),
     to_id: rand(1..25),
-    body: (Faker::Hacker.say_something_smart + Faker::Hacker.say_something_smart)
+    body: (Faker::Hacker.say_something_smart + " " + Faker::Hacker.say_something_smart)
   )
 end
 
-Friend.create(requester_id: 1, accepter_id: 2)
+friendArray = [];
+
+100.times do |i|
+  friendArray.push([rand(1..25),rand(1..25)])
+end
+friendArray = friendArray.sort
+friendArray.each do |el|
+  Friend.create(requester_id: el[0],accepter_id: el[1])
+end
