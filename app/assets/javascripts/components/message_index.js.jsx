@@ -15,7 +15,6 @@ var MessageIndex = React.createClass( {
       <div className={"message-index"}>
         <ul>
           {this.state.messages.map( function (message) {
-            console.log(message);
             return (
               <li>
                 <p>{message.sender_name}</p>

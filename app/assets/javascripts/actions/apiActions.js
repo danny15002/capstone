@@ -12,5 +12,12 @@ ApiActions = {
       messages: messages
     }
     friendzDispatcher.dispatch(payload);
+  },
+  receiveFriends: function (friends) {
+    var payload ={
+      actionType: FriendzConstants.FRIENDS_RECEIVED,
+      friends: friends
+    }
+    friendzDispatcher.dispatch(payload);
   }
 }

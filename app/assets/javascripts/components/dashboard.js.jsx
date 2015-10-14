@@ -12,7 +12,6 @@ var Dashboard = React.createClass({
   render: function () {
     return (
       <div className={"dashboard"}>
-        Hello {this.state.currentUser.username}
         <MessageIndex/>
       </div>
     )
