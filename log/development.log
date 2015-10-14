@@ -46727,3 +46727,201 @@ Processing by Api::MessagesController#index as JSON
   [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 21]]
   Rendered api/messages/index.json.jbuilder (50.2ms)
 Completed 200 OK in 62ms (Views: 43.7ms | ActiveRecord: 10.8ms)
+
+
+Started GET "/" for ::1 at 2015-10-14 10:10:32 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#root as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "gecBBwd2vqenJd1ZH24u7w"]]
+  Rendered static_pages/root.html within layouts/application (1.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "gecBBwd2vqenJd1ZH24u7w"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "gecBBwd2vqenJd1ZH24u7w"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "gecBBwd2vqenJd1ZH24u7w"]]
+Completed 200 OK in 2158ms (Views: 2117.7ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/assets/application.self-beac30e5c2c7905ffe430cfedce5d6c711be7751eb770b7cb5410a12e4fd722b.css?body=1" for ::1 at 2015-10-14 10:10:35 -0700
+
+
+Started GET "/assets/components/bars.self-b4eeb5572663523bfe83c0936450f96f8a6b96ae119b3dfd322e427502c4a2b8.js?body=1" for ::1 at 2015-10-14 10:10:35 -0700
+
+
+Started GET "/assets/components/message_index.self-6fe1241777e4c5cee8371de8137258a5270c1d740a27358133223635471ced59.js?body=1" for ::1 at 2015-10-14 10:10:35 -0700
+
+
+Started GET "/api/messages" for ::1 at 2015-10-14 10:10:35 -0700
+Processing by Api::MessagesController#index as JSON
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "gecBBwd2vqenJd1ZH24u7w"]]
+  [1m[36mMessage Load (1.3ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."to_id" = $1[0m  [["to_id", 1]]
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (1)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 17]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 24]]
+  [1m[36mUser Load (11.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 11]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 24]]
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 23]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 15]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 25]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 21]]
+  Rendered api/messages/index.json.jbuilder (75.1ms)
+Completed 200 OK in 118ms (Views: 60.8ms | ActiveRecord: 20.2ms)
+
+
+Started GET "/session" for ::1 at 2015-10-14 10:10:35 -0700
+Processing by SessionsController#show as */*
+  [1m[35mUser Load (3.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "gecBBwd2vqenJd1ZH24u7w"]]
+Completed 200 OK in 6ms (Views: 0.7ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/" for ::1 at 2015-10-14 10:13:04 -0700
+Processing by StaticPagesController#root as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "gecBBwd2vqenJd1ZH24u7w"]]
+  Rendered static_pages/root.html within layouts/application (0.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "gecBBwd2vqenJd1ZH24u7w"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "gecBBwd2vqenJd1ZH24u7w"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "gecBBwd2vqenJd1ZH24u7w"]]
+Completed 200 OK in 2093ms (Views: 2090.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.self-186abfdc0811a016a91220c9be15a5947e92385e87f691fc113797411f8a6fa2.css?body=1" for ::1 at 2015-10-14 10:13:07 -0700
+
+
+Started GET "/assets/bootstrap/affix.self-f7aef9d98ee5ece34a6a92a6a15bba777d93e8d908b75c95a85088277f394200.js?body=1" for ::1 at 2015-10-14 10:13:07 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-10-14 10:13:07 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-10-14 10:13:07 -0700
+
+
+Started GET "/assets/bootstrap/alert.self-896ab026e6823f5cef2441e07dac53d0692a5b772ac58b1ce20aa624c342d3f4.js?body=1" for ::1 at 2015-10-14 10:13:07 -0700
+
+
+Started GET "/assets/bootstrap/button.self-d19f3e2bcd3a7a4d75c11b9141b3fabd2c11987da1e99c85548ec3ecf8db30c3.js?body=1" for ::1 at 2015-10-14 10:13:07 -0700
+
+
+Started GET "/assets/bootstrap/collapse.self-93820e9b486e375a7fb4477602def3a6f8381fa6d50938d5378297ffbe4a1248.js?body=1" for ::1 at 2015-10-14 10:13:07 -0700
+
+
+Started GET "/assets/bootstrap/carousel.self-b2e5e14483e6c31343a83861b7d487620f143d6fc2d07d5ae7544b6b225ba6be.js?body=1" for ::1 at 2015-10-14 10:13:07 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.self-30536ae4d54b2685c26b5787ed0eb549a9075717fe690cce6270873bedf2df00.js?body=1" for ::1 at 2015-10-14 10:13:07 -0700
+
+
+Started GET "/assets/bootstrap/tab.self-9b77df34cbbb08ec93a806d6cdb741f04e3dbf3389978a0679146f2d2987bc89.js?body=1" for ::1 at 2015-10-14 10:13:07 -0700
+
+
+Started GET "/assets/bootstrap/transition.self-9616c4e856b57659b67da3c6f2adcd584b5601ef4bebcdadab8ebb387d80bb25.js?body=1" for ::1 at 2015-10-14 10:13:07 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.self-c5c6ed008955656d345067e9821d79f1216b8383134d08465d4aa1a33a2b93b4.js?body=1" for ::1 at 2015-10-14 10:13:07 -0700
+
+
+Started GET "/assets/bootstrap/modal.self-bcfe54f3132bf16a8c5ce4289e47eba488f6522a08f49f378a037061c6c7aa4c.js?body=1" for ::1 at 2015-10-14 10:13:07 -0700
+
+
+Started GET "/assets/bootstrap/popover.self-b73e9c9111d01148e24bbc46e096782e024dc5db630e7078cf11ed2587ef8551.js?body=1" for ::1 at 2015-10-14 10:13:07 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.self-3aa41fbe871573b34e0ebddf31598cd5a11a9841ca85f90934ea46326e46626d.js?body=1" for ::1 at 2015-10-14 10:13:07 -0700
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2015-10-14 10:13:07 -0700
+
+
+Started GET "/assets/development/react.self-93bc62cb6c7b74ee7e5a2fcf623f3abbd365440bf90eba740c625f159078aa82.js?body=1" for ::1 at 2015-10-14 10:13:07 -0700
+
+
+Started GET "/assets/react_ujs.self-0833fe72a25fcb9cc0686328cc2aa88975f128bf379c265b61ad1a5e1113a400.js?body=1" for ::1 at 2015-10-14 10:13:07 -0700
+
+
+Started GET "/assets/flux.self-d49657677b043fd9a5b56222b931c6dc76b57db2cff9d5967d80f300ee2f4545.js?body=1" for ::1 at 2015-10-14 10:13:07 -0700
+
+
+Started GET "/assets/eventemitter.self-b7e538902dfb3dce50e80598efaa7b435781b7bc8fe936a7aca64a6f2699d411.js?body=1" for ::1 at 2015-10-14 10:13:07 -0700
+
+
+Started GET "/assets/react_router.min.self-b2fb42fc48326928f091759585ae1eab0cd35ab15ba475d0fbb6c01c9dedc5bb.js?body=1" for ::1 at 2015-10-14 10:13:07 -0700
+
+
+Started GET "/assets/components/bars.self-b4eeb5572663523bfe83c0936450f96f8a6b96ae119b3dfd322e427502c4a2b8.js?body=1" for ::1 at 2015-10-14 10:13:07 -0700
+
+
+Started GET "/assets/components/dashboard.self-371312b13b1becfcabb3a0420a87d6bc25d724e0fa71f0ef297645a0a0d4c318.js?body=1" for ::1 at 2015-10-14 10:13:07 -0700
+
+
+Started GET "/assets/components/message_index.self-6fe1241777e4c5cee8371de8137258a5270c1d740a27358133223635471ced59.js?body=1" for ::1 at 2015-10-14 10:13:07 -0700
+
+
+Started GET "/assets/components/user_list.self-53896c7e2d7c42552ea22feaba16798725a0a071c86561247fb574a00e12cadb.js?body=1" for ::1 at 2015-10-14 10:13:07 -0700
+
+
+Started GET "/assets/components.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-10-14 10:13:07 -0700
+
+
+Started GET "/assets/actions/apiActions.self-6b70a28822fd10478e3f0293f2f69724c7604a58725f0fa5cf85f92215e05ad5.js?body=1" for ::1 at 2015-10-14 10:13:07 -0700
+
+
+Started GET "/assets/constants/friendz_constants.self-df7b7a184d7730b1ac151f87c1d77fbfda4a96f56b35a962331ee8b529fe6108.js?body=1" for ::1 at 2015-10-14 10:13:07 -0700
+
+
+Started GET "/assets/dispatcher/dispatcher.self-af4ca6897126aece29c1483448d6541f206ad40d5569e93136e73bd0e2a8ae1a.js?body=1" for ::1 at 2015-10-14 10:13:07 -0700
+
+
+Started GET "/assets/friendz.self-67dfd511476b8295e5caab40647c2f231093f4731de1efe3baac1cf1cb71e649.js?body=1" for ::1 at 2015-10-14 10:13:07 -0700
+
+
+Started GET "/assets/session.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-10-14 10:13:07 -0700
+
+
+Started GET "/assets/stores/message_store.self-e280684cb56b1faa485538c0e0303ba0d9bd732a9112880c17cc66aaae11731b.js?body=1" for ::1 at 2015-10-14 10:13:07 -0700
+
+
+Started GET "/assets/stores/user_store.self-1ac5c3cc1920e9d51fc1dd71a8fe294a82a25a03abefe55988970d0b97efa27e.js?body=1" for ::1 at 2015-10-14 10:13:07 -0700
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-10-14 10:13:07 -0700
+
+
+Started GET "/assets/util/api_util.self-61a91e672ffaca4f74613be9be3cac4bd5a36882e8999464f5fe67ce8c245664.js?body=1" for ::1 at 2015-10-14 10:13:07 -0700
+
+
+Started GET "/assets/application.self-16c207b3ca1b52afcfc7f4b662487caf1bbe084a6656bb15f693ab9de2d11be7.js?body=1" for ::1 at 2015-10-14 10:13:07 -0700
+
+
+Started GET "/session" for ::1 at 2015-10-14 10:13:08 -0700
+Processing by SessionsController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "gecBBwd2vqenJd1ZH24u7w"]]
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/messages" for ::1 at 2015-10-14 10:13:08 -0700
+Processing by Api::MessagesController#index as JSON
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "gecBBwd2vqenJd1ZH24u7w"]]
+  [1m[36mMessage Load (0.7ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."to_id" = $1[0m  [["to_id", 1]]
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (1)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 17]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 24]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 11]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 24]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 23]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 15]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 25]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 21]]
+  Rendered api/messages/index.json.jbuilder (26.5ms)
+Completed 200 OK in 33ms (Views: 25.3ms | ActiveRecord: 5.3ms)
