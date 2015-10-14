@@ -54,16 +54,43 @@ form.login input {
 .logout {
   float: right;
 }
-
+////////////////////////////////////////////////////////////////////////////////
 .message-index {
   margin: auto;
+  width: 70%;
+  padding: 0;
+  border: 0;
+  top: 10px;
+  height: 90vh;
+  overflow-y: scroll;
+}
+
+.message-index ul {
+  position: relative;
+  margin:auto;
+  width: 100%;
+  padding: 0;
+  top: 10px;
 }
 
 .message {
-  margin: auto;
-  height: 10vh;
-  width: 70%;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
+
+.msg-sender {
+  float:left;
+}
+
+.msg-created {
+  float: right;
+}
+
+.msg-body {
+
+}
+////////////////////////////////////////////////////////////////////////////////
 
 .bar {
   width: 15%;
