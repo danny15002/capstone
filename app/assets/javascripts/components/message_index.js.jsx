@@ -1,11 +1,13 @@
 var MessageIndex = React.createClass( {
-
   getInitialState: function () {
     return {messages: []}
   },
   componentDidMount: function () {
     MessageStore.addChangeListener(FriendzConstants.MESSAGES_RECEIVED, this.getMessages);
-    ApiUtil.fetchMessages();
+    ApiUtil.fetchMessages(true);
+  },
+  componentWillUnmount: function () {
+    MessageStore.removeChangeListener(FriendzConstants.MESSAGES_RECEIVED, this.getMessages);
   },
   getMessages: function () {
     this.setState({messages: MessageStore.getMessages()})
@@ -16,7 +18,7 @@ var MessageIndex = React.createClass( {
         <ul>
           {this.state.messages.map( function (message) {
             return (
-              <li className={"message"}>
+              <li key={message.id} className={"message"}>
                 <div>
                   <div className={"msg-sender"}>{message.sender_name}</div>
                   <div className={"msg-created"}>{message.created_at}</div>

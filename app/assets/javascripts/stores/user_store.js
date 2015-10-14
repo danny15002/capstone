@@ -20,7 +20,13 @@
     currentFriends: function () {
       return _currentFriends.slice(0);
     },
-
+    getFriendById: function (id) {
+      for (var i = 0; i < _currentFriends.length; i++) {
+        if (id === _currentFriends[i].id) {
+          return _currentFriends[i];
+        }
+      }
+    },
     addChangeListener: function (changeEvent, callback) {
       this.on(changeEvent, callback);
     },

@@ -2,7 +2,6 @@ var LeftBar = React.createClass ({
   mixins: [ReactRouter.History],
 
   handleClick: function (event) {
-    console.log($(event.target).context.innerText);
     var selected = $(event.target).context.innerText;
     switch(selected) {
       case "Messages":
@@ -38,7 +37,6 @@ var RightBar = React.createClass ({
   mixins: [ReactRouter.History],
 
   handleClick: function (event) {
-    console.log($(event.target).context.innerText);
     var selected = $(event.target).context.innerText;
     switch(selected) {
       case "Home":
