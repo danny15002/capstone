@@ -22,6 +22,14 @@ end
     body: (Faker::Hacker.say_something_smart + " " + Faker::Hacker.say_something_smart)
   )
 end
+300.times do
+  Message.create(
+    from_id: rand(1..25),
+    to_id: rand(1..25),
+    body: (Faker::Hacker.say_something_smart + " " + Faker::Hacker.say_something_smart),
+    public: true
+  )
+end
 
 friendArray = [];
 

@@ -16,8 +16,8 @@ var App = React.createClass({
 var routes = (
   <Route path="/" component={App}>
     <IndexRoute component={Dashboard}/>
-    <Route path="Messages" component={UserList}></Route>
-    <Route path="Messages/:userId" components={{userList: UserList, message: MessageForm}} />
+    <Route path="Messages" component={UserList}/>
+    <Route path="Messages/:userId" components={{userList: UserList, messages: MessageForm}} />
     <Route path="Events"/>
     <Route path="Pictures"/>
     <Route path="Location"/>

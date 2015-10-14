@@ -1,7 +1,8 @@
 class Api::MessagesController < ApplicationController
 
   def index
-    @messages = current_user.receivedMessages.includes(:user_to)
+    p params
+    @messages = current_user.receivedMessages.includes(:user_to).where(public: params[:public])
 
     render :index
   end

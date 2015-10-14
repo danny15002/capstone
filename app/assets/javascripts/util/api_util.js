@@ -8,10 +8,11 @@ ApiUtil = {
       }
     });
   },
-  fetchMessages: function () {
+  fetchMessages: function (type) {
     $.ajax({
       url: 'api/messages',
       method: 'get',
+      data: {public: type},
       success: function (messages) {
         ApiActions.receiveMessages(messages);
       }

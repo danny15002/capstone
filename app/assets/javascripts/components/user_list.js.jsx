@@ -5,6 +5,11 @@ var UserList = React.createClass({
   componentDidMount: function () {
     UserStore.addChangeListener(FriendzConstants.FRIENDS_RECEIVED, this.getFriends);
     ApiUtil.fetchFriends();
+
+  },
+  componentWillUnmount: function () {
+    UserStore.removeChangeListener(FriendzConstants.FRIENDS_RECEIVED, this.getFriends);
+
   },
   getFriends: function () {
     this.setState({friends: UserStore.currentFriends()})
@@ -14,7 +19,7 @@ var UserList = React.createClass({
   handleClick: function (event) {
     // console.log($(event.target).context.id);
     var selected = $(event.target).context.id;
-    this.history.pushState(null,this.props.location.pathname +"/"+ selected)
+    this.history.pushState(null,"Messages/"+ selected)
 
   },
 
