@@ -9,13 +9,22 @@ var UserList = React.createClass({
   getFriends: function () {
     this.setState({friends: UserStore.currentFriends()})
   },
+  mixins: [ReactRouter.History],
+
+  handleClick: function (event) {
+    // console.log($(event.target).context.id);
+    var selected = $(event.target).context.id;
+    this.history.pushState(null,this.props.location.pathname +"/"+ selected)
+
+  },
+
   render: function () {
     return (
-      <div className="bar user-list">
+      <div onClick={this.handleClick} className="bar user-list">
         {this.state.friends.map(function (friend){
           return (
-            <div key={friend.id} selected={false} className={"nav-friend"}>
-              <div className={"nav"}>{friend.name}</div>
+            <div id={friend.id} key={friend.id} selected={false} className={"nav nav-friend"}>
+              {friend.name}
             </div>
           )
         })}
