@@ -8,42 +8,39 @@
 </head>
 
 <body>
-<header class="primary">
+  <header class="primary">
 
-  <% if current_user %>
-    <h2 align = "center">
-      <%= " The #{UsersHelper.adjective} #{current_user.username}!" %>
-    </h2>
-  <% else %>
+    <% if current_user %>
+      <h2 align = "center">
+        <%= " The #{UsersHelper.adjective} #{current_user.username}!" %>
+      </h2>
+    <% else %>
 
-  <% end %>
+    <% end %>
 
-  <% if flash.now[:errors] %>
-    <ul>
-      <% flash.now[:errors].each do |error| %>
-        <li> <%= error %> </li>
-      <% end  %>
-    </ul>
-  <% end %>
-</header>
-
-
-<div class = "container">
-  <%= yield %>
-</div>
+    <% if flash.now[:errors] %>
+      <ul>
+        <% flash.now[:errors].each do |error| %>
+          <li> <%= error %> </li>
+        <% end  %>
+      </ul>
+    <% end %>
+  </header>
 
 
-<footer>
-    <div class="container">
-      <div class = "row">
-        </div>
+  <div class = "container">
+    <%= yield %>
+  </div>
 
-        <% if current_user %>
-          <%= button_to "Log Out", session_url, method: :delete,
-                        style: "float:right", class: "logout"%>
-        <% end %>
-    </div>
-</footer>
+
+  <div class="container">
+    <div class = "row">
+      </div>
+
+      <% if current_user %>
+        <%= button_to "Log Out", session_url, method: :delete, class: "logout"%>
+      <% end %>
+  </div>
 
 
 </body>

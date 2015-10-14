@@ -52,7 +52,9 @@ form.login input {
 }
 
 .logout {
-  float: right;
+  position:fixed;
+  right: 20px;
+  bottom: 20px;
 }
 ////////////////////////////////////////////////////////////////////////////////
 .message-index {
