@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    @users = current_user.friends + current_user.friends2
     render :index
   end
 

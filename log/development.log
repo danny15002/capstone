@@ -34761,3 +34761,1297 @@ Processing by UsersController#index as JSON
   [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users"
   Rendered users/index.json.jbuilder (3.6ms)
 Completed 200 OK in 7ms (Views: 4.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for ::1 at 2015-10-14 00:54:06 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#root as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  Rendered static_pages/root.html within layouts/application (2.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+Completed 200 OK in 750ms (Views: 636.4ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/assets/friendz.self-67dfd511476b8295e5caab40647c2f231093f4731de1efe3baac1cf1cb71e649.js?body=1" for ::1 at 2015-10-14 00:54:07 -0700
+
+
+Started GET "/api/messages" for ::1 at 2015-10-14 00:54:08 -0700
+Processing by Api::MessagesController#index as JSON
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  [1m[36mMessage Load (1.5ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."to_id" = $1[0m  [["to_id", 1]]
+  [1m[35mUser Load (1.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (1)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered api/messages/index.json.jbuilder (129.1ms)
+Completed 200 OK in 171ms (Views: 126.9ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/session" for ::1 at 2015-10-14 00:54:08 -0700
+Processing by SessionsController#show as */*
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+Completed 200 OK in 9ms (Views: 6.0ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/session" for ::1 at 2015-10-14 00:54:11 -0700
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"iByJT7jAMPru5n6dUkM2RqyqlOkbBid7Cw+egxmaRN9yZv6kbwt2wZ54w4BVnSx76NVAakojpL4F7PwTRleiBg=="}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."username" = 'daniel' AND "users"."id" != 1) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 20ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/session/new" for ::1 at 2015-10-14 00:54:11 -0700
+Processing by SessionsController#new as HTML
+  Rendered sessions/_form.html.erb (1.0ms)
+  Rendered sessions/new.html.erb within layouts/application (7.6ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT 1[0m
+Completed 200 OK in 156ms (Views: 155.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2015-10-14 00:54:16 -0700
+Processing by StaticPagesController#root as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT 1
+Redirected to http://localhost:3000/session/new
+Filter chain halted as :check_login rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2015-10-14 00:54:16 -0700
+Processing by StaticPagesController#root as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT 1[0m
+Redirected to http://localhost:3000/session/new
+Filter chain halted as :check_login rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/session/new" for ::1 at 2015-10-14 00:54:16 -0700
+Processing by SessionsController#new as HTML
+  Rendered sessions/_form.html.erb (0.8ms)
+  Rendered sessions/new.html.erb within layouts/application (2.3ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT 1[0m
+Completed 200 OK in 146ms (Views: 145.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/new" for ::1 at 2015-10-14 00:54:22 -0700
+Processing by UsersController#new as HTML
+  Parameters: {"authenticity_token"=>"488ibMzUvAH+kLmRXDdT2YRjCGf6dakYfVMrmpH8ecgZtVWHGx/6Oo4OBIxb6UnkwBzc5KtQKt1zsEkKzjGfEQ=="}
+  Rendered users/_form.html.erb (1.8ms)
+  Rendered users/new.html.erb within layouts/application (3.6ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT 1[0m
+Completed 200 OK in 154ms (Views: 153.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/session/new" for ::1 at 2015-10-14 00:54:24 -0700
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"qXdbWUlwljzpFbduSyEfTwtsVJFaC4hQcCd0mFOQsLdTDSyynrvQB5mLCnNM/wVyTxOAEgsuC5V+xBYIDF1Wbg=="}
+  Rendered sessions/_form.html.erb (0.7ms)
+  Rendered sessions/new.html.erb within layouts/application (3.0ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT 1[0m
+Completed 200 OK in 227ms (Views: 225.3ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/session" for ::1 at 2015-10-14 00:54:34 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"VeqXn+Aa/SxqUpktDpgJ+8A9yfdWWgeXWD0EbSVWiMqvkOB0N9G7FxrMJDAJRhPGhEIddAd/hFJW3mb9eptuEw==", "user"=>{"username"=>"daniel", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT 1  [["username", "daniel"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 73ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2015-10-14 00:54:34 -0700
+Processing by StaticPagesController#root as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  Rendered static_pages/root.html within layouts/application (0.3ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+Completed 200 OK in 182ms (Views: 179.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/messages" for ::1 at 2015-10-14 00:54:35 -0700
+Processing by Api::MessagesController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  [1m[35mMessage Load (0.4ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."to_id" = $1  [["to_id", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (1)[0m
+  [1m[35mUser Load (2.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 4]]
+  Rendered api/messages/index.json.jbuilder (7.2ms)
+Completed 200 OK in 13ms (Views: 6.8ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/session" for ::1 at 2015-10-14 00:54:35 -0700
+Processing by SessionsController#show as */*
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users" for ::1 at 2015-10-14 00:54:52 -0700
+Processing by UsersController#index as JSON
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.json.jbuilder (3.7ms)
+Completed 200 OK in 7ms (Views: 5.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2015-10-14 01:04:24 -0700
+Processing by StaticPagesController#root as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  Rendered static_pages/root.html within layouts/application (0.3ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+Completed 200 OK in 181ms (Views: 179.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-cb66df2869bcbce512d4e363b684d65fc5583f788d864c7895c970f5b59026de.css?body=1" for ::1 at 2015-10-14 01:04:24 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-10-14 01:04:24 -0700
+
+
+Started GET "/assets/bootstrap/affix.self-f7aef9d98ee5ece34a6a92a6a15bba777d93e8d908b75c95a85088277f394200.js?body=1" for ::1 at 2015-10-14 01:04:24 -0700
+
+
+Started GET "/assets/bootstrap/button.self-d19f3e2bcd3a7a4d75c11b9141b3fabd2c11987da1e99c85548ec3ecf8db30c3.js?body=1" for ::1 at 2015-10-14 01:04:24 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-10-14 01:04:24 -0700
+
+
+Started GET "/assets/bootstrap/alert.self-896ab026e6823f5cef2441e07dac53d0692a5b772ac58b1ce20aa624c342d3f4.js?body=1" for ::1 at 2015-10-14 01:04:24 -0700
+
+
+Started GET "/assets/bootstrap/carousel.self-b2e5e14483e6c31343a83861b7d487620f143d6fc2d07d5ae7544b6b225ba6be.js?body=1" for ::1 at 2015-10-14 01:04:24 -0700
+
+
+Started GET "/assets/bootstrap/collapse.self-93820e9b486e375a7fb4477602def3a6f8381fa6d50938d5378297ffbe4a1248.js?body=1" for ::1 at 2015-10-14 01:04:24 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.self-30536ae4d54b2685c26b5787ed0eb549a9075717fe690cce6270873bedf2df00.js?body=1" for ::1 at 2015-10-14 01:04:24 -0700
+
+
+Started GET "/assets/bootstrap/tab.self-9b77df34cbbb08ec93a806d6cdb741f04e3dbf3389978a0679146f2d2987bc89.js?body=1" for ::1 at 2015-10-14 01:04:24 -0700
+
+
+Started GET "/assets/bootstrap/transition.self-9616c4e856b57659b67da3c6f2adcd584b5601ef4bebcdadab8ebb387d80bb25.js?body=1" for ::1 at 2015-10-14 01:04:24 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.self-c5c6ed008955656d345067e9821d79f1216b8383134d08465d4aa1a33a2b93b4.js?body=1" for ::1 at 2015-10-14 01:04:24 -0700
+
+
+Started GET "/assets/bootstrap/modal.self-bcfe54f3132bf16a8c5ce4289e47eba488f6522a08f49f378a037061c6c7aa4c.js?body=1" for ::1 at 2015-10-14 01:04:24 -0700
+
+
+Started GET "/assets/bootstrap/popover.self-b73e9c9111d01148e24bbc46e096782e024dc5db630e7078cf11ed2587ef8551.js?body=1" for ::1 at 2015-10-14 01:04:25 -0700
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2015-10-14 01:04:25 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.self-3aa41fbe871573b34e0ebddf31598cd5a11a9841ca85f90934ea46326e46626d.js?body=1" for ::1 at 2015-10-14 01:04:25 -0700
+
+
+Started GET "/assets/development/react.self-93bc62cb6c7b74ee7e5a2fcf623f3abbd365440bf90eba740c625f159078aa82.js?body=1" for ::1 at 2015-10-14 01:04:25 -0700
+
+
+Started GET "/assets/react_ujs.self-0833fe72a25fcb9cc0686328cc2aa88975f128bf379c265b61ad1a5e1113a400.js?body=1" for ::1 at 2015-10-14 01:04:25 -0700
+
+
+Started GET "/assets/flux.self-d49657677b043fd9a5b56222b931c6dc76b57db2cff9d5967d80f300ee2f4545.js?body=1" for ::1 at 2015-10-14 01:04:25 -0700
+
+
+Started GET "/assets/eventemitter.self-b7e538902dfb3dce50e80598efaa7b435781b7bc8fe936a7aca64a6f2699d411.js?body=1" for ::1 at 2015-10-14 01:04:25 -0700
+
+
+Started GET "/assets/react_router.min.self-b2fb42fc48326928f091759585ae1eab0cd35ab15ba475d0fbb6c01c9dedc5bb.js?body=1" for ::1 at 2015-10-14 01:04:25 -0700
+
+
+Started GET "/assets/components/bars.self-1edf93632377c1202d09aef49a1fbeebdd30ed31064819429d70483a6824c0d8.js?body=1" for ::1 at 2015-10-14 01:04:25 -0700
+
+
+Started GET "/assets/components/dashboard.self-371312b13b1becfcabb3a0420a87d6bc25d724e0fa71f0ef297645a0a0d4c318.js?body=1" for ::1 at 2015-10-14 01:04:25 -0700
+
+
+Started GET "/assets/components/message_index.self-94095733a88384e2b73ac5c31dbbd2a7b6df065f9d3cdf93d05d59b778600bd6.js?body=1" for ::1 at 2015-10-14 01:04:25 -0700
+
+
+Started GET "/assets/components/user_list.self-53896c7e2d7c42552ea22feaba16798725a0a071c86561247fb574a00e12cadb.js?body=1" for ::1 at 2015-10-14 01:04:25 -0700
+
+
+Started GET "/assets/components.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-10-14 01:04:25 -0700
+
+
+Started GET "/assets/actions/apiActions.self-6b70a28822fd10478e3f0293f2f69724c7604a58725f0fa5cf85f92215e05ad5.js?body=1" for ::1 at 2015-10-14 01:04:25 -0700
+
+
+Started GET "/assets/dispatcher/dispatcher.self-af4ca6897126aece29c1483448d6541f206ad40d5569e93136e73bd0e2a8ae1a.js?body=1" for ::1 at 2015-10-14 01:04:25 -0700
+
+
+Started GET "/assets/friendz.self-67dfd511476b8295e5caab40647c2f231093f4731de1efe3baac1cf1cb71e649.js?body=1" for ::1 at 2015-10-14 01:04:25 -0700
+
+
+Started GET "/assets/constants/friendz_constants.self-df7b7a184d7730b1ac151f87c1d77fbfda4a96f56b35a962331ee8b529fe6108.js?body=1" for ::1 at 2015-10-14 01:04:25 -0700
+
+
+Started GET "/assets/util/api_util.self-61a91e672ffaca4f74613be9be3cac4bd5a36882e8999464f5fe67ce8c245664.js?body=1" for ::1 at 2015-10-14 01:04:25 -0700
+
+
+Started GET "/assets/stores/message_store.self-e280684cb56b1faa485538c0e0303ba0d9bd732a9112880c17cc66aaae11731b.js?body=1" for ::1 at 2015-10-14 01:04:25 -0700
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-10-14 01:04:25 -0700
+
+
+Started GET "/assets/session.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-10-14 01:04:25 -0700
+
+
+Started GET "/assets/application.self-16c207b3ca1b52afcfc7f4b662487caf1bbe084a6656bb15f693ab9de2d11be7.js?body=1" for ::1 at 2015-10-14 01:04:25 -0700
+
+
+Started GET "/assets/stores/user_store.self-1ac5c3cc1920e9d51fc1dd71a8fe294a82a25a03abefe55988970d0b97efa27e.js?body=1" for ::1 at 2015-10-14 01:04:25 -0700
+
+
+Started GET "/" for ::1 at 2015-10-14 01:04:29 -0700
+Processing by StaticPagesController#root as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  Rendered static_pages/root.html within layouts/application (0.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+Completed 200 OK in 152ms (Views: 151.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/messages" for ::1 at 2015-10-14 01:04:29 -0700
+Processing by Api::MessagesController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  [1m[35mMessage Load (0.5ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."to_id" = $1  [["to_id", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (1)[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 4]]
+  Rendered api/messages/index.json.jbuilder (7.2ms)
+Completed 200 OK in 13ms (Views: 9.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/session" for ::1 at 2015-10-14 01:04:29 -0700
+Processing by SessionsController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users" for ::1 at 2015-10-14 01:04:35 -0700
+Processing by UsersController#index as JSON
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.json.jbuilder (1.8ms)
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/messages" for ::1 at 2015-10-14 01:08:56 -0700
+Processing by Api::MessagesController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  [1m[35mMessage Load (0.3ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."to_id" = $1  [["to_id", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (1)[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 4]]
+  Rendered api/messages/index.json.jbuilder (9.9ms)
+Completed 200 OK in 35ms (Views: 10.4ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/api/messages" for ::1 at 2015-10-14 01:09:30 -0700
+Processing by Api::MessagesController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  [1m[35mMessage Load (0.3ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."to_id" = $1  [["to_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (1)[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 4]]
+  Rendered api/messages/index.json.jbuilder (3.8ms)
+Completed 200 OK in 7ms (Views: 4.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/api/messages" for ::1 at 2015-10-14 01:15:25 -0700
+Processing by Api::MessagesController#index as JSON
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  [1m[35mMessage Load (0.3ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."to_id" = $1  [["to_id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (1)[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 4]]
+  Rendered api/messages/index.json.jbuilder (10.7ms)
+Completed 200 OK in 31ms (Views: 10.7ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/api/messages" for ::1 at 2015-10-14 01:15:41 -0700
+Processing by Api::MessagesController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  [1m[35mMessage Load (0.3ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."to_id" = $1  [["to_id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (1)[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 4]]
+  Rendered api/messages/index.json.jbuilder (14.7ms)
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 5.3ms)
+
+ActionView::Template::Error (expected numeric):
+    3:   json.body message.body
+    4:   json.recipient_name message.user_to.username
+    5:   json.sender_name message.user_from.username
+    6:   json.created_at message.format_message_time
+    7: end
+  app/models/message.rb:30:in `format_message_time'
+  app/views/api/messages/index.json.jbuilder:6:in `block in _app_views_api_messages_index_json_jbuilder__3926670761154650113_70210585091700'
+  app/views/api/messages/index.json.jbuilder:1:in `_app_views_api_messages_index_json_jbuilder__3926670761154650113_70210585091700'
+  app/controllers/api/messages_controller.rb:6:in `index'
+
+
+  Rendered /Users/SilverSurfer/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.3ms)
+  Rendered /Users/SilverSurfer/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /Users/SilverSurfer/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/SilverSurfer/.rvm/gems/ruby-2.1.5@global/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (27.8ms)
+  Rendered /Users/SilverSurfer/.rvm/gems/ruby-2.1.5/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/SilverSurfer/.rvm/gems/ruby-2.1.5/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/SilverSurfer/.rvm/gems/ruby-2.1.5/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/SilverSurfer/.rvm/gems/ruby-2.1.5/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/SilverSurfer/.rvm/gems/ruby-2.1.5/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (18.6ms)
+  Rendered /Users/SilverSurfer/.rvm/gems/ruby-2.1.5/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/SilverSurfer/.rvm/gems/ruby-2.1.5/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/SilverSurfer/.rvm/gems/ruby-2.1.5/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (40.3ms)
+
+
+Started GET "/api/messages" for ::1 at 2015-10-14 01:15:55 -0700
+Processing by Api::MessagesController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  [1m[35mMessage Load (0.2ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."to_id" = $1  [["to_id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (1)[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 4]]
+  Rendered api/messages/index.json.jbuilder (11.8ms)
+Completed 200 OK in 31ms (Views: 11.8ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/api/messages" for ::1 at 2015-10-14 01:16:19 -0700
+Processing by Api::MessagesController#index as JSON
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  [1m[35mMessage Load (0.3ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."to_id" = $1  [["to_id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (1)[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 4]]
+  Rendered api/messages/index.json.jbuilder (12.6ms)
+Completed 200 OK in 41ms (Views: 12.6ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/api/messages" for ::1 at 2015-10-14 01:19:37 -0700
+Processing by Api::MessagesController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  [1m[35mMessage Load (0.3ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."to_id" = $1  [["to_id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (1)[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 4]]
+  Rendered api/messages/index.json.jbuilder (12.1ms)
+Completed 200 OK in 49ms (Views: 12.9ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/api/messages" for ::1 at 2015-10-14 01:20:48 -0700
+Processing by Api::MessagesController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  [1m[35mMessage Load (0.2ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."to_id" = $1  [["to_id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (1)[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 4]]
+  Rendered api/messages/index.json.jbuilder (11.1ms)
+Completed 200 OK in 40ms (Views: 11.0ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/api/messages" for ::1 at 2015-10-14 01:23:12 -0700
+Processing by Api::MessagesController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  [1m[35mMessage Load (0.2ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."to_id" = $1  [["to_id", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (1)[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 4]]
+  Rendered api/messages/index.json.jbuilder (11.7ms)
+Completed 200 OK in 34ms (Views: 11.8ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/api/messages" for ::1 at 2015-10-14 01:23:24 -0700
+Processing by Api::MessagesController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  [1m[35mMessage Load (0.2ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."to_id" = $1  [["to_id", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (1)[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 4]]
+  Rendered api/messages/index.json.jbuilder (14.6ms)
+Completed 200 OK in 35ms (Views: 14.5ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/api/messages" for ::1 at 2015-10-14 01:23:35 -0700
+Processing by Api::MessagesController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  [1m[35mMessage Load (0.2ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."to_id" = $1  [["to_id", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (1)[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 4]]
+  Rendered api/messages/index.json.jbuilder (10.4ms)
+Completed 200 OK in 35ms (Views: 10.7ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/" for ::1 at 2015-10-14 01:25:40 -0700
+Processing by StaticPagesController#root as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  Rendered static_pages/root.html within layouts/application (0.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+Completed 200 OK in 161ms (Views: 130.4ms | ActiveRecord: 7.1ms)
+
+
+Started GET "/" for ::1 at 2015-10-14 01:25:40 -0700
+Processing by StaticPagesController#root as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  Rendered static_pages/root.html within layouts/application (0.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+Completed 200 OK in 174ms (Views: 172.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-cb66df2869bcbce512d4e363b684d65fc5583f788d864c7895c970f5b59026de.css?body=1" for ::1 at 2015-10-14 01:25:41 -0700
+
+
+Started GET "/api/messages" for ::1 at 2015-10-14 01:25:41 -0700
+Processing by Api::MessagesController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  [1m[35mMessage Load (0.3ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."to_id" = $1  [["to_id", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (1)[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 4]]
+  Rendered api/messages/index.json.jbuilder (23.4ms)
+Completed 200 OK in 39ms (Views: 23.5ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/session" for ::1 at 2015-10-14 01:25:41 -0700
+Processing by SessionsController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users" for ::1 at 2015-10-14 01:30:40 -0700
+Processing by UsersController#index as JSON
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.json.jbuilder (17.5ms)
+Completed 200 OK in 37ms (Views: 15.8ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/users" for ::1 at 2015-10-14 01:30:43 -0700
+Processing by UsersController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/index.json.jbuilder (1.8ms)
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2015-10-14 01:30:51 -0700
+Processing by StaticPagesController#root as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  Rendered static_pages/root.html within layouts/application (0.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+Completed 200 OK in 211ms (Views: 207.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/messages" for ::1 at 2015-10-14 01:30:52 -0700
+Processing by Api::MessagesController#index as JSON
+  [1m[35mUser Load (3.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  [1m[36mMessage Load (0.9ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."to_id" = $1[0m  [["to_id", 1]]
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (1)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered api/messages/index.json.jbuilder (20.4ms)
+Completed 200 OK in 41ms (Views: 22.1ms | ActiveRecord: 9.0ms)
+
+
+Started GET "/session" for ::1 at 2015-10-14 01:30:52 -0700
+Processing by SessionsController#show as */*
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+Completed 200 OK in 5ms (Views: 1.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users" for ::1 at 2015-10-14 01:32:33 -0700
+Processing by UsersController#index as JSON
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friends" ON "users"."id" = "friends"."accepter_id" WHERE "friends"."requester_id" = $1[0m  [["requester_id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friends" ON "users"."id" = "friends"."requester_id" WHERE "friends"."accepter_id" = $1  [["accepter_id", 1]]
+  Rendered users/index.json.jbuilder (0.4ms)
+Completed 200 OK in 43ms (Views: 2.3ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/" for ::1 at 2015-10-14 01:32:38 -0700
+Processing by StaticPagesController#root as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  Rendered static_pages/root.html within layouts/application (0.3ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  [1m[36mCACHE (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+Completed 200 OK in 210ms (Views: 206.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/session" for ::1 at 2015-10-14 01:32:38 -0700
+Processing by SessionsController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2015-10-14 01:32:40 -0700
+Processing by StaticPagesController#root as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  Rendered static_pages/root.html within layouts/application (0.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+Completed 200 OK in 191ms (Views: 188.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/messages" for ::1 at 2015-10-14 01:32:41 -0700
+Processing by Api::MessagesController#index as JSON
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."to_id" = $1[0m  [["to_id", 1]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (1)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered api/messages/index.json.jbuilder (20.3ms)
+Completed 200 OK in 37ms (Views: 21.2ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/session" for ::1 at 2015-10-14 01:32:41 -0700
+Processing by SessionsController#show as */*
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users" for ::1 at 2015-10-14 01:32:43 -0700
+Processing by UsersController#index as JSON
+  [1m[36mUser Load (1.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  [1m[36mUser Load (1.9ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friends" ON "users"."id" = "friends"."accepter_id" WHERE "friends"."requester_id" = $1[0m  [["requester_id", 1]]
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friends" ON "users"."id" = "friends"."requester_id" WHERE "friends"."accepter_id" = $1  [["accepter_id", 1]]
+  Rendered users/index.json.jbuilder (1.4ms)
+Completed 200 OK in 21ms (Views: 6.3ms | ActiveRecord: 4.5ms)
+  [1m[36m (118.0ms)[0m  [1mDROP DATABASE IF EXISTS "capstone"[0m
+  [1m[35m (117.8ms)[0m  DROP DATABASE IF EXISTS "sample-project-proposal-master_test"
+  [1m[36m (321.0ms)[0m  [1mCREATE DATABASE "capstone" ENCODING = 'unicode'[0m
+  [1m[35m (244.1ms)[0m  CREATE DATABASE "sample-project-proposal-master_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (7.0ms)[0m  CREATE TABLE "events" ("id" serial primary key, "creator_id" integer, "title" character varying NOT NULL, "description" character varying, "date" date NOT NULL, "location" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.7ms)[0m  [1mCREATE  INDEX  "index_events_on_creator_id" ON "events" USING btree ("creator_id")[0m
+  [1m[35m (2.8ms)[0m  CREATE TABLE "friends" ("id" serial primary key, "requester_id" integer NOT NULL, "accepter_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_friends_on_accepter_id" ON "friends" USING btree ("accepter_id")[0m
+  [1m[35m (1.3ms)[0m  CREATE  INDEX  "index_friends_on_requester_id" ON "friends" USING btree ("requester_id")
+  [1m[36m (4.7ms)[0m  [1mCREATE TABLE "messages" ("id" serial primary key, "from_id" integer NOT NULL, "to_id" integer NOT NULL, "body" text NOT NULL, "public" boolean DEFAULT 'f', "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  CREATE  INDEX  "index_messages_on_from_id" ON "messages" USING btree ("from_id")
+  [1m[36m (1.1ms)[0m  [1mCREATE  INDEX  "index_messages_on_to_id" ON "messages" USING btree ("to_id")[0m
+  [1m[35m (4.4ms)[0m  CREATE TABLE "users" ("id" serial primary key, "username" character varying NOT NULL, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.1ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_username" ON "users" USING btree ("username")[0m
+  [1m[35m (2.2ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (1.4ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.4ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20151014030654')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20151013020725')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20151013182626')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20151014030347')
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (7.1ms)[0m  CREATE TABLE "events" ("id" serial primary key, "creator_id" integer, "title" character varying NOT NULL, "description" character varying, "date" date NOT NULL, "location" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.2ms)[0m  [1mCREATE  INDEX  "index_events_on_creator_id" ON "events" USING btree ("creator_id")[0m
+  [1m[35m (5.4ms)[0m  CREATE TABLE "friends" ("id" serial primary key, "requester_id" integer NOT NULL, "accepter_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.1ms)[0m  [1mCREATE  INDEX  "index_friends_on_accepter_id" ON "friends" USING btree ("accepter_id")[0m
+  [1m[35m (1.4ms)[0m  CREATE  INDEX  "index_friends_on_requester_id" ON "friends" USING btree ("requester_id")
+  [1m[36m (6.8ms)[0m  [1mCREATE TABLE "messages" ("id" serial primary key, "from_id" integer NOT NULL, "to_id" integer NOT NULL, "body" text NOT NULL, "public" boolean DEFAULT 'f', "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  CREATE  INDEX  "index_messages_on_from_id" ON "messages" USING btree ("from_id")
+  [1m[36m (1.2ms)[0m  [1mCREATE  INDEX  "index_messages_on_to_id" ON "messages" USING btree ("to_id")[0m
+  [1m[35m (5.5ms)[0m  CREATE TABLE "users" ("id" serial primary key, "username" character varying NOT NULL, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (2.3ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_username" ON "users" USING btree ("username")[0m
+  [1m[35m (3.8ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (1.6ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.5ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20151014030654')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20151013020725')
+  [1m[36m (2.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20151013182626')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20151014030347')
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (118.4ms)[0m  [1mDROP DATABASE IF EXISTS "capstone"[0m
+  [1m[35m (117.6ms)[0m  DROP DATABASE IF EXISTS "sample-project-proposal-master_test"
+  [1m[36m (245.1ms)[0m  [1mCREATE DATABASE "capstone" ENCODING = 'unicode'[0m
+  [1m[35m (235.5ms)[0m  CREATE DATABASE "sample-project-proposal-master_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (6.2ms)[0m  CREATE TABLE "events" ("id" serial primary key, "creator_id" integer, "title" character varying NOT NULL, "description" character varying, "date" date NOT NULL, "location" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (2.2ms)[0m  [1mCREATE  INDEX  "index_events_on_creator_id" ON "events" USING btree ("creator_id")[0m
+  [1m[35m (3.6ms)[0m  CREATE TABLE "friends" ("id" serial primary key, "requester_id" integer NOT NULL, "accepter_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.9ms)[0m  [1mCREATE  INDEX  "index_friends_on_accepter_id" ON "friends" USING btree ("accepter_id")[0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX  "index_friends_on_requester_id" ON "friends" USING btree ("requester_id")
+  [1m[36m (4.0ms)[0m  [1mCREATE TABLE "messages" ("id" serial primary key, "from_id" integer NOT NULL, "to_id" integer NOT NULL, "body" text NOT NULL, "public" boolean DEFAULT 'f', "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX  "index_messages_on_from_id" ON "messages" USING btree ("from_id")
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_messages_on_to_id" ON "messages" USING btree ("to_id")[0m
+  [1m[35m (3.7ms)[0m  CREATE TABLE "users" ("id" serial primary key, "username" character varying NOT NULL, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.1ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_username" ON "users" USING btree ("username")[0m
+  [1m[35m (2.3ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (1.1ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.4ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20151014030654')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20151013020725')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20151013182626')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20151014030347')
+  [1m[36mSQL (2.1ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (6.5ms)[0m  CREATE TABLE "events" ("id" serial primary key, "creator_id" integer, "title" character varying NOT NULL, "description" character varying, "date" date NOT NULL, "location" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.1ms)[0m  [1mCREATE  INDEX  "index_events_on_creator_id" ON "events" USING btree ("creator_id")[0m
+  [1m[35m (3.2ms)[0m  CREATE TABLE "friends" ("id" serial primary key, "requester_id" integer NOT NULL, "accepter_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_friends_on_accepter_id" ON "friends" USING btree ("accepter_id")[0m
+  [1m[35m (1.4ms)[0m  CREATE  INDEX  "index_friends_on_requester_id" ON "friends" USING btree ("requester_id")
+  [1m[36m (4.7ms)[0m  [1mCREATE TABLE "messages" ("id" serial primary key, "from_id" integer NOT NULL, "to_id" integer NOT NULL, "body" text NOT NULL, "public" boolean DEFAULT 'f', "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  CREATE  INDEX  "index_messages_on_from_id" ON "messages" USING btree ("from_id")
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_messages_on_to_id" ON "messages" USING btree ("to_id")[0m
+  [1m[35m (5.1ms)[0m  CREATE TABLE "users" ("id" serial primary key, "username" character varying NOT NULL, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.4ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_username" ON "users" USING btree ("username")[0m
+  [1m[35m (2.1ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.5ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20151014030654')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20151013020725')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20151013182626')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20151014030347')
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Sammy' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Sammy"], ["password_digest", "$2a$10$P8wcfnsRlRZGu82ERMz8du5zYnyfbncHvNhG/g7rEExyb7ihwVwPa"], ["session_token", "sMmRtIKw5bjKXWR_AAEhiA"], ["created_at", "2015-10-14 08:51:03.068769"], ["updated_at", "2015-10-14 08:51:03.068769"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Johan' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Johan"], ["password_digest", "$2a$10$x1OgsQ1s6mb8aoNyQGaV8ukae2dYsHF9bvNkv4JQcVA.HGmIc8gRO"], ["session_token", "JYum0rw5JD6dYrEoCLqPiQ"], ["created_at", "2015-10-14 08:51:03.146640"], ["updated_at", "2015-10-14 08:51:03.146640"]]
+  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Ezra' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Ezra"], ["password_digest", "$2a$10$xvMClKdV.z7VONnGESvfjOOcMBPDtKspWrFcjnlR4bYRiKR9rCwAG"], ["session_token", "jmH26HnBaaQmpZ5brENDXw"], ["created_at", "2015-10-14 08:51:03.219154"], ["updated_at", "2015-10-14 08:51:03.219154"]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Wilhelm' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Wilhelm"], ["password_digest", "$2a$10$sSrJOvf2OsapTo.S2fFqWepTcMbgNb9NRuWB3RKGomZUpxS6AaIIK"], ["session_token", "ldulkO7WM7Y9Z_foq7hucQ"], ["created_at", "2015-10-14 08:51:03.289533"], ["updated_at", "2015-10-14 08:51:03.289533"]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Syble' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Syble"], ["password_digest", "$2a$10$9iAxwLRLn2jEddBFZSfv0Onjb6JiJ7G0PvmpP1NBozvlN6HIuHXIC"], ["session_token", "XikKMArW3WWgjJx-ThkELQ"], ["created_at", "2015-10-14 08:51:03.361270"], ["updated_at", "2015-10-14 08:51:03.361270"]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Jazmyne' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Jazmyne"], ["password_digest", "$2a$10$nw7uJglE.2BwB6bkXPrNVep4.TxleqcR2XIhIjzDsR6Bwd.S6PMfK"], ["session_token", "_fJwwav9KLEaD6_UkBH30A"], ["created_at", "2015-10-14 08:51:03.429086"], ["updated_at", "2015-10-14 08:51:03.429086"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Maci' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Maci"], ["password_digest", "$2a$10$dh5q0XY1cda92iEDVdgPV.Vmgd31HfTxHo9SBDrZ56vPhf.27Sidq"], ["session_token", "0n2gZzjWsewI4W8GtzfSiw"], ["created_at", "2015-10-14 08:51:03.502761"], ["updated_at", "2015-10-14 08:51:03.502761"]]
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Astrid' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Astrid"], ["password_digest", "$2a$10$RGUhaFywD4Y/5cbE0B.bAuUgf23ThhBCl24lI9q.QRuT87LOCkiZm"], ["session_token", "W4u1g-ankZSLJYlcb3sR5A"], ["created_at", "2015-10-14 08:51:03.572663"], ["updated_at", "2015-10-14 08:51:03.572663"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Ozella' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Ozella"], ["password_digest", "$2a$10$STuiEMZ136MAMgxLgtXjiuv/PcMk.YgKb0nByee0zqtZYioza8Ga2"], ["session_token", "oIXRoDVweEo86SNrMl-lgA"], ["created_at", "2015-10-14 08:51:03.642095"], ["updated_at", "2015-10-14 08:51:03.642095"]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Ebony' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Ebony"], ["password_digest", "$2a$10$EJfvMVGE9/fRxSb03wLXNud8pjvGQwzecxEsWGBH74hc379V6raqy"], ["session_token", "BtEg9th99S_JkwVY2MX-Aw"], ["created_at", "2015-10-14 08:51:03.717236"], ["updated_at", "2015-10-14 08:51:03.717236"]]
+  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Linnea' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Linnea"], ["password_digest", "$2a$10$E6OgL5zyVd0r3C5MDfKomOG2yskwmY9jgRS1YtNPOP46eZmakTEqu"], ["session_token", "GzeRA8uNNd5u6SQ635qycA"], ["created_at", "2015-10-14 08:51:03.790363"], ["updated_at", "2015-10-14 08:51:03.790363"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Kian' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Kian"], ["password_digest", "$2a$10$SsIHgBt655rR/ptQu2igpuXizc.ond5z/q2UmX7SJIdsMS.mCoydG"], ["session_token", "JFWhM3ZTNxXloQ8iUFeoRw"], ["created_at", "2015-10-14 08:51:03.863181"], ["updated_at", "2015-10-14 08:51:03.863181"]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Birdie' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Birdie"], ["password_digest", "$2a$10$lazt7nJyakWIjPFvSgFAD.crLggo7upujNhjlZHGJbwYDD/1SF5EK"], ["session_token", "RNtBW8E0uWm0lk9mkoH79w"], ["created_at", "2015-10-14 08:51:03.939768"], ["updated_at", "2015-10-14 08:51:03.939768"]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Aracely' LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Aracely"], ["password_digest", "$2a$10$NFAoj3fsB5WR65jJnRSjHOvIGNMeAXjD0K8YnV13NnE.wyyaPYDJG"], ["session_token", "eRJ4hslifQHCOq-0OzX6-g"], ["created_at", "2015-10-14 08:51:04.012457"], ["updated_at", "2015-10-14 08:51:04.012457"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Rachael' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Rachael"], ["password_digest", "$2a$10$phG/Wt./vs.siFB/fXyYr.g5sS6mVcKRxaCsyUNBjg4CbOFdeWJvW"], ["session_token", "SmjhyVJzLm2vVzqVSWr5DQ"], ["created_at", "2015-10-14 08:51:04.087763"], ["updated_at", "2015-10-14 08:51:04.087763"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Cynthia' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Cynthia"], ["password_digest", "$2a$10$oAIJoztpmZm1aVZ1hT4cD.cYgHr/TuA.zAx3s6zP27OJqG8Py1eRW"], ["session_token", "RDgU0m8EygVZId-tPLgD8Q"], ["created_at", "2015-10-14 08:51:04.159215"], ["updated_at", "2015-10-14 08:51:04.159215"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Jude' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Jude"], ["password_digest", "$2a$10$fCXD1XCzOczkfMbNqLRah.DHIALPJ56CrEI0GvDphZkHFHNFxNdXm"], ["session_token", "fNgHffy9rvdJLHiaysDHbg"], ["created_at", "2015-10-14 08:51:04.227483"], ["updated_at", "2015-10-14 08:51:04.227483"]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Frankie' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Frankie"], ["password_digest", "$2a$10$MddULJ5m3vsxOsc7VAGPVezRhXq30FtjTGO5poSCOnFvbDwvzRhkS"], ["session_token", "UnlW_Ub4KKTVEhm9ivlWEg"], ["created_at", "2015-10-14 08:51:04.297362"], ["updated_at", "2015-10-14 08:51:04.297362"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Salvador' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Salvador"], ["password_digest", "$2a$10$EYHmn1.FSBHhEWe22XlSQug2YqyRLR5ewDqZyDrhtegPfC4Qb1G4u"], ["session_token", "5t44BMiZew8s4y615CSF3A"], ["created_at", "2015-10-14 08:51:04.370594"], ["updated_at", "2015-10-14 08:51:04.370594"]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Riley' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Riley"], ["password_digest", "$2a$10$eg49Sr77tRHw58NaB8Z5P.gEmDgrKWucUuV4oZOk6SU5t9ZMzTWXK"], ["session_token", "LEsHq3SFsGsRAEsp8cfvzQ"], ["created_at", "2015-10-14 08:51:04.442121"], ["updated_at", "2015-10-14 08:51:04.442121"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Tiffany' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Tiffany"], ["password_digest", "$2a$10$2xbeiVxInhOGQ0rlTdVTuO5yXhGoVGfCiN/W9gghz1cOL9G0DeTTi"], ["session_token", "1KRCvxm7JNFg8NFFb3zrIw"], ["created_at", "2015-10-14 08:51:04.517854"], ["updated_at", "2015-10-14 08:51:04.517854"]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Monserrat' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Monserrat"], ["password_digest", "$2a$10$O9ppoQaeirOdbXfMNixHMeABEVmw5PcFmVVUx19bkjvSkqZ4AkYqm"], ["session_token", "sWaXXb0xcA7WoPpFvR5dwQ"], ["created_at", "2015-10-14 08:51:04.588631"], ["updated_at", "2015-10-14 08:51:04.588631"]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Stephania' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Stephania"], ["password_digest", "$2a$10$MHbZrct.qk3efpiNAn76iOle2RHaIrQZP6/.ifAx/90F/DYYTfAx6"], ["session_token", "U_mNK16bV_uTewo77AJnMA"], ["created_at", "2015-10-14 08:51:04.660149"], ["updated_at", "2015-10-14 08:51:04.660149"]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Vicenta' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Vicenta"], ["password_digest", "$2a$10$edLruBe3c92So3C0QKPLbecBPCKwlIeLv21B5UB4Y3ZiWoP7PU1yK"], ["session_token", "GOsybuuIa8k1DQTuJDnTOg"], ["created_at", "2015-10-14 08:51:04.732255"], ["updated_at", "2015-10-14 08:51:04.732255"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Jacques' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Jacques"], ["password_digest", "$2a$10$Rz/T7XNld0tfMFzE3XHzTOqMFgWXPzjrTFnkf6tbeDelpOhaVOaDa"], ["session_token", "DYtNJ2pKDwtXOB9YSa4UqQ"], ["created_at", "2015-10-14 08:51:04.805678"], ["updated_at", "2015-10-14 08:51:04.805678"]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+  [1m[36m (116.3ms)[0m  [1mDROP DATABASE IF EXISTS "capstone"[0m
+  [1m[35m (117.8ms)[0m  DROP DATABASE IF EXISTS "sample-project-proposal-master_test"
+  [1m[36m (231.0ms)[0m  [1mCREATE DATABASE "capstone" ENCODING = 'unicode'[0m
+  [1m[35m (231.7ms)[0m  CREATE DATABASE "sample-project-proposal-master_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (5.9ms)[0m  CREATE TABLE "events" ("id" serial primary key, "creator_id" integer, "title" character varying NOT NULL, "description" character varying, "date" date NOT NULL, "location" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.4ms)[0m  [1mCREATE  INDEX  "index_events_on_creator_id" ON "events" USING btree ("creator_id")[0m
+  [1m[35m (3.6ms)[0m  CREATE TABLE "friends" ("id" serial primary key, "requester_id" integer NOT NULL, "accepter_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.1ms)[0m  [1mCREATE  INDEX  "index_friends_on_accepter_id" ON "friends" USING btree ("accepter_id")[0m
+  [1m[35m (1.1ms)[0m  CREATE  INDEX  "index_friends_on_requester_id" ON "friends" USING btree ("requester_id")
+  [1m[36m (5.2ms)[0m  [1mCREATE TABLE "messages" ("id" serial primary key, "from_id" integer NOT NULL, "to_id" integer NOT NULL, "body" text NOT NULL, "public" boolean DEFAULT 'f', "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX  "index_messages_on_from_id" ON "messages" USING btree ("from_id")
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_messages_on_to_id" ON "messages" USING btree ("to_id")[0m
+  [1m[35m (3.7ms)[0m  CREATE TABLE "users" ("id" serial primary key, "username" character varying NOT NULL, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.4ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_username" ON "users" USING btree ("username")[0m
+  [1m[35m (1.9ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.3ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20151014030654')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20151013020725')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20151013182626')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20151014030347')
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (6.0ms)[0m  CREATE TABLE "events" ("id" serial primary key, "creator_id" integer, "title" character varying NOT NULL, "description" character varying, "date" date NOT NULL, "location" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_events_on_creator_id" ON "events" USING btree ("creator_id")[0m
+  [1m[35m (3.0ms)[0m  CREATE TABLE "friends" ("id" serial primary key, "requester_id" integer NOT NULL, "accepter_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_friends_on_accepter_id" ON "friends" USING btree ("accepter_id")[0m
+  [1m[35m (1.4ms)[0m  CREATE  INDEX  "index_friends_on_requester_id" ON "friends" USING btree ("requester_id")
+  [1m[36m (3.6ms)[0m  [1mCREATE TABLE "messages" ("id" serial primary key, "from_id" integer NOT NULL, "to_id" integer NOT NULL, "body" text NOT NULL, "public" boolean DEFAULT 'f', "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  CREATE  INDEX  "index_messages_on_from_id" ON "messages" USING btree ("from_id")
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_messages_on_to_id" ON "messages" USING btree ("to_id")[0m
+  [1m[35m (5.1ms)[0m  CREATE TABLE "users" ("id" serial primary key, "username" character varying NOT NULL, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.1ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_username" ON "users" USING btree ("username")[0m
+  [1m[35m (1.9ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.5ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20151014030654')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20151013020725')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20151013182626')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20151014030347')
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Davon' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Davon"], ["password_digest", "$2a$10$9CclH9YJVXb7xEQvcxpzrOuJtxAeM2ivDuFESgWiIWMVTXS1GaLD6"], ["session_token", "VSnlUgCUSC9jG5daHtXrRQ"], ["created_at", "2015-10-14 08:51:24.723026"], ["updated_at", "2015-10-14 08:51:24.723026"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Pietro' LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Pietro"], ["password_digest", "$2a$10$QrmzxkTWgPULWaCeL2.nbOHZ7U5e6z4HnDgsK5GOfaXWmBfa5zcra"], ["session_token", "si00P-Az1j5nMPiUGS-tGw"], ["created_at", "2015-10-14 08:51:24.794508"], ["updated_at", "2015-10-14 08:51:24.794508"]]
+  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Shad' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Shad"], ["password_digest", "$2a$10$JDDxOu0uh8d2m09Pq6jag..MX08YYfds3ilxP9Eixedx1I6mS.hEK"], ["session_token", "kKWk522GF5Gmuq9X7S5Qmw"], ["created_at", "2015-10-14 08:51:24.864172"], ["updated_at", "2015-10-14 08:51:24.864172"]]
+  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Darryl' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Darryl"], ["password_digest", "$2a$10$XMG/UCaocc68aNE845y41efrUvzDXiHQrFdhP6Pp3lbm9ivYYPEY."], ["session_token", "xEkalEmmEyFyhFrk2hA9_A"], ["created_at", "2015-10-14 08:51:24.941730"], ["updated_at", "2015-10-14 08:51:24.941730"]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'America' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "America"], ["password_digest", "$2a$10$x9L.b3YmOEfEJfrocFTtEupJdm/k6bm2Zu0jNw1Nmox2RKqjcFJ82"], ["session_token", "9qU9klb9ncABEi28we0NKA"], ["created_at", "2015-10-14 08:51:25.012251"], ["updated_at", "2015-10-14 08:51:25.012251"]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Hollie' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Hollie"], ["password_digest", "$2a$10$BKqMImCOqkKSV77nl4U64erpdaA1PL7NGk66JTb2wvy7xk/b9JR0i"], ["session_token", "_qckwsNgj6Nx7sIMEO7Irw"], ["created_at", "2015-10-14 08:51:25.082630"], ["updated_at", "2015-10-14 08:51:25.082630"]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Salvador' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Salvador"], ["password_digest", "$2a$10$Fh6L0mhGz0KzCTR10b4JwuQQpFqGIZc5bnPJRYYSvr8B5Jouwp0MC"], ["session_token", "CsKJ_YyG1Dz28nnMU181bw"], ["created_at", "2015-10-14 08:51:25.151922"], ["updated_at", "2015-10-14 08:51:25.151922"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Ena' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Ena"], ["password_digest", "$2a$10$QirVg1y3yIiO3rJVwCBipOQq./5bsoevqmJX/BINuKUHwMykDfMcy"], ["session_token", "ianOMY1eKdKZNY1BOKzouw"], ["created_at", "2015-10-14 08:51:25.221156"], ["updated_at", "2015-10-14 08:51:25.221156"]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Iva' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Iva"], ["password_digest", "$2a$10$1I5.USKUnzxfvnQ87MIQ6esx3XmSkL15cOpFYiJXlfzR/C/wwgH4O"], ["session_token", "DCroqwI5H0aUwOlhDh-fmw"], ["created_at", "2015-10-14 08:51:25.297759"], ["updated_at", "2015-10-14 08:51:25.297759"]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Adrienne' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Adrienne"], ["password_digest", "$2a$10$L7BVsYehIohiZzymxb4dL.cTpVKIW0wehJ2xnkitiq4VLj.VaaCj."], ["session_token", "0Y0Ywze5uVIfCTVcyAp1jQ"], ["created_at", "2015-10-14 08:51:25.369551"], ["updated_at", "2015-10-14 08:51:25.369551"]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Gerard' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Gerard"], ["password_digest", "$2a$10$6Dtt1nUlyAQP0xs6zJ/Saekhd4rADJrJl6ZvOiQ3DSZPWQM4O6JkC"], ["session_token", "kTY0HoESOs3zrx5WBJbC9g"], ["created_at", "2015-10-14 08:51:25.439738"], ["updated_at", "2015-10-14 08:51:25.439738"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Jorge' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Jorge"], ["password_digest", "$2a$10$aDsPNODSzWr.klfHx23mpew4N6aYftBR8elueJp.2U6IkgYv9Bx42"], ["session_token", "r9QemQLlmZfX7BmgGEvmqA"], ["created_at", "2015-10-14 08:51:25.507580"], ["updated_at", "2015-10-14 08:51:25.507580"]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Maddison' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Maddison"], ["password_digest", "$2a$10$Z.LzSVMuJnz9.//61NP0WufTan7hp1D.sy8HpC.AZDCQrSFJoFwrm"], ["session_token", "JTUHZHATNvudLxCSIh5ZjA"], ["created_at", "2015-10-14 08:51:25.581817"], ["updated_at", "2015-10-14 08:51:25.581817"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Tamia' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Tamia"], ["password_digest", "$2a$10$yD3H37KPYLAkTVa7Tk4vLuExjcTBkL7SPqOiV0OGi96oGGhMAUEQq"], ["session_token", "BlyvtsrlmGu78VluXbhf7g"], ["created_at", "2015-10-14 08:51:25.651061"], ["updated_at", "2015-10-14 08:51:25.651061"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Lon' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Lon"], ["password_digest", "$2a$10$ywz2qwMV8JwCATxBm5ltre6jM9cshaYCSEjxKW7k3IouwDJaFwzeW"], ["session_token", "kDqG_IuSTTMSC0rhTStrEw"], ["created_at", "2015-10-14 08:51:25.721952"], ["updated_at", "2015-10-14 08:51:25.721952"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Estrella' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Estrella"], ["password_digest", "$2a$10$OXSg9yKUeEnb5PTTLKNQKuY8ZBNcF39An/JgvxL/1mzydfafjjIQW"], ["session_token", "iwsDy3uxMQhzbR-rTcsx_Q"], ["created_at", "2015-10-14 08:51:25.793832"], ["updated_at", "2015-10-14 08:51:25.793832"]]
+  [1m[36m (1.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Hermina' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Hermina"], ["password_digest", "$2a$10$ZTJtvYRTx.t9u2P7dNBaDObxkLh.GV47QyQkkoDpzX1BnoogAHc2C"], ["session_token", "wl_H3bJbwb5KUUrtc9sidQ"], ["created_at", "2015-10-14 08:51:25.862722"], ["updated_at", "2015-10-14 08:51:25.862722"]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Bobbie' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Bobbie"], ["password_digest", "$2a$10$hI7WyqnzGgIB1phZTFyDpOe7nhigCSOMw8hqo.ziRsr9T3kboMKpi"], ["session_token", "_2A7t4bRxdrisz8SSifABw"], ["created_at", "2015-10-14 08:51:25.933686"], ["updated_at", "2015-10-14 08:51:25.933686"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Tanner' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Tanner"], ["password_digest", "$2a$10$4jCujojls9JTPo6e2Y6Dt.fkDfLT2Lgyq4/TgQxIbEE9fFNL47.T2"], ["session_token", "j-cGXg8spGW360E1gmdoBQ"], ["created_at", "2015-10-14 08:51:26.004355"], ["updated_at", "2015-10-14 08:51:26.004355"]]
+  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Pauline' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Pauline"], ["password_digest", "$2a$10$Endxsq90RgNnES2zZGzO0uAIVEkWsh3CD4sFN1JHj4LssDEPxD.jm"], ["session_token", "3NAOOFDj7rUAH94iKoTJxw"], ["created_at", "2015-10-14 08:51:26.073645"], ["updated_at", "2015-10-14 08:51:26.073645"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Marisol' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Marisol"], ["password_digest", "$2a$10$7ib.vDECLPMkQIV5cCyWEeYu0XUV3edCP1plk1iUcK5LvpzjoLAw2"], ["session_token", "UW6BiacOphs8O8Tb09OkUw"], ["created_at", "2015-10-14 08:51:26.144470"], ["updated_at", "2015-10-14 08:51:26.144470"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Myron' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Myron"], ["password_digest", "$2a$10$muesNnT9W1agRodBz9y.0OVnR5mJ20qmqPg5LYL0Po0dJo.8HOE2W"], ["session_token", "s-hsZ7OFoF5WMaGKhMJ6QQ"], ["created_at", "2015-10-14 08:51:26.214984"], ["updated_at", "2015-10-14 08:51:26.214984"]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Dustin' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Dustin"], ["password_digest", "$2a$10$VDE40TM.3/PX9kMzHKuJFe3YJIv8qDn5UPa23nf9BXM6mavopD38O"], ["session_token", "Wx81ol8RJp5_zQziJaZVxw"], ["created_at", "2015-10-14 08:51:26.282488"], ["updated_at", "2015-10-14 08:51:26.282488"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Alyson' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Alyson"], ["password_digest", "$2a$10$n06ciUTDDXBKqP3xdUwTz.xMTOtKd3d1cHxTWGg4NvOXkyO.ONVsy"], ["session_token", "91zQs8ZgZYJ9F7rqGWEg6w"], ["created_at", "2015-10-14 08:51:26.361145"], ["updated_at", "2015-10-14 08:51:26.361145"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Sylvia' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Sylvia"], ["password_digest", "$2a$10$Z20BkMOey5fwIr3jr6w7iO7xIsNhKEEvtXMcd3Lo7nlTA0lL58gmK"], ["session_token", "J4u-lBGaFndhQHLoCUpukA"], ["created_at", "2015-10-14 08:51:26.433794"], ["updated_at", "2015-10-14 08:51:26.433794"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["from_id", 19], ["to_id", 24], ["body", "The XSS program is down, transmit the neural protocol so we can parse the RSS driver!I'll synthesize the wireless EXE firewall, that should driver the JBOD matrix!"], ["created_at", "2015-10-14 08:51:26.447733"], ["updated_at", "2015-10-14 08:51:26.447733"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["from_id", 13], ["to_id", 6], ["body", "We need to reboot the redundant ADP capacitor!If we reboot the card, we can get to the SMTP bandwidth through the back-end AI microchip!"], ["created_at", "2015-10-14 08:51:26.451640"], ["updated_at", "2015-10-14 08:51:26.451640"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["from_id", 5], ["to_id", 6], ["body", "If we transmit the program, we can get to the SDD protocol through the redundant XML microchip!We need to calculate the solid state AI array!"], ["created_at", "2015-10-14 08:51:26.454665"], ["updated_at", "2015-10-14 08:51:26.454665"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["from_id", 4], ["to_id", 20], ["body", "I'll bypass the cross-platform AGP application, that should system the JSON sensor!I'll bypass the auxiliary SMS panel, that should monitor the ADP matrix!"], ["created_at", "2015-10-14 08:51:26.458056"], ["updated_at", "2015-10-14 08:51:26.458056"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["from_id", 14], ["to_id", 7], ["body", "You can't bypass the pixel without calculating the open-source THX card!Try to override the FTP bandwidth, maybe it will hack the neural application!"], ["created_at", "2015-10-14 08:51:26.471673"], ["updated_at", "2015-10-14 08:51:26.471673"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["from_id", 22], ["to_id", 23], ["body", "Use the mobile XSS driver, then you can parse the mobile port!connecting the capacitor won't do anything, we need to bypass the cross-platform PCI application!"], ["created_at", "2015-10-14 08:51:26.474981"], ["updated_at", "2015-10-14 08:51:26.474981"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["from_id", 24], ["to_id", 16], ["body", "Try to generate the SCSI bandwidth, maybe it will navigate the digital panel!Use the redundant SDD port, then you can generate the redundant program!"], ["created_at", "2015-10-14 08:51:26.478567"], ["updated_at", "2015-10-14 08:51:26.478567"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["from_id", 25], ["to_id", 20], ["body", "The XML system is down, program the multi-byte capacitor so we can synthesize the PNG pixel!You can't synthesize the application without copying the primary USB pixel!"], ["created_at", "2015-10-14 08:51:26.481577"], ["updated_at", "2015-10-14 08:51:26.481577"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["from_id", 25], ["to_id", 8], ["body", "backing up the feed won't do anything, we need to override the redundant CSS microchip!You can't override the array without parsing the multi-byte SQL port!"], ["created_at", "2015-10-14 08:51:26.484541"], ["updated_at", "2015-10-14 08:51:26.484541"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["from_id", 22], ["to_id", 9], ["body", "The SMS port is down, bypass the solid state bus so we can quantify the FTP driver!We need to calculate the auxiliary AGP firewall!"], ["created_at", "2015-10-14 08:51:26.489934"], ["updated_at", "2015-10-14 08:51:26.489934"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["from_id", 6], ["to_id", 4], ["body", "I'll generate the redundant SDD bus, that should transmitter the COM alarm!We need to connect the 1080p JBOD port!"], ["created_at", "2015-10-14 08:51:26.492978"], ["updated_at", "2015-10-14 08:51:26.492978"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["from_id", 21], ["to_id", 6], ["body", "If we synthesize the monitor, we can get to the PCI capacitor through the cross-platform SMTP array!parsing the application won't do anything, we need to copy the bluetooth SSL firewall!"], ["created_at", "2015-10-14 08:51:26.496670"], ["updated_at", "2015-10-14 08:51:26.496670"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["from_id", 6], ["to_id", 22], ["body", "I'll calculate the open-source SDD feed, that should microchip the RSS program!Try to bypass the SQL feed, maybe it will back up the optical bus!"], ["created_at", "2015-10-14 08:51:26.499801"], ["updated_at", "2015-10-14 08:51:26.499801"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["from_id", 8], ["to_id", 4], ["body", "You can't hack the program without overriding the back-end RAM interface!If we compress the system, we can get to the IB alarm through the back-end HTTP matrix!"], ["created_at", "2015-10-14 08:51:26.502734"], ["updated_at", "2015-10-14 08:51:26.502734"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["from_id", 16], ["to_id", 8], ["body", "Use the auxiliary USB circuit, then you can override the haptic array!indexing the firewall won't do anything, we need to quantify the optical PNG program!"], ["created_at", "2015-10-14 08:51:26.506136"], ["updated_at", "2015-10-14 08:51:26.506136"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["from_id", 8], ["to_id", 23], ["body", "Try to override the HTTP interface, maybe it will synthesize the wireless transmitter!You can't parse the array without synthesizing the multi-byte JBOD microchip!"], ["created_at", "2015-10-14 08:51:26.509509"], ["updated_at", "2015-10-14 08:51:26.509509"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["from_id", 1], ["to_id", 9], ["body", "Try to input the CSS interface, maybe it will transmit the open-source sensor!The CSS card is down, back up the multi-byte card so we can calculate the AGP interface!"], ["created_at", "2015-10-14 08:51:26.512491"], ["updated_at", "2015-10-14 08:51:26.512491"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["from_id", 24], ["to_id", 5], ["body", "transmitting the circuit won't do anything, we need to connect the open-source RSS capacitor!You can't index the panel without bypassing the 1080p SMTP sensor!"], ["created_at", "2015-10-14 08:51:26.515278"], ["updated_at", "2015-10-14 08:51:26.515278"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["from_id", 4], ["to_id", 17], ["body", "Try to quantify the FTP bandwidth, maybe it will synthesize the haptic feed!If we transmit the monitor, we can get to the SMS hard drive through the optical EXE firewall!"], ["created_at", "2015-10-14 08:51:26.518358"], ["updated_at", "2015-10-14 08:51:26.518358"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["from_id", 15], ["to_id", 6], ["body", "I'll reboot the redundant XML card, that should feed the SAS program!generating the circuit won't do anything, we need to connect the online THX card!"], ["created_at", "2015-10-14 08:51:26.521840"], ["updated_at", "2015-10-14 08:51:26.521840"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["from_id", 7], ["to_id", 19], ["body", "I'll synthesize the neural FTP bus, that should sensor the THX firewall!We need to connect the optical AGP capacitor!"], ["created_at", "2015-10-14 08:51:26.525209"], ["updated_at", "2015-10-14 08:51:26.525209"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["from_id", 6], ["to_id", 17], ["body", "We need to program the virtual PCI array!Use the open-source PCI application, then you can generate the primary firewall!"], ["created_at", "2015-10-14 08:51:26.529469"], ["updated_at", "2015-10-14 08:51:26.529469"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["from_id", 24], ["to_id", 4], ["body", "Try to synthesize the HTTP bus, maybe it will quantify the bluetooth card!We need to override the virtual GB capacitor!"], ["created_at", "2015-10-14 08:51:26.533304"], ["updated_at", "2015-10-14 08:51:26.533304"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["from_id", 20], ["to_id", 22], ["body", "Use the wireless AGP hard drive, then you can override the redundant array!The EXE port is down, calculate the primary pixel so we can reboot the SDD bandwidth!"], ["created_at", "2015-10-14 08:51:26.536624"], ["updated_at", "2015-10-14 08:51:26.536624"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["from_id", 14], ["to_id", 23], ["body", "You can't connect the matrix without hacking the multi-byte COM bus!We need to program the neural EXE sensor!"], ["created_at", "2015-10-14 08:51:26.539821"], ["updated_at", "2015-10-14 08:51:26.539821"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["from_id", 18], ["to_id", 17], ["body", "You can't hack the sensor without copying the neural COM capacitor!We need to quantify the open-source XSS monitor!"], ["created_at", "2015-10-14 08:51:26.542836"], ["updated_at", "2015-10-14 08:51:26.542836"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["from_id", 8], ["to_id", 10], ["body", "If we copy the monitor, we can get to the ADP sensor through the neural AI driver!We need to synthesize the back-end THX array!"], ["created_at", "2015-10-14 08:51:26.546125"], ["updated_at", "2015-10-14 08:51:26.546125"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["from_id", 17], ["to_id", 13], ["body", "We need to back up the digital IB circuit!I'll generate the bluetooth HDD port, that should transmitter the SMTP circuit!"], ["created_at", "2015-10-14 08:51:26.549067"], ["updated_at", "2015-10-14 08:51:26.549067"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["from_id", 19], ["to_id", 3], ["body", "We need to hack the back-end HTTP card!The RSS feed is down, transmit the open-source circuit so we can hack the HDD firewall!"], ["created_at", "2015-10-14 08:51:26.552076"], ["updated_at", "2015-10-14 08:51:26.552076"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["from_id", 21], ["to_id", 16], ["body", "Try to copy the PNG monitor, maybe it will generate the neural port!Use the bluetooth PNG circuit, then you can reboot the online bandwidth!"], ["created_at", "2015-10-14 08:51:26.555180"], ["updated_at", "2015-10-14 08:51:26.555180"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["from_id", 25], ["to_id", 8], ["body", "Try to reboot the SCSI pixel, maybe it will synthesize the back-end port!We need to bypass the back-end PNG microchip!"], ["created_at", "2015-10-14 08:51:26.559366"], ["updated_at", "2015-10-14 08:51:26.559366"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["from_id", 15], ["to_id", 1], ["body", "You can't back up the matrix without compressing the haptic FTP program!I'll back up the digital PNG transmitter, that should pixel the IB card!"], ["created_at", "2015-10-14 08:51:26.564070"], ["updated_at", "2015-10-14 08:51:26.564070"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["from_id", 19], ["to_id", 4], ["body", "You can't navigate the program without calculating the haptic AI capacitor!If we input the program, we can get to the PNG monitor through the solid state JBOD bandwidth!"], ["created_at", "2015-10-14 08:51:26.567692"], ["updated_at", "2015-10-14 08:51:26.567692"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["from_id", 14], ["to_id", 6], ["body", "We need to transmit the mobile HTTP alarm!I'll index the wireless SAS capacitor, that should pixel the THX interface!"], ["created_at", "2015-10-14 08:51:26.571167"], ["updated_at", "2015-10-14 08:51:26.571167"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["from_id", 14], ["to_id", 22], ["body", "Try to back up the AI microchip, maybe it will calculate the cross-platform driver!You can't transmit the hard drive without hacking the solid state COM panel!"], ["created_at", "2015-10-14 08:51:26.574236"], ["updated_at", "2015-10-14 08:51:26.574236"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["from_id", 10], ["to_id", 24], ["body", "You can't reboot the sensor without indexing the neural XSS firewall!The PNG interface is down, reboot the optical transmitter so we can hack the JSON system!"], ["created_at", "2015-10-14 08:51:26.577705"], ["updated_at", "2015-10-14 08:51:26.577705"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["from_id", 1], ["to_id", 21], ["body", "If we quantify the driver, we can get to the RAM matrix through the digital ADP application!I'll quantify the optical COM hard drive, that should microchip the SQL driver!"], ["created_at", "2015-10-14 08:51:26.581178"], ["updated_at", "2015-10-14 08:51:26.581178"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["from_id", 20], ["to_id", 19], ["body", "You can't copy the panel without connecting the optical RAM interface!Try to calculate the USB bandwidth, maybe it will override the primary firewall!"], ["created_at", "2015-10-14 08:51:26.584321"], ["updated_at", "2015-10-14 08:51:26.584321"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["from_id", 16], ["to_id", 12], ["body", "If we back up the monitor, we can get to the EXE bandwidth through the online SQL application!I'll input the haptic SMTP port, that should application the SMTP pixel!"], ["created_at", "2015-10-14 08:51:26.588448"], ["updated_at", "2015-10-14 08:51:26.588448"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["from_id", 3], ["to_id", 25], ["body", "Use the bluetooth XML alarm, then you can connect the neural monitor!The XML bandwidth is down, reboot the digital microchip so we can index the COM protocol!"], ["created_at", "2015-10-14 08:51:26.591667"], ["updated_at", "2015-10-14 08:51:26.591667"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["from_id", 23], ["to_id", 16], ["body", "Try to parse the TCP port, maybe it will compress the redundant pixel!Use the haptic TCP capacitor, then you can index the wireless firewall!"], ["created_at", "2015-10-14 08:51:26.595756"], ["updated_at", "2015-10-14 08:51:26.595756"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["from_id", 7], ["to_id", 18], ["body", "Use the multi-byte THX hard drive, then you can transmit the redundant program!Use the 1080p JSON bandwidth, then you can copy the 1080p protocol!"], ["created_at", "2015-10-14 08:51:26.599119"], ["updated_at", "2015-10-14 08:51:26.599119"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["from_id", 3], ["to_id", 14], ["body", "You can't override the bandwidth without hacking the mobile CSS protocol!The SMTP port is down, input the back-end pixel so we can transmit the FTP hard drive!"], ["created_at", "2015-10-14 08:51:26.604000"], ["updated_at", "2015-10-14 08:51:26.604000"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["from_id", 7], ["to_id", 23], ["body", "We need to compress the haptic RSS port!The XML microchip is down, back up the 1080p card so we can program the FTP bus!"], ["created_at", "2015-10-14 08:51:26.608541"], ["updated_at", "2015-10-14 08:51:26.608541"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["from_id", 5], ["to_id", 18], ["body", "I'll quantify the back-end COM bus, that should bandwidth the EXE hard drive!Use the cross-platform TCP feed, then you can reboot the optical alarm!"], ["created_at", "2015-10-14 08:51:26.611818"], ["updated_at", "2015-10-14 08:51:26.611818"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["from_id", 6], ["to_id", 8], ["body", "You can't calculate the application without parsing the cross-platform JSON protocol!If we hack the pixel, we can get to the SDD matrix through the open-source EXE capacitor!"], ["created_at", "2015-10-14 08:51:26.614773"], ["updated_at", "2015-10-14 08:51:26.614773"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["from_id", 2], ["to_id", 3], ["body", "indexing the application won't do anything, we need to program the open-source USB bus!generating the panel won't do anything, we need to parse the virtual COM array!"], ["created_at", "2015-10-14 08:51:26.618432"], ["updated_at", "2015-10-14 08:51:26.618432"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["from_id", 13], ["to_id", 4], ["body", "Use the multi-byte PNG bandwidth, then you can generate the wireless bandwidth!If we program the capacitor, we can get to the IB matrix through the optical SMS program!"], ["created_at", "2015-10-14 08:51:26.621891"], ["updated_at", "2015-10-14 08:51:26.621891"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["from_id", 22], ["to_id", 21], ["body", "Use the cross-platform SMS hard drive, then you can hack the multi-byte panel!generating the alarm won't do anything, we need to hack the redundant HTTP port!"], ["created_at", "2015-10-14 08:51:26.625030"], ["updated_at", "2015-10-14 08:51:26.625030"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "messages" ("from_id", "to_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["from_id", 11], ["to_id", 25], ["body", "If we copy the circuit, we can get to the TCP card through the 1080p XSS card!We need to connect the open-source USB application!"], ["created_at", "2015-10-14 08:51:26.628689"], ["updated_at", "2015-10-14 08:51:26.628689"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "friends" ("requester_id", "accepter_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["requester_id", 1], ["accepter_id", 2], ["created_at", "2015-10-14 08:51:26.637531"], ["updated_at", "2015-10-14 08:51:26.637531"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+
+
+Started GET "/" for ::1 at 2015-10-14 01:51:50 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#root as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+Redirected to http://localhost:3000/session/new
+Filter chain halted as :check_login rendered or redirected
+Completed 302 Found in 33ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/" for ::1 at 2015-10-14 01:51:50 -0700
+Processing by StaticPagesController#root as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+Redirected to http://localhost:3000/session/new
+Filter chain halted as :check_login rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/session/new" for ::1 at 2015-10-14 01:51:50 -0700
+Processing by SessionsController#new as HTML
+  Rendered sessions/_form.html.erb (1.2ms)
+  Rendered sessions/new.html.erb within layouts/application (7.7ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "-UVVrApro8JhivDdfnf35g"]]
+Completed 200 OK in 578ms (Views: 569.9ms | ActiveRecord: 3.1ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+
+
+Started POST "/session" for ::1 at 2015-10-14 01:52:36 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"HynYZAxc7x0XynzZAodMb5iL+6JCZy7f8KaBacfhp8PlU6+P25epJmdUwcQFWVZS3PQvIRNCrRr+ReP5mCxBGg==", "user"=>{"username"=>"Davon", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT 1  [["username", "Davon"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 75ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2015-10-14 01:52:36 -0700
+Processing by StaticPagesController#root as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "VSnlUgCUSC9jG5daHtXrRQ"]]
+  Rendered static_pages/root.html within layouts/application (0.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "VSnlUgCUSC9jG5daHtXrRQ"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "VSnlUgCUSC9jG5daHtXrRQ"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "VSnlUgCUSC9jG5daHtXrRQ"]]
+Completed 200 OK in 283ms (Views: 281.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/messages" for ::1 at 2015-10-14 01:52:37 -0700
+Processing by Api::MessagesController#index as JSON
+  [1m[36mUser Load (2.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "VSnlUgCUSC9jG5daHtXrRQ"]]
+  [1m[35mMessage Load (1.5ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."to_id" = $1  [["to_id", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (1)[0m
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 15]]
+  Rendered api/messages/index.json.jbuilder (39.6ms)
+Completed 200 OK in 74ms (Views: 38.2ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/session" for ::1 at 2015-10-14 01:52:37 -0700
+Processing by SessionsController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "VSnlUgCUSC9jG5daHtXrRQ"]]
+Completed 200 OK in 4ms (Views: 1.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2015-10-14 01:52:53 -0700
+Processing by StaticPagesController#root as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "VSnlUgCUSC9jG5daHtXrRQ"]]
+  Rendered static_pages/root.html within layouts/application (1.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "VSnlUgCUSC9jG5daHtXrRQ"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "VSnlUgCUSC9jG5daHtXrRQ"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "VSnlUgCUSC9jG5daHtXrRQ"]]
+Completed 200 OK in 148ms (Views: 146.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.self-cb66df2869bcbce512d4e363b684d65fc5583f788d864c7895c970f5b59026de.css?body=1" for ::1 at 2015-10-14 01:52:53 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-10-14 01:52:53 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-10-14 01:52:53 -0700
+
+
+Started GET "/assets/bootstrap/affix.self-f7aef9d98ee5ece34a6a92a6a15bba777d93e8d908b75c95a85088277f394200.js?body=1" for ::1 at 2015-10-14 01:52:53 -0700
+
+
+Started GET "/assets/bootstrap/button.self-d19f3e2bcd3a7a4d75c11b9141b3fabd2c11987da1e99c85548ec3ecf8db30c3.js?body=1" for ::1 at 2015-10-14 01:52:53 -0700
+
+
+Started GET "/assets/bootstrap/alert.self-896ab026e6823f5cef2441e07dac53d0692a5b772ac58b1ce20aa624c342d3f4.js?body=1" for ::1 at 2015-10-14 01:52:53 -0700
+
+
+Started GET "/assets/bootstrap/carousel.self-b2e5e14483e6c31343a83861b7d487620f143d6fc2d07d5ae7544b6b225ba6be.js?body=1" for ::1 at 2015-10-14 01:52:53 -0700
+
+
+Started GET "/assets/bootstrap/collapse.self-93820e9b486e375a7fb4477602def3a6f8381fa6d50938d5378297ffbe4a1248.js?body=1" for ::1 at 2015-10-14 01:52:53 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.self-30536ae4d54b2685c26b5787ed0eb549a9075717fe690cce6270873bedf2df00.js?body=1" for ::1 at 2015-10-14 01:52:53 -0700
+
+
+Started GET "/assets/bootstrap/tab.self-9b77df34cbbb08ec93a806d6cdb741f04e3dbf3389978a0679146f2d2987bc89.js?body=1" for ::1 at 2015-10-14 01:52:53 -0700
+
+
+Started GET "/assets/bootstrap/transition.self-9616c4e856b57659b67da3c6f2adcd584b5601ef4bebcdadab8ebb387d80bb25.js?body=1" for ::1 at 2015-10-14 01:52:53 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.self-c5c6ed008955656d345067e9821d79f1216b8383134d08465d4aa1a33a2b93b4.js?body=1" for ::1 at 2015-10-14 01:52:53 -0700
+
+
+Started GET "/assets/bootstrap/modal.self-bcfe54f3132bf16a8c5ce4289e47eba488f6522a08f49f378a037061c6c7aa4c.js?body=1" for ::1 at 2015-10-14 01:52:53 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.self-3aa41fbe871573b34e0ebddf31598cd5a11a9841ca85f90934ea46326e46626d.js?body=1" for ::1 at 2015-10-14 01:52:53 -0700
+
+
+Started GET "/assets/bootstrap/popover.self-b73e9c9111d01148e24bbc46e096782e024dc5db630e7078cf11ed2587ef8551.js?body=1" for ::1 at 2015-10-14 01:52:53 -0700
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2015-10-14 01:52:53 -0700
+
+
+Started GET "/assets/development/react.self-93bc62cb6c7b74ee7e5a2fcf623f3abbd365440bf90eba740c625f159078aa82.js?body=1" for ::1 at 2015-10-14 01:52:53 -0700
+
+
+Started GET "/assets/react_ujs.self-0833fe72a25fcb9cc0686328cc2aa88975f128bf379c265b61ad1a5e1113a400.js?body=1" for ::1 at 2015-10-14 01:52:53 -0700
+
+
+Started GET "/assets/flux.self-d49657677b043fd9a5b56222b931c6dc76b57db2cff9d5967d80f300ee2f4545.js?body=1" for ::1 at 2015-10-14 01:52:54 -0700
+
+
+Started GET "/assets/eventemitter.self-b7e538902dfb3dce50e80598efaa7b435781b7bc8fe936a7aca64a6f2699d411.js?body=1" for ::1 at 2015-10-14 01:52:54 -0700
+
+
+Started GET "/assets/components/bars.self-1edf93632377c1202d09aef49a1fbeebdd30ed31064819429d70483a6824c0d8.js?body=1" for ::1 at 2015-10-14 01:52:54 -0700
+
+
+Started GET "/assets/components/dashboard.self-371312b13b1becfcabb3a0420a87d6bc25d724e0fa71f0ef297645a0a0d4c318.js?body=1" for ::1 at 2015-10-14 01:52:54 -0700
+
+
+Started GET "/assets/react_router.min.self-b2fb42fc48326928f091759585ae1eab0cd35ab15ba475d0fbb6c01c9dedc5bb.js?body=1" for ::1 at 2015-10-14 01:52:54 -0700
+
+
+Started GET "/assets/components/message_index.self-94095733a88384e2b73ac5c31dbbd2a7b6df065f9d3cdf93d05d59b778600bd6.js?body=1" for ::1 at 2015-10-14 01:52:54 -0700
+
+
+Started GET "/assets/components/user_list.self-53896c7e2d7c42552ea22feaba16798725a0a071c86561247fb574a00e12cadb.js?body=1" for ::1 at 2015-10-14 01:52:54 -0700
+
+
+Started GET "/assets/components.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2015-10-14 01:52:54 -0700
+
+
+Started GET "/assets/actions/apiActions.self-6b70a28822fd10478e3f0293f2f69724c7604a58725f0fa5cf85f92215e05ad5.js?body=1" for ::1 at 2015-10-14 01:52:54 -0700
+
+
+Started GET "/assets/dispatcher/dispatcher.self-af4ca6897126aece29c1483448d6541f206ad40d5569e93136e73bd0e2a8ae1a.js?body=1" for ::1 at 2015-10-14 01:52:54 -0700
+
+
+Started GET "/assets/constants/friendz_constants.self-df7b7a184d7730b1ac151f87c1d77fbfda4a96f56b35a962331ee8b529fe6108.js?body=1" for ::1 at 2015-10-14 01:52:54 -0700
+
+
+Started GET "/assets/friendz.self-67dfd511476b8295e5caab40647c2f231093f4731de1efe3baac1cf1cb71e649.js?body=1" for ::1 at 2015-10-14 01:52:54 -0700
+
+
+Started GET "/assets/session.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-10-14 01:52:54 -0700
+
+
+Started GET "/assets/stores/message_store.self-e280684cb56b1faa485538c0e0303ba0d9bd732a9112880c17cc66aaae11731b.js?body=1" for ::1 at 2015-10-14 01:52:54 -0700
+
+
+Started GET "/assets/stores/user_store.self-1ac5c3cc1920e9d51fc1dd71a8fe294a82a25a03abefe55988970d0b97efa27e.js?body=1" for ::1 at 2015-10-14 01:52:54 -0700
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-10-14 01:52:54 -0700
+
+
+Started GET "/assets/util/api_util.self-61a91e672ffaca4f74613be9be3cac4bd5a36882e8999464f5fe67ce8c245664.js?body=1" for ::1 at 2015-10-14 01:52:54 -0700
+
+
+Started GET "/assets/application.self-16c207b3ca1b52afcfc7f4b662487caf1bbe084a6656bb15f693ab9de2d11be7.js?body=1" for ::1 at 2015-10-14 01:52:54 -0700
+
+
+Started GET "/api/messages" for ::1 at 2015-10-14 01:52:54 -0700
+Processing by Api::MessagesController#index as JSON
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "VSnlUgCUSC9jG5daHtXrRQ"]]
+  [1m[36mMessage Load (0.7ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."to_id" = $1[0m  [["to_id", 1]]
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (1)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 15]]
+  Rendered api/messages/index.json.jbuilder (10.5ms)
+Completed 200 OK in 19ms (Views: 9.6ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/session" for ::1 at 2015-10-14 01:52:54 -0700
+Processing by SessionsController#show as */*
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "VSnlUgCUSC9jG5daHtXrRQ"]]
+Completed 200 OK in 4ms (Views: 0.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for ::1 at 2015-10-14 01:53:04 -0700
+Processing by UsersController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "VSnlUgCUSC9jG5daHtXrRQ"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "VSnlUgCUSC9jG5daHtXrRQ"]]
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friends" ON "users"."id" = "friends"."accepter_id" WHERE "friends"."requester_id" = $1[0m  [["requester_id", 1]]
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friends" ON "users"."id" = "friends"."requester_id" WHERE "friends"."accepter_id" = $1  [["accepter_id", 1]]
+  Rendered users/index.json.jbuilder (0.8ms)
+Completed 200 OK in 30ms (Views: 3.6ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/" for ::1 at 2015-10-14 01:53:11 -0700
+Processing by StaticPagesController#root as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "VSnlUgCUSC9jG5daHtXrRQ"]]
+  Rendered static_pages/root.html within layouts/application (0.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "VSnlUgCUSC9jG5daHtXrRQ"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "VSnlUgCUSC9jG5daHtXrRQ"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "VSnlUgCUSC9jG5daHtXrRQ"]]
+Completed 200 OK in 174ms (Views: 172.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.self-cb66df2869bcbce512d4e363b684d65fc5583f788d864c7895c970f5b59026de.css?body=1" for ::1 at 2015-10-14 01:53:11 -0700
+
+
+Started GET "/session" for ::1 at 2015-10-14 01:53:11 -0700
+Processing by SessionsController#show as */*
+  [1m[36mUser Load (2.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "VSnlUgCUSC9jG5daHtXrRQ"]]
+Completed 200 OK in 4ms (Views: 0.6ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/api/messages" for ::1 at 2015-10-14 01:53:11 -0700
+Processing by Api::MessagesController#index as JSON
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "VSnlUgCUSC9jG5daHtXrRQ"]]
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."to_id" = $1[0m  [["to_id", 1]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (1)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 15]]
+  Rendered api/messages/index.json.jbuilder (5.5ms)
+Completed 200 OK in 10ms (Views: 6.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/api/messages" for ::1 at 2015-10-14 01:53:12 -0700
+Processing by Api::MessagesController#index as JSON
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "VSnlUgCUSC9jG5daHtXrRQ"]]
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."to_id" = $1[0m  [["to_id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (1)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 15]]
+  Rendered api/messages/index.json.jbuilder (3.5ms)
+Completed 200 OK in 6ms (Views: 3.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/api/messages" for ::1 at 2015-10-14 01:53:12 -0700
+Processing by Api::MessagesController#index as JSON
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "VSnlUgCUSC9jG5daHtXrRQ"]]
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."to_id" = $1[0m  [["to_id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (1)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 15]]
+  Rendered api/messages/index.json.jbuilder (3.4ms)
+Completed 200 OK in 6ms (Views: 3.8ms | ActiveRecord: 1.0ms)
