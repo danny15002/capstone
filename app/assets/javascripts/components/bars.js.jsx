@@ -62,9 +62,9 @@ var RightBar = React.createClass ({
     return (
       <div onClick={this.handleClick} className={"bar right-bar"}>
         <div selected={false} className={"nav nav-messages"}><div>Home</div></div>
-        <div selected={false} className={"nav nav-events"}><div>Events</div></div>
-        <div selected={false} className={"nav nav-pictures"}><div>Pictures</div></div>
-        <div selected={false} className={"nav nav-location"}><div>Location</div></div>
+        <div selected={false} className={"nav nav-events"}><div>Profile</div></div>
+        <div selected={false} className={"nav nav-pictures"}><div>Account</div></div>
+        <div selected={false} className={"nav nav-location"}><div>Share Location</div></div>
       </div>
     )
   }
