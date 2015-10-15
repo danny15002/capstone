@@ -1,4 +1,6 @@
 var UserList = React.createClass({
+  mixins: [ReactRouter.History],
+  
   getInitialState: function () {
     return {friends: UserStore.currentFriends()}
   },
@@ -13,7 +15,6 @@ var UserList = React.createClass({
   getFriends: function () {
     this.setState({friends: UserStore.currentFriends()})
   },
-  mixins: [ReactRouter.History],
 
   handleClick: function (event) {
     // console.log($(event.target).context.id);

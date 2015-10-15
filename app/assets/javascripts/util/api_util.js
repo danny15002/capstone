@@ -54,20 +54,20 @@ ApiUtil = {
     })
   },
   login: function (username, password) {
-    return when(request({
-      url: "sessions/create",
+    var user = {username: username, password: password};
+    $.ajax({
+      url: "session",
       method: 'POST',
-      crossOrigin: true,
       type: 'json',
-      data: {username: username, password: password}
-    }))
-    .then(function(response) {
-        // We get a JWT back.
-        var jwt = response.id_token;
-        // We trigger the LoginAction with that JWT.
-        LoginActions.loginUser(jwt);
-        return true;
-    });
+      data: {user: user},
+      success: function(user) {
+          // We get a JWT back.
+          console.log(user)
+          var jwt = response.id_token;
+          // // We trigger the LoginAction with that JWT.
+          ApiActions.loginUser(user);
+      }
+    })
   }
 
 }

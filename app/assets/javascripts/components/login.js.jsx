@@ -1,33 +1,31 @@
 
 var Login = React.createClass({
+  mixins: [React.addons.LinkedStateMixin, ReactRouter.History],
   getInitialState: function () {
     return {username: "", password: ""};
   },
   componentDidMount: function () {
-    UserStore.addChangeListener(FriendzConstants.LOGIN_USER, this.transitionUser);
+    LoginStore.addChangeListener(FriendzConstants.LOGIN_USER, this.transitionUser);
   },
   componentWillUnmount: function () {
-    UserStore.removeChangeListener(FriendzConstants.LOGIN_USER, this.transitionUser);
+    LoginStore.removeChangeListener(FriendzConstants.LOGIN_USER, this.transitionUser);
   },
   transitionUser: function () {
-    RouterContainer.get().transitionTo("/");
+    this.history.pushState(null, "/")
   },
   login: function (event) {
     event.preventDefault();
     ApiUtil.login(this.state.username, this.state.password)
-      .catch(function(err) {
-        alert("Error logging in.", err);
-      });
   },
   render() {
     return (
       <div>
         <form role={"form"}>
         <div className="form-group">
-          <input type="text" valueLink={this.linkState('user')}placeholder={"Username"} />
+          <input type="text" valueLink={this.linkState('username')} placeholder={"Username"} />
           <input type="password" valueLink={this.linkState('password')} placeholder={"Password"} />
         </div>
-        <button type="submit" onClick={this.login.bind(this)}>Submit</button>
+        <button type="submit" onClick={this.login}>Submit</button>
       </form>
     </div>
     );
