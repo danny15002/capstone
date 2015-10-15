@@ -9,7 +9,6 @@ var UserList = React.createClass({
   },
   componentWillUnmount: function () {
     UserStore.removeChangeListener(FriendzConstants.FRIENDS_RECEIVED, this.getFriends);
-
   },
   getFriends: function () {
     this.setState({friends: UserStore.currentFriends()})
