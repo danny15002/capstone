@@ -1,7 +1,10 @@
 (function(root) {
   'use strict';
-  var _jwt = null;
+  var _jwt = localStorage.jwt;
   var _user = null;
+  if (_jwt) {
+    _user = jwt_decode(_jwt);
+  }
 
   LoginStore = root.LoginStore = $.extend({}, EventEmitter.prototype, {
     user: function () {
@@ -14,6 +17,10 @@
 
     isLoggedIn: function () {
       return !!_user;
+    },
+    resetSession: function () {
+      _jwt = null;
+      _user = null;
     },
     addChangeListener: function (changeEvent, callback) {
       this.on(changeEvent, callback);
@@ -30,8 +37,11 @@
           _user = jwt_decode(_jwt);
           // And we emit a change to all components that are listening.
           // This method is implemented in the `BaseStore`.
-          this.emitChange();
+          LoginStore.emit(FriendzConstants.LOGIN_USER)
           break;
+        case FriendzConstants.LOGOUT:
+        console.log("logiging out")
+          LoginStore.resetSession();
         default:
           break;
       };
