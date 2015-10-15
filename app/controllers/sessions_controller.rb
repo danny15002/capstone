@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
 
     if @user
       log_in!(@user)
-      redirect_to root_url
+      render json: {id: current_user.id, username: current_user.username}
     else
       flash.now[:errors] = ['Wrong username or password.']
       @user = User.new
