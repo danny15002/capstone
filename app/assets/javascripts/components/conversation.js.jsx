@@ -18,21 +18,20 @@ var Conversation = React.createClass( {
     this.setState({messages: MessageStore.getMessages()})
   },
   render: function () {
-    if (MessageStore.getMessages() === []) {
+    if (MessageStore.getMessages().length === 0) {
       return (
-        <div> No messages here. Why dont you send a Message!</div>
+        <div className={"conversation"}>
+          <div> No messages here. Why dont you send a Message!</div>
+        </div>
       )
     }
     return (
       <div className={"conversation"}>
         <ul>
           {this.state.messages.map( function (message, idx) {
-            var ref = "";
-            if(this.length - 1 === idx) {
-              ref = "lastMessage";
-            }
+            
             return (
-              <li autoFocus key={message.id} className={"message"}>
+              <li key={message.id} className={"message"}>
                 <div>
                   <div className={"msg-sender"}>Sent By: {message.sender_name}</div>
                   <div className={"msg-created"}>{message.created_at}</div>

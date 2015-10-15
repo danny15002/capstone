@@ -52,7 +52,12 @@ class User < ActiveRecord::Base
 
   has_many :friends2, through: :accepted_friends, source: :requester
 
-
+  has_many(
+    :created_events,
+    primary_key: :id,
+    foreign_key: :creator_id,
+    class_name: "Event"
+  )
 
   attr_reader :password
   attr_reader :password_confirmation

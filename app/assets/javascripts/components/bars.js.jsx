@@ -6,6 +6,7 @@ var LeftBar = React.createClass ({
     switch(selected) {
       case "Messages":
         this.history.pushState(null, "/" + selected)
+        $(event.target).addClass("selected");
         break;
       case "Events":
         this.history.pushState(null, "/" + selected)
