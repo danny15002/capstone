@@ -5,7 +5,6 @@ var MessageForm = React.createClass( {
   componentDidMount: function () {
     var userId = parseInt(this.props.params.userId)
     this.setState({recipientId: userId});
-    // debugger
     var node = this.getDOMNode();
     node.scrollTop = node.scrollHeight;
   },
