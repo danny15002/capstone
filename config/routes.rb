@@ -7,5 +7,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: :json} do
     resources :messages, only: [:new, :create, :index]
+    resources :events, only: [:new, :create, :index, :show]
   end
+
 end

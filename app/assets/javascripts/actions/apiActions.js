@@ -26,5 +26,12 @@ ApiActions = {
       message: message
     }
     friendzDispatcher.dispatch(payload);
+  },
+  receiveEvents: function (events) {
+    var payload = {
+      actionType: FriendzConstants.EVENTS_RECEIVED,
+      events: events
+    }
+    friendzDispatcher.dispatch(payload);
   }
 }

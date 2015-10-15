@@ -40,3 +40,13 @@ friendArray = friendArray.sort
 friendArray.each do |el|
   Friend.create(requester_id: el[0],accepter_id: el[1])
 end
+
+30.times do
+  Event.create(
+    creator_id: rand(1..25),
+    title: Faker::Hacker.adjective + " " + Faker::Hacker.noun,
+    description: Faker::Lorem.paragraph,
+    date: Faker::Date.forward(60),
+    location: Faker::Address.street_address
+  )
+end

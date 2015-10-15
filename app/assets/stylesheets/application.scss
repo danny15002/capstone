@@ -146,6 +146,7 @@ form.login input {
   width: 15%;
   height:92vh;
   background-color: #880000;
+  overflow-y: scroll;
 }
 
 .left-bar {
@@ -180,4 +181,9 @@ form.login input {
 .user-list {
   float:left;
   background-color: #555555;
+}
+
+.selected {
+  // background-color: black;
+  // color: white;
 }

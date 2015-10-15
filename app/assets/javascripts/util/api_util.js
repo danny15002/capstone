@@ -43,5 +43,15 @@ ApiUtil = {
         ApiActions.createMessage(friends);
       }
     })
-  }
+  },
+  fetchEvents: function () {
+    $.ajax({
+      url: 'api/events',
+      method: 'get',
+      success: function (events) {
+        ApiActions.receiveEvents(events);
+      }
+    })
+  },
+
 }

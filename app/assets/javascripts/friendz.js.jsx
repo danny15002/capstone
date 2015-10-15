@@ -20,7 +20,9 @@ var routes = (
     <Route path="Messages" component={UserList}>
       <Route path=":userId" component={ MessageForm} />
     </Route>
-    <Route path="Events"/>
+    <Route path="Events" component={EventList}>
+      <Route path="new" component={EventForm} />
+    </Route>
     <Route path="Pictures"/>
     <Route path="Location"/>
   </Route>
