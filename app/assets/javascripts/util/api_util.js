@@ -53,5 +53,21 @@ ApiUtil = {
       }
     })
   },
+  login: function (username, password) {
+    return when(request({
+      url: "sessions/create",
+      method: 'POST',
+      crossOrigin: true,
+      type: 'json',
+      data: {username: username, password: password}
+    }))
+    .then(function(response) {
+        // We get a JWT back.
+        var jwt = response.id_token;
+        // We trigger the LoginAction with that JWT.
+        LoginActions.loginUser(jwt);
+        return true;
+    });
+  }
 
 }

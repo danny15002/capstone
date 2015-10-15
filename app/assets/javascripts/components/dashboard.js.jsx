@@ -3,11 +3,11 @@ var Dashboard = React.createClass({
     return {currentUser: ""};
   },
   componentDidMount: function () {
-    UserStore.addChangeListener(FriendzConstants.CURRENT_USER_RECEIVED, this.getUser);
+    LoginStore.addChangeListener(FriendzConstants.CURRENT_USER_RECEIVED, this.getUser);
     ApiUtil.fetchCurrentUser();
   },
   componentWillUnmount: function () {
-    UserStore.removeChangeListener(FriendzConstants.CURRENT_USER_RECEIVED, this.getUser);
+    LoginStore.removeChangeListener(FriendzConstants.CURRENT_USER_RECEIVED, this.getUser);
 
   },
   getUser: function (user) {

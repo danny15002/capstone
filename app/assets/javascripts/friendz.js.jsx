@@ -7,15 +7,19 @@ var App = React.createClass({
   render: function () {
     return (
       <div >
-        <LeftBar />
-        <RightBar />
-        {this.props.children}
+        <AuthenticatedComponent>
+          <LeftBar />
+          <RightBar />
+          {this.props.children}
+        </AuthenticatedComponent>
       </div>)
   }
 })
 
 var routes = (
+
   <Route path="/" component={App}>
+    <Route path="login" component={Login}/>
     <IndexRoute component={Dashboard}/>
     <Route path="Messages" component={UserList}>
       <Route path=":userId" component={ MessageForm} />
@@ -26,6 +30,7 @@ var routes = (
     <Route path="Pictures"/>
     <Route path="Location"/>
   </Route>
+
 )
 
 $(function () {
