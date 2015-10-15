@@ -5,12 +5,6 @@ var Redirect = ReactRouter.Redirect;
 var Lifecycle = ReactRouter.Lifecycle;
 
 var App = React.createClass({
-  mixins: [ ReactRouter.History],
-  statics: {willTransitionTo: function (nextState, replaceState) {
-    if (!LoginStore.isLoggedIn()) {
-      replaceState({ nextPathname: nextState.location.pathname }, '/login')
-    }
-  }},
   render: function () {
     return (
       <div >
@@ -25,8 +19,8 @@ var App = React.createClass({
 
 var routes = (
   <Router>
-    <Route path="login" component={Login}/>
-    <Route path="/" onEnter={App.willTransitionTo} component={App}>
+    <Route path="login" onEnter={Login.willTransitionTo} component={Login}/>
+    <Route path="/" onEnter={AuthenticatedComponent.willTransitionTo} component={App}>
       <IndexRoute component={Dashboard}/>
       <Route path="Messages" component={UserList}>
         <Route path=":userId" component={ MessageForm} />

@@ -19,4 +19,5 @@
 //= require eventemitter
 //= require react_router.min
 //= require components
+//= require jwt_decode.min
 //= require_tree .

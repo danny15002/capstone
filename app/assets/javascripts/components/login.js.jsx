@@ -1,7 +1,13 @@
 
 var Login = React.createClass({
   mixins: [React.addons.LinkedStateMixin, ReactRouter.History],
+  statics: {willTransitionTo: function (nextState, replaceState) {
+    if (LoginStore.isLoggedIn()) {
+      replaceState({ nextPathname: nextState.location.pathname }, '/')
+    }
+  }},
   getInitialState: function () {
+    console.log(localStorage);
     return {username: "", password: ""};
   },
   componentDidMount: function () {
@@ -20,10 +26,10 @@ var Login = React.createClass({
   render() {
     return (
       <div>
-        <form role={"form"}>
-        <div className="form-group">
-          <input type="text" valueLink={this.linkState('username')} placeholder={"Username"} />
-          <input type="password" valueLink={this.linkState('password')} placeholder={"Password"} />
+        <form role={"form"} className={"form-group"}>
+        <div className="input-group input-group-md">
+          <input type="text" className={"form-control"} valueLink={this.linkState('username')} placeholder={"Username"} />
+          <input type="password" className={"form-control"} valueLink={this.linkState('password')} placeholder={"Password"} />
         </div>
         <button type="submit" onClick={this.login}>Submit</button>
       </form>

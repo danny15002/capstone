@@ -60,12 +60,12 @@ ApiUtil = {
       method: 'POST',
       type: 'json',
       data: {user: user},
-      success: function(user) {
+      success: function(response) {
           // We get a JWT back.
-          console.log(user)
+          console.log(response)
           var jwt = response.id_token;
           // // We trigger the LoginAction with that JWT.
-          ApiActions.loginUser(user);
+          ApiActions.loginUser(jwt);
       }
     })
   }

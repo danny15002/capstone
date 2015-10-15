@@ -90,6 +90,11 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (1.8.3)
+    jwt (1.5.1)
+    knock (1.3.0)
+      bcrypt (~> 3.1)
+      jwt (~> 1.5)
+      rails (~> 4.2)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -200,6 +205,8 @@ DEPENDENCIES
   flux-rails-assets
   jbuilder (~> 2.0)
   jquery-rails
+  jwt
+  knock (~> 1.2)
   newrelic_rpm
   pg
   pry-rails
