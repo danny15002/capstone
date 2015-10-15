@@ -19,5 +19,12 @@ ApiActions = {
       friends: friends
     }
     friendzDispatcher.dispatch(payload);
+  },
+  createMessage: function (message) {
+    var payload ={
+      actionType: FriendzConstants.MESSAGE_SENT,
+      message: message
+    }
+    friendzDispatcher.dispatch(payload);
   }
 }

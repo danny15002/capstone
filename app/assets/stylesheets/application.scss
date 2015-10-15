@@ -22,6 +22,10 @@
   overflow: hidden;
 }
 
+textarea {
+  resize: none;
+}
+
 ul {
   list-style-type: none;
 }
@@ -101,14 +105,40 @@ form.login input {
   top: 10px;
 }
 
-.conversation {
+.message-form {
+  width: 55%;
+  float: left;
   margin: auto;
-  width: 50%;
-  padding: 0;
-  border: 0;
+  height: 80vh;
+}
+
+.conversation {
+  position: relative;
   top: 10px;
-  height: 50vh;
+  padding: 0;
+  border: 2px solid black;
+  top: 10px;
+  height: 60vh;
   overflow-y: scroll;
+  width: 90%;
+  margin: 0 auto;
+
+}
+
+.message-form textarea {
+  position: relative;
+  padding: 0;
+  top: 20px;
+  width: 90%;
+  height: 10%;
+  margin: 0 auto;
+  display: block;
+}
+
+.sendMessage {
+  position:relative;
+  left: 68%;
+
 }
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -150,8 +180,4 @@ form.login input {
 .user-list {
   float:left;
   background-color: #555555;
-}
-
-textarea {
-  resize: none;
 }

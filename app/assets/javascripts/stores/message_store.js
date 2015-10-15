@@ -23,6 +23,8 @@
         case FriendzConstants.MESSAGES_RECEIVED:
           setMessages(payload.messages);
           MessageStore.emit(FriendzConstants.MESSAGES_RECEIVED);
+        case FriendzConstants.MESSAGE_SENT:
+          MessageStore.emit(FriendzConstants.MESSAGE_SENT);
       }
     })
   });

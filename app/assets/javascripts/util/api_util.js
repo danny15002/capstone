@@ -32,5 +32,16 @@ ApiUtil = {
         ApiActions.receiveFriends(friends);
       }
     })
+  },
+  createMessage: function (message) {
+    console.log("createMessage")
+    $.ajax({
+      url: 'api/messages',
+      method: 'post',
+      data: {message: message},
+      success: function (friends) {
+        ApiActions.createMessage(friends);
+      }
+    })
   }
 }
