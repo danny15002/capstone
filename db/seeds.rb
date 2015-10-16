@@ -50,3 +50,13 @@ end
     location: Faker::Address.street_address
   )
 end
+
+base = "http://assets22.pokemon.com/assets/cms2/img/pokedex/full/"
+
+25.times do |i|
+  num = sprintf '%03d', i + 1
+  Picture.create(
+    user_id: i,
+    pic_url: base + num + ".png"
+  )
+end

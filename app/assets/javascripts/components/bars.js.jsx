@@ -7,25 +7,17 @@ var LeftBar = React.createClass ({
     switch(selected) {
       case "Messages":
         this.history.pushState(null, "/" + selected)
-        $(event.target).addClass("selected");
         break;
       case "Events":
         this.history.pushState(null, "/" + selected)
-        $(event.target).addClass("selected");
         break;
       case "Pictures":
         this.history.pushState(null, "/" + selected)
-        $(event.target).addClass("selected");
         break;
       case "Locations":
         this.history.pushState(null, "/" + selected)
-        $(event.target).addClass("selected");
         break;
       default:
-        for (i = 0; i < 4; i ++ ) {
-          $($(event.currentTarget).children()[i]).addClass("nav")
-          $($(event.currentTarget).children()[i]).removeClass("selected")
-        }
         break;
     }
   },
@@ -54,33 +46,19 @@ var TopBar = React.createClass ({
     this.history.pushState(null, "/login")
   },
   handleClick: function (event) {
-    var selected = $(event.target).context.innerText;
-    switch(selected) {
-      case "Home":
-        this.history.pushState(null, "/");
-        break;
-      case "Events":
-        this.history.pushState(null, "/" + selected);
-        break;
-      case "Pictures":
-        this.history.pushState(null, "/" + selected);
-        break;
-      case "Logout":
-        ApiUtil.logout();
-        break;
-      default:
-        break;
-    }
+    ApiUtil.logout();
   },
 
   render: function () {
     return (
-      <div onClick={this.handleClick} className={"bar top-bar"}>
-        <input type={"text"} className={"nav nav-search"} placeholder={"Find a Friend"}/>
-        <div className={"nav nav-messages"}><div>Home</div></div>
-        <div className={"nav nav-events"}><div>Profile</div></div>
-        <div className={"nav nav-pictures"}><div>Account</div></div>
-        <div className={"nav nav-location"}><div>Logout</div></div>
+      <div className={"top-excess"}>
+        <div className={"bar top-bar"}>
+          <input type={"text"} className={"nav-search"} placeholder={"Find a Friend"}/>
+          <a href={"#/"} className={"nav-messages"}>Home</a>
+          <a href={"#/Profile"} className={"nav-events"}>Profile</a>
+          <a href={"#/Account"} className={"nav-pictures"}>Account</a>
+          <a onClick={this.handleClick} className={"nav-location"}>Logout</a>
+        </div>
       </div>
     )
   }

@@ -2,11 +2,14 @@
   'use strict';
   var _currentUser;
   var _currentFriends = [];
+  var _userPics = [];
 
   var setCurrentUser = function (user) {
     _currentUser = user;
   }
-
+  var setUserPics = function (pictures) {
+    _userPics = pictures;
+  }
   var setCurrentFriends = function (friends) {
     if (friends === undefined) {_currentFriends = []}
     else {_currentFriends = friends}
@@ -19,6 +22,9 @@
     },
     currentFriends: function () {
       return _currentFriends.slice(0);
+    },
+    userPictures: function () {
+      return _userPics[0].pic_url;
     },
     getFriendById: function (id) {
       for (var i = 0; i < _currentFriends.length; i++) {
@@ -41,6 +47,9 @@
         case FriendzConstants.FRIENDS_RECEIVED:
           setCurrentFriends(payload.friends);
           UserStore.emit(FriendzConstants.FRIENDS_RECEIVED);
+        case FriendzConstants.PICTURES_RECEIVED:
+          setUserPics(payload.pictures);
+          UserStore.emit(FriendzConstants.PICTURES_RECEIVED);
       }
     })
   });

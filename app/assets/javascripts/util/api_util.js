@@ -24,6 +24,15 @@ ApiUtil = {
       }
     });
   },
+  fetchPictures: function () {
+    $.ajax({
+      url: '/api/pictures',
+      method: 'get',
+      success: function (pictures) {
+        ApiActions.receivePictures(pictures);
+      }
+    });
+  },
   fetchFriends: function () {
     $.ajax({
       url: 'users',

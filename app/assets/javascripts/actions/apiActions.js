@@ -40,6 +40,13 @@ ApiActions = {
     }
     friendzDispatcher.dispatch(payload);
   },
+  receivePictures: function (pictures) {
+    var payload = {
+      actionType: FriendzConstants.PICTURES_RECEIVED,
+      pictures: pictures
+    }
+    friendzDispatcher.dispatch(payload);
+  },
   loginUser: function (jwt) {
     // Go to the Home page once the user is logged in
     //RouterContainer.get().transitionTo(‘/‘); // TODO: PUT THIS IN A CALLBACK
