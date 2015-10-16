@@ -62,6 +62,10 @@ header h2 {
   display: block;
 }
 
+.credentials-form .jumbotron {
+  margin-top: 0;
+}
+
 .errors {
   color: red;
 }
@@ -175,7 +179,7 @@ header h2 {
 
 .left-bar {
   float: left;
-  background-color: white; 
+  background-color: white;
 }
 
 .right-bar {
@@ -185,8 +189,7 @@ header h2 {
 .nav {
   // background-color: #A80000;
   background: linear-gradient(to bottom right, #CC0000, #990000);
-  width: 92%;
-  height: 5%;
+  height: 6.5%;
   text-align: center;
   vertical-align: middle;
   margin: auto;
@@ -195,6 +198,10 @@ header h2 {
 .left-bar .nav {
   margin-top: 5%;
   margin-bottom: 2%;
+  border-radius: 4px;
+  width: 92%;
+  background: white;
+  border: solid 1px red;
 }
 
 .nav div {
@@ -205,7 +212,12 @@ header h2 {
 
 .nav:hover {
   background: linear-gradient(to bottom right, #FF0000, #BB0000);
+  color: white;
+}
 
+.nav.selected {
+  background: linear-gradient(to bottom right, #FF0000, #BB0000);
+  color: white;
 }
 
 .user-list {
