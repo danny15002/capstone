@@ -59,6 +59,13 @@ class User < ActiveRecord::Base
     class_name: "Event"
   )
 
+  has_many :friends_events, through: :friends, source: :created_events
+  has_many :friends_events2, through: :friends2, source: :created_events
+
+  def getFriendEvents
+    friends_events2 + friends_events
+  end
+
   attr_reader :password
   attr_reader :password_confirmation
 
@@ -66,7 +73,7 @@ class User < ActiveRecord::Base
   validates :password_digest, presence: true
   validates :session_token, presence: true
   validates :password, confirmation: true, length: { minimum: 6, allow_nil: true}
-  validates :password_confirmation, presence: true, allow_nil: true
+  validates :password_confirmation, presence: {on: :create}
 
   after_initialize :ensure_session_token
 

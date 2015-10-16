@@ -28,15 +28,16 @@ var EventForm = React.createClass( {
                    date: this.state.date,
                    location: this.state.location};
     console.log(myEvent);
-    // ApiUtil.createMessage(message);
-    // this.setState({value: ""})
+
+    // ApiUtil.createEvent(myEvent);
+    this.setState({title: "", description: "", date: "", location: "", value: ""})
   },
 
   render: function () {
 
     return (
-      <div className={"message-form"}>
-        Create an Event
+      <div className={"message-form event-form"}>
+        <h3>Create an Event</h3>
         <br></br>
         <br></br>
         <input type="text"
@@ -45,17 +46,19 @@ var EventForm = React.createClass( {
                onChange={this.handleTitle}/>
              <br></br>
              <br></br>
+        <div className={"event-middle"}>
         <input type="date"
                value={this.state.date}
                onChange={this.handleDate}/>
                <br></br>
                <br></br>
-        <input type="location"
+        <input type="text"
                placeholder={"Where's it going to be?"}
                value={this.state.location}
                onChange={this.handleLocation}/>
                <br></br>
                <br></br>
+        </div>
         <textarea type="text"
                   value={this.state.description}
                   placeholder={"Give an enticing description"}

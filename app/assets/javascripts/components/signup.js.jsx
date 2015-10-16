@@ -27,7 +27,7 @@ var SignUp = React.createClass({
     event.preventDefault();
     ApiUtil.signup({username: this.state.username,
                     password: this.state.password,
-                    confirm_password: this.state.confirmPassword});
+                    password_confirmation: this.state.confirmPassword});
   },
   render() {
     return (
@@ -35,12 +35,12 @@ var SignUp = React.createClass({
         <div className={"jumbotron"}><h1> Friendz! </h1></div>
         <h4> Go ahead and sign up! Or <a href={"/#/login"}>Log In.</a> </h4>
 
-        <h4> {this.state.errors} </h4>
+        <h4 className={"errors"}> {this.state.errors} </h4>
         <form role={"form"} className={"form-group"}>
         <div className="input-group my-input" >
           <input type="text" className={"form-control"} valueLink={this.linkState('username')} placeholder={"Username"} />
           <input type="password" className={"form-control"} valueLink={this.linkState('password')} placeholder={"Password"} />
-          <input type="confirmPassword" className={"form-control"} valueLink={this.linkState('confirmPassword')} placeholder={"Confirm Password"} />
+          <input type="password" className={"form-control"} valueLink={this.linkState('confirmPassword')} placeholder={"Confirm Password"} />
           <button type="submit" className={"form-control"} onClick={this.login}>Sign Up</button>
         </div>
       </form>

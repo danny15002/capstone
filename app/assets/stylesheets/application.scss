@@ -58,6 +58,10 @@ header h2 {
   display: block;
 }
 
+.errors {
+  color: red;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 .message-index {
   margin: auto;
@@ -132,6 +136,24 @@ header h2 {
   margin: 0 auto;
   display: block;
 }
+
+
+
+.event-form input {
+  position: relative;
+  width: 90%;
+  left: 5%;
+}
+.event-form button {
+  position: relative;
+  left: 5%;
+}
+
+.event-form h3 {
+  position: relative;
+  left: 5%;
+}
+
 
 .sendMessage {
   position:relative;

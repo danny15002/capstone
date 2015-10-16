@@ -49,6 +49,15 @@
           _error = payload.error;
           LoginStore.emit(FriendzConstants.FAILED_LOGIN);
           break;
+        case FriendzConstants.SIGNUP_USER:
+          _jwt = payload.jwt;
+          _user = jwt_decode(_jwt);
+          LoginStore.emit(FriendzConstants.SIGNUP_USER);
+          break;
+        case FriendzConstants.FAILED_SIGNUP:
+          _error = payload.error;
+          LoginStore.emit(FriendzConstants.FAILED_SIGNUP);
+          break;
         case FriendzConstants.LOGOUT:
           LoginStore.resetSession();
           LoginStore.emit(FriendzConstants.LOGOUT);

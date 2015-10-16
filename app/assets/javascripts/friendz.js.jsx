@@ -28,6 +28,7 @@ var routes = (
       </Route>
       <Route path="Events" component={EventList}>
         <Route path="new" component={EventForm} />
+        <Route path=":eventId" component={Event} />
       </Route>
       <Route path="Pictures"/>
       <Route path="Location"/>
