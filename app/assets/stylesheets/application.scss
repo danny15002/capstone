@@ -20,9 +20,10 @@
 
 .container {
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
   border: 0;
-  width: 100vw;
+  min-width: 900px;
+  max-width: 75%;
   overflow: hidden;
 }
 
@@ -43,10 +44,6 @@ header {
 
 header h2 {
   margin: 0;
-}
-
-.primary {
-  background-color: #880000;
 }
 
 .credentials-form * {
@@ -73,10 +70,9 @@ header h2 {
 ////////////////////////////////////////////////////////////////////////////////
 .message-index {
   margin: auto;
-  width: 70%;
-  padding: 0;
+  width: 80%;
+  padding: 5% 5%;
   border: 0;
-  top: 10px;
   height: 90vh;
   overflow-y: scroll;
 }
@@ -92,7 +88,7 @@ header h2 {
 .message {
   margin-bottom: 10px;
   margin-left: 10px;
-  margin-right: 10px;
+  margin-: 10px;
 }
 
 .msg-sender {
@@ -171,7 +167,7 @@ header h2 {
 ////////////////////////////////////////////////////////////////////////////////
 
 .bar {
-  width: 15%;
+  width: 20%;
   height:92vh;
   background-color: #880000;
   overflow-y: scroll;
@@ -181,23 +177,50 @@ header h2 {
   float: left;
   background-color: white;
 }
+.top-bar {
+  min-width: 900px;
+  max-width: 75%;
+  width: 100%;
+  height: 10%;
+  margin: auto;
+  background: #880000;
+}
+.top-bar * {
+  display: inline-block;
+  width: 20%;
+  height: 20px;
+  margin: 0 2%;
+  color: red;
+  background: white;
 
-.right-bar {
-  float: right;
+}
+.top-bar input {
+  background: white;
+  height: 36px;
+  border-radius: 3px;
 }
 
+.top-bar input:hover {
+  background: white;
+  color: black;
+}
+
+.top-bar div:hover {
+  color: white;
+  background: red;
+}
 .nav {
   // background-color: #A80000;
-  background: linear-gradient(to bottom right, #CC0000, #990000);
-  height: 6.5%;
+  height: 40px;
   text-align: center;
   vertical-align: middle;
   margin: auto;
+
 }
 
 .left-bar .nav {
-  margin-top: 5%;
-  margin-bottom: 2%;
+  margin-top: 20%;
+  margin-bottom: 10%;
   border-radius: 4px;
   width: 92%;
   background: white;
@@ -205,7 +228,7 @@ header h2 {
 }
 
 .nav div {
-  padding: 1%;
+  padding: 10px;
   width: 100%;
   height: 100%;
 }

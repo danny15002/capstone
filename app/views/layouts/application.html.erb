@@ -8,10 +8,19 @@
 </head>
 
 <body>
-  <header class="primary">
-  </header>
 
-  <div class = "container">
+  <script>
+    console.log($(window).height());   // returns height of browser viewport
+    console.log($(document).height()); // returns height of HTML document
+    console.log($(window).width());   // returns width of browser viewport
+    console.log($(document).width());
+    console.log(screen.height);
+    console.log(screen.width);
+
+
+  </script>
+
+  <div class = "main-container">
     <%= yield %>
   </div>
 

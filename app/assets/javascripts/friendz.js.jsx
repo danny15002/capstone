@@ -9,9 +9,11 @@ var App = React.createClass({
     return (
       <div >
         <AuthenticatedComponent>
+          <TopBar />
+          <div className={"container"}>
           <LeftBar />
-          <RightBar />
           {this.props.children}
+          </div>
         </AuthenticatedComponent>
       </div>)
   }
@@ -31,7 +33,7 @@ var routes = (
         <Route path=":eventId" component={Event} />
       </Route>
       <Route path="Pictures"/>
-      <Route path="Location"/>
+      <Route path="Locations"/>
     </Route>
   </Router>
 )
