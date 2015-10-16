@@ -11,11 +11,13 @@ class SessionsController < ApplicationController
 
     if @user
       log_in!(@user)
-      redirect_to root_url
+      payload = {id: current_user.id, username: current_user.username}
+      token = JWT.encode payload, nil, 'none'
+      render json: {id_token: token}
     else
       flash.now[:errors] = ['Wrong username or password.']
       @user = User.new
-      render :new
+      render json: "failed"
     end
   end
 

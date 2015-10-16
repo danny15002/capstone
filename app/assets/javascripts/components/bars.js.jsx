@@ -52,6 +52,9 @@ var RightBar = React.createClass ({
       case "Location":
         this.history.pushState(null, "/" + selected)
         break;
+      case "Logout":
+        ApiActions.logout();
+        this.history.pushState(null, "/login")
       default:
         break;
     }
@@ -64,6 +67,7 @@ var RightBar = React.createClass ({
         <div selected={false} className={"nav nav-events"}><div>Profile</div></div>
         <div selected={false} className={"nav nav-pictures"}><div>Account</div></div>
         <div selected={false} className={"nav nav-location"}><div>Share Location</div></div>
+        <div selected={false} className={"nav nav-location"}><div>Logout</div></div>
       </div>
     )
   }

@@ -33,5 +33,21 @@ ApiActions = {
       events: events
     }
     friendzDispatcher.dispatch(payload);
+  },
+  loginUser: function (jwt) {
+    // Go to the Home page once the user is logged in
+    //RouterContainer.get().transitionTo(‘/‘); // TODO: PUT THIS IN A CALLBACK
+    // We save the JWT in localStorage to keep the user authenticated. We’ll learn more about this later.
+    localStorage.setItem('jwt', jwt);
+    // Send the action to all stores through the Dispatcher
+    friendzDispatcher.dispatch({
+      actionType: FriendzConstants.LOGIN_USER,
+      jwt: jwt
+    });
+  },
+  logout: function () {
+    friendzDispatcher.dispatch({
+      actionType: FriendzConstants.LOGOUT
+    });
   }
 }

@@ -53,5 +53,21 @@ ApiUtil = {
       }
     })
   },
+  login: function (username, password) {
+    var user = {username: username, password: password};
+    $.ajax({
+      url: "session",
+      method: 'POST',
+      type: 'json',
+      data: {user: user},
+      success: function(response) {
+          // We get a JWT back.
+          console.log(response)
+          var jwt = response.id_token;
+          // // We trigger the LoginAction with that JWT.
+          ApiActions.loginUser(jwt);
+      }
+    })
+  }
 
 }
