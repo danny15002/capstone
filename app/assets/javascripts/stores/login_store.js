@@ -50,7 +50,6 @@
           LoginStore.emit(FriendzConstants.FAILED_LOGIN);
           break;
         case FriendzConstants.LOGOUT:
-        debugger
           LoginStore.resetSession();
           LoginStore.emit(FriendzConstants.LOGOUT);
           break;
