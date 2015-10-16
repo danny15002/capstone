@@ -20,7 +20,7 @@ var App = React.createClass({
 var routes = (
   <Router>
     <Route path="login" onEnter={Login.willTransitionTo} component={Login}/>
-    <Route path="signup" component={SignUp}/>
+    <Route path="signup" onEnter={SignUp.willTransitionTo} component={SignUp}/>
     <Route path="/" onEnter={AuthenticatedComponent.willTransitionTo} component={App}>
       <IndexRoute component={Dashboard}/>
       <Route path="Messages" component={UserList}>

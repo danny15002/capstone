@@ -7,15 +7,15 @@ var SignUp = React.createClass({
     }
   }},
   getInitialState: function () {
-    return {username: "", password: "", errors: ""};
+    return {username: "", password: "",confirm_password: "", errors: ""};
   },
   componentDidMount: function () {
-    LoginStore.addChangeListener(FriendzConstants.LOGIN_USER, this.transitionUser);
-    LoginStore.addChangeListener(FriendzConstants.FAILED_LOGIN, this.handleError);
+    LoginStore.addChangeListener(FriendzConstants.SIGNUP_USER, this.transitionUser);
+    LoginStore.addChangeListener(FriendzConstants.FAILED_SIGNUP, this.handleError);
   },
   componentWillUnmount: function () {
-    LoginStore.removeChangeListener(FriendzConstants.LOGIN_USER, this.transitionUser);
-    LoginStore.removeChangeListener(FriendzConstants.FAILED_LOGIN, this.handleError);
+    LoginStore.removeChangeListener(FriendzConstants.SIGNUP_USER, this.transitionUser);
+    LoginStore.removeChangeListener(FriendzConstants.FAILED_SIGNUP, this.handleError);
   },
   transitionUser: function () {
     this.history.pushState(null, "/");
@@ -25,7 +25,9 @@ var SignUp = React.createClass({
   },
   login: function (event) {
     event.preventDefault();
-    ApiUtil.login(this.state.username, this.state.password);
+    ApiUtil.signup({username: this.state.username,
+                    password: this.state.password,
+                    confirm_password: this.state.confirmPassword});
   },
   render() {
     return (
@@ -38,8 +40,8 @@ var SignUp = React.createClass({
         <div className="input-group my-input" >
           <input type="text" className={"form-control"} valueLink={this.linkState('username')} placeholder={"Username"} />
           <input type="password" className={"form-control"} valueLink={this.linkState('password')} placeholder={"Password"} />
-          <input type="confirm_password" className={"form-control"} valueLink={this.linkState('confirm_password')} placeholder={"Confirm Password"} />
-          <button type="submit" className={"form-control"} onClick={this.login}>Submit</button>
+          <input type="confirmPassword" className={"form-control"} valueLink={this.linkState('confirmPassword')} placeholder={"Confirm Password"} />
+          <button type="submit" className={"form-control"} onClick={this.login}>Sign Up</button>
         </div>
       </form>
     </div>

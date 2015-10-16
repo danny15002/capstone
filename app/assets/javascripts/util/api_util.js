@@ -53,6 +53,21 @@ ApiUtil = {
       }
     })
   },
+  signup: function (user) {
+    $.ajax({
+      url: "users",
+      method: 'POST',
+      type: 'json',
+      data: {user: user},
+      success: function(response) {
+        var jwt = response.id_token;
+        ApiActions.signupUser(jwt);
+      },
+      error: function (response) {
+        ApiActions.signupError(JSON.parse(response.responseText));
+      }
+    })
+  },
   login: function (username, password) {
     var user = {username: username, password: password};
     $.ajax({
@@ -62,7 +77,6 @@ ApiUtil = {
       data: {user: user},
       success: function(response) {
         // We get a JWT back.
-        console.log(response)
         var jwt = response.id_token;
         // // We trigger the LoginAction with that JWT.
         ApiActions.loginUser(jwt);
