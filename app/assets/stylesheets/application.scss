@@ -46,8 +46,16 @@ header h2 {
 }
 
 .credentials-form * {
-  margin: 7% auto;
+  margin: 28px auto;
   text-align: center;
+}
+
+.credentials-form .my-input {
+  width: 30%;
+}
+
+.credentials-form input {
+  display: block;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
