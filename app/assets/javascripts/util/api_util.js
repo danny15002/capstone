@@ -53,6 +53,17 @@ ApiUtil = {
       }
     })
   },
+  createEvent: function (event) {
+    console.log("createMessage")
+    $.ajax({
+      url: 'api/events',
+      method: 'post',
+      data: {event: event},
+      success: function () {
+        ApiActions.createEvent();
+      }
+    })
+  },
   signup: function (user) {
     $.ajax({
       url: "users",

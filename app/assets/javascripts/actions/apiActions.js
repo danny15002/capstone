@@ -34,6 +34,12 @@ ApiActions = {
     }
     friendzDispatcher.dispatch(payload);
   },
+  createEvent: function () {
+    var payload = {
+      actionType: FriendzConstants.EVENT_CREATED
+    }
+    friendzDispatcher.dispatch(payload);
+  },
   loginUser: function (jwt) {
     // Go to the Home page once the user is logged in
     //RouterContainer.get().transitionTo(‘/‘); // TODO: PUT THIS IN A CALLBACK

@@ -11,7 +11,13 @@
     myEvents: function () {
       return _events.slice(0);
     },
-
+    findById: function (id) {
+      for (var i = 0; i < _events.length; i++) {
+        if (id === _events[i].id) {
+          return _events[i];
+        }
+      }
+    },
     addChangeListener: function (changeEvent, callback) {
       this.on(changeEvent, callback);
     },
@@ -23,8 +29,10 @@
         case FriendzConstants.EVENTS_RECEIVED:
           setEvents(payload.events);
           EventStore.emit(FriendzConstants.EVENTS_RECEIVED);
-        // case FriendzConstants.EVENT_CREATED:
-        //   EventStore.emit(FriendzConstants.EVENT_CREATED);
+          break;
+        case FriendzConstants.EVENT_CREATED:
+          EventStore.emit(FriendzConstants.EVENT_CREATED);
+          break;
       }
     })
   });
