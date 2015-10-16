@@ -35,15 +35,12 @@ ul {
   list-style-type: none;
 }
 
-header {
-  margin: 0;
-  height: 8vh;
-  background: linear-gradient(to bottom right, #990000, #660000);
-
-}
-
 header h2 {
   margin: 0;
+}
+
+.credentials-form {
+  height: 90%;
 }
 
 .credentials-form * {
@@ -112,18 +109,18 @@ header h2 {
 }
 
 .message-form {
+  position:relative;
   width: 55%;
   float: left;
   margin: auto;
   height: 80vh;
+  top: 36px;
 }
 
 .conversation {
   position: relative;
-  top: 10px;
   padding: 0;
   border: 2px solid black;
-  top: 10px;
   height: 60vh;
   overflow-y: scroll;
   width: 90%;
@@ -177,24 +174,40 @@ header h2 {
   float: left;
   background-color: white;
 }
+
+.top-excess {
+  width: 100%;
+  height: 60px;
+  background:  #880000;//linear-gradient(to bottom right, #990000, #660000);
+  opacity: 1;
+}
+
 .top-bar {
   min-width: 900px;
   max-width: 75%;
   width: 100%;
-  height: 10%;
+  height: 60px;
   margin: auto;
-  background: #880000;
+  opacity: 1;
 }
+
 .top-bar * {
   display: inline-block;
   width: 20%;
-  height: 20px;
-  margin: 0 2%;
-  color: red;
-  background: white;
+  height: 100%;
 
+  padding: 15px;
+  color: white;
+  text-align: center;
 }
+
+.top-bar a:hover {
+  color: white;
+  background: red;
+}
+
 .top-bar input {
+  width: 20%;
   background: white;
   height: 36px;
   border-radius: 3px;
@@ -205,23 +218,20 @@ header h2 {
   color: black;
 }
 
-.top-bar div:hover {
-  color: white;
-  background: red;
-}
 .nav {
   // background-color: #A80000;
   height: 40px;
   text-align: center;
   vertical-align: middle;
   margin: auto;
-
+  padding: 7px;
+  border-radius: 4px;
 }
 
 .left-bar .nav {
   margin-top: 20%;
   margin-bottom: 10%;
-  border-radius: 4px;
+
   width: 92%;
   background: white;
   border: solid 1px red;
@@ -244,8 +254,17 @@ header h2 {
 }
 
 .user-list {
+  position: relative;
+  border-radius: 4px;
+  top: 36px;
+  height: auto;
   float:left;
-  background-color: #555555;
+  background-color: #BBBBBB;
+}
+
+.nav-friend {
+  margin-bottom: 4px;
+  border: 1px solid red;
 }
 
 .selected {

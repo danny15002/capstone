@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   root to: 'static_pages#root'
 
   namespace :api, defaults: {format: :json} do
-    resources :messages, only: [:new, :create, :index]
-    resources :events, only: [:new, :create, :index, :show]
+    resources :messages, only: [:create, :index]
+    resources :events, only: [:create, :index, :show]
+    resources :pictures, only: [:create, :index, :show]
   end
 
   get '*unmatched_route', to: 'application#not_found'

@@ -62,6 +62,8 @@ class User < ActiveRecord::Base
   has_many :friends_events, through: :friends, source: :created_events
   has_many :friends_events2, through: :friends2, source: :created_events
 
+  has_many :pictures
+
   def getFriendEvents
     friends_events2 + friends_events
   end
