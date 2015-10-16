@@ -3,10 +3,14 @@ var EventForm = React.createClass( {
     return {title: "", description: "", date: "", location: "", value: ""}
   },
   componentDidMount: function () {
-
+    EventStore.addChangeListener(FriendzConstants.EVENT_CREATED, this.sendEvent);
+    ApiUtil.fetchEvents();
   },
-  componentWillReceiveProps: function (nextProps) {
-
+  componentWillUnmount: function () {
+    EventStore.removeChangeListener(FriendzConstants.EVENT_CREATED, this.sendEvent);
+  },
+  sendEvent: function () {
+    ApiUtil.fetchEvents();
   },
   handleTitle: function(event) {
     this.setState({title: event.target.value});
@@ -29,7 +33,7 @@ var EventForm = React.createClass( {
                    location: this.state.location};
     console.log(myEvent);
 
-    // ApiUtil.createEvent(myEvent);
+    ApiUtil.createEvent(myEvent);
     this.setState({title: "", description: "", date: "", location: "", value: ""})
   },
 
