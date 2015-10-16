@@ -2,6 +2,7 @@
   'use strict';
   var _jwt = localStorage.jwt;
   var _user = null;
+  var _error = "";
   if (_jwt) {
     _user = jwt_decode(_jwt);
   }
@@ -15,10 +16,15 @@
       return _jwt;
     },
 
+    getError: function () {
+      return _error;
+    },
+
     isLoggedIn: function () {
       return !!_user;
     },
     resetSession: function () {
+      localStorage.clear();
       _jwt = null;
       _user = null;
     },
@@ -37,11 +43,17 @@
           _user = jwt_decode(_jwt);
           // And we emit a change to all components that are listening.
           // This method is implemented in the `BaseStore`.
-          LoginStore.emit(FriendzConstants.LOGIN_USER)
+          LoginStore.emit(FriendzConstants.LOGIN_USER);
+          break;
+        case FriendzConstants.FAILED_LOGIN:
+          _error = payload.error;
+          LoginStore.emit(FriendzConstants.FAILED_LOGIN);
           break;
         case FriendzConstants.LOGOUT:
-        console.log("logiging out")
+        debugger
           LoginStore.resetSession();
+          LoginStore.emit(FriendzConstants.LOGOUT);
+          break;
         default:
           break;
       };

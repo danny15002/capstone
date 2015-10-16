@@ -45,6 +45,12 @@ ApiActions = {
       jwt: jwt
     });
   },
+  loginError: function (error) {
+    friendzDispatcher.dispatch({
+      actionType: FriendzConstants.FAILED_LOGIN,
+      error: error.error
+    });
+  },
   logout: function () {
     friendzDispatcher.dispatch({
       actionType: FriendzConstants.LOGOUT
