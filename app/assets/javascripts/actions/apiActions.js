@@ -58,13 +58,13 @@ ApiActions = {
     localStorage.setItem('jwt', jwt);
     // Send the action to all stores through the Dispatcher
     friendzDispatcher.dispatch({
-      actionType: FriendzConstants.LOGIN_USER,
+      actionType: FriendzConstants.SIGNUP_USER,
       jwt: jwt
     });
   },
   signupError: function (error) {
     friendzDispatcher.dispatch({
-      actionType: FriendzConstants.FAILED_LOGIN,
+      actionType: FriendzConstants.FAILED_SIGNUP,
       error: error.error
     });
   },

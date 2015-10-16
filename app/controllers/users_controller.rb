@@ -10,10 +10,12 @@ class UsersController < ApplicationController
 
     if @user.save
       log_in!(@user)
-      redirect_to root_url
+      payload = {id: current_user.id, username: current_user.username}
+      token = JWT.encode payload, nil, 'none'
+      render json: {id_token: token}
     else
       flash.now[:errors] = @user.errors.full_messages
-      render :new
+      render json: {error: flash.now[:errors]}, status: 422
     end
   end
 
