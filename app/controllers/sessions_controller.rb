@@ -15,9 +15,7 @@ class SessionsController < ApplicationController
       token = JWT.encode payload, nil, 'none'
       render json: {id_token: token}
     else
-      flash.now[:errors] = ['Wrong username or password.']
-      @user = User.new
-      render json: "failed"
+      render json: {error: 'Wrong username or password.'}, status: 422
     end
   end
 
@@ -29,7 +27,7 @@ class SessionsController < ApplicationController
 
   def destroy
     log_out!
-    redirect_to new_session_url
+    render json: {}
   end
 
   private

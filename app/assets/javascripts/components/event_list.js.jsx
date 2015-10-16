@@ -15,10 +15,8 @@ var EventList = React.createClass({
   mixins: [ReactRouter.History],
 
   handleClick: function (event) {
-    console.log($(event.target).context.id);
     var selected = $(event.target).context.id;
     this.history.pushState(null,"Events/"+ selected)
-
   },
 
   render: function () {

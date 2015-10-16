@@ -36,25 +36,33 @@ var LeftBar = React.createClass ({
 
 var RightBar = React.createClass ({
   mixins: [ReactRouter.History],
-
+  componentDidMount: function () {
+    LoginStore.addChangeListener(FriendzConstants.LOGOUT, this.logoutUser);
+  },
+  componentWillUnmount: function () {
+    // LoginStore.removeChangeListener(friendzDispatcher.LOGOUT, this.logout);
+  },
+  logoutUser: function () {
+    this.history.pushState(null, "/login")
+  },
   handleClick: function (event) {
     var selected = $(event.target).context.innerText;
     switch(selected) {
       case "Home":
-        this.history.pushState(null, "/")
+        this.history.pushState(null, "/");
         break;
       case "Events":
-        this.history.pushState(null, "/" + selected)
+        this.history.pushState(null, "/" + selected);
         break;
       case "Pictures":
-        this.history.pushState(null, "/" + selected)
+        this.history.pushState(null, "/" + selected);
         break;
       case "Location":
-        this.history.pushState(null, "/" + selected)
+        this.history.pushState(null, "/" + selected);
         break;
       case "Logout":
-        ApiActions.logout();
-        this.history.pushState(null, "/login")
+        ApiUtil.logout();
+        break;
       default:
         break;
     }

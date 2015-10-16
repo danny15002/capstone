@@ -45,21 +45,11 @@ header h2 {
   background-color: #880000;
 }
 
-form.login {
-  margin: auto;
-  width: 30%;
+.credentials-form * {
+  margin: 7% auto;
+  text-align: center;
 }
 
-form.login input {
-  margin: auto;
-  width: 100%;
-}
-
-.logout {
-  position:fixed;
-  right: 20px;
-  bottom: 20px;
-}
 ////////////////////////////////////////////////////////////////////////////////
 .message-index {
   margin: auto;

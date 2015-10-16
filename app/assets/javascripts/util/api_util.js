@@ -16,7 +16,7 @@ ApiUtil = {
       data = {public:type, user_id: id}
     }
     $.ajax({
-      url: 'api/messages',
+      url: '/api/messages',
       method: 'get',
       data: data,
       success: function (messages) {
@@ -61,11 +61,23 @@ ApiUtil = {
       type: 'json',
       data: {user: user},
       success: function(response) {
-          // We get a JWT back.
-          console.log(response)
-          var jwt = response.id_token;
-          // // We trigger the LoginAction with that JWT.
-          ApiActions.loginUser(jwt);
+        // We get a JWT back.
+        console.log(response)
+        var jwt = response.id_token;
+        // // We trigger the LoginAction with that JWT.
+        ApiActions.loginUser(jwt);
+      },
+      error: function (response) {
+        ApiActions.loginError(JSON.parse(response.responseText));
+      }
+    })
+  },
+  logout: function () {
+    $.ajax({
+      url: "session",
+      method: 'DELETE',
+      success: function (response) {
+        ApiActions.logout();
       }
     })
   }

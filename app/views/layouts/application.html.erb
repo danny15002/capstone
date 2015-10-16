@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>CrewManager</title>
+  <title>Friendz</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
   <%= csrf_meta_tags %>
@@ -9,37 +9,10 @@
 
 <body>
   <header class="primary">
-
-    <% if current_user %>
-      <h2 align = "center">
-        <%= " The #{UsersHelper.adjective} #{current_user.username}!" %>
-      </h2>
-    <% else %>
-
-    <% end %>
-
-    <% if flash.now[:errors] %>
-      <ul>
-        <% flash.now[:errors].each do |error| %>
-          <li> <%= error %> </li>
-        <% end  %>
-      </ul>
-    <% end %>
   </header>
-
 
   <div class = "container">
     <%= yield %>
-  </div>
-
-
-  <div class="container">
-    <div class = "row">
-      </div>
-
-      <% if current_user %>
-        <%= button_to "Log Out", session_url, method: :delete, class: "logout"%>
-      <% end %>
   </div>
 
 

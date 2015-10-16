@@ -8,7 +8,6 @@ class Api::MessagesController < ApplicationController
       @messages = Message.where(public: params[:public]).where("(to_id = #{current_user.id} AND from_id = #{params[:user_id]}) OR (to_id = #{params[:user_id]} AND from_id = #{current_user.id})").includes(:user_to, :user_from).order(:created_at)
       # @messages += current_user.sent_messages.includes(:user_to, :user_from).where(public: params[:public]).where("to_id = #{params[:user_id]}")
     end
-
     render :index
   end
 
