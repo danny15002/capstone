@@ -68,6 +68,10 @@ class User < ActiveRecord::Base
     friends_events2 + friends_events
   end
 
+  def get_statuses
+    sent_messages.where("to_id = from_id")
+  end
+
   attr_reader :password
   attr_reader :password_confirmation
 

@@ -267,7 +267,48 @@ header h2 {
   border: 1px solid red;
 }
 
-.selected {
-  // background-color: black;
-  // color: white;
+
+.map {
+  height: 200px;
+  width: 200px;
+}
+
+.profile {
+  position: relative;
+  width: 80%;
+  float: left;
+  height: 700px;
+}
+
+.prof-pic {
+  position:relative;
+  top: 36px;
+  left: 36px;
+  height: 200px;
+  width: 200px;
+}
+
+.status-form {
+  position: relative;
+  top: 80px;
+  margin:auto;
+  width: 80%;
+  height: 138px;
+  border: solid black 1px;
+  border-radius: 10px;
+}
+
+.status-form textarea {
+  position: absolute;
+  display: block;
+  margin: 20px 5%;
+  // top: 20px;
+  width: 90%;
+  height: 80px;
+}
+
+.status-button {
+  position: absolute;
+  left: 80%;
+  top: 106px;
 }
