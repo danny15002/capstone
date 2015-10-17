@@ -18,6 +18,8 @@ var Profile = React.createClass ({
         <img className={"prof-pic"}
           src={this.state.profilePicUrl}
           alt={"profile picture"}/>
+        <PostStatusForm />
+        
       </div>
     )
   }

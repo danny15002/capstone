@@ -34,7 +34,8 @@ var routes = (
       </Route>
       <Route path="Pictures"/>
       <Route path="Profile" component={Profile}/>
-      <Route path="Locations"/>
+      <Route path="Account" component={Account}/>
+      <Route path="Locations" component={Locations}/>
     </Route>
   </Router>
 )
