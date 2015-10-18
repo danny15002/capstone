@@ -8,9 +8,9 @@ class Api::PicturesController < ApplicationController
 
   def create
     p params
-    @message = Message.create(message_params)
+    @picture = Message.create(picture_params)
 
-    if @message.save
+    if @picture.save
       render json: "success"
     else
       render json: "failed"
@@ -19,7 +19,7 @@ class Api::PicturesController < ApplicationController
   end
 
   private
-  def message_params
+  def picture_params
     params.require(:picture).permit(:user_id, :pic_url)
   end
 end

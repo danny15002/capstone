@@ -60,3 +60,13 @@ base = "http://assets22.pokemon.com/assets/cms2/img/pokedex/full/"
     pic_url: base + num + ".png"
   )
 end
+
+100.times do
+  user = rand(1..25)
+  pic = rand(1..720)
+  num = sprintf '%03d', pic
+  Picture.create(
+    user_id: user,
+    pic_url: base + num + ".png"
+  )
+end

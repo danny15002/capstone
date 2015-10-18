@@ -48,8 +48,8 @@ ApiUtil = {
       url: 'api/messages',
       method: 'post',
       data: {message: message},
-      success: function (friends) {
-        ApiActions.createMessage(friends);
+      success: function (response) {
+        ApiActions.createMessage(response);
       }
     })
   },

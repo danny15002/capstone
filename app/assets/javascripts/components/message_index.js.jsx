@@ -15,6 +15,9 @@ var MessageIndex = React.createClass( {
   render: function () {
     return (
       <div className={"message-index"}>
+        <div className={"nf-status-form"}>
+          <PostStatusForm />
+        </div>
         <ul>
           {this.state.messages.map( function (message) {
             return (
