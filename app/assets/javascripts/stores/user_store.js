@@ -23,8 +23,11 @@
     currentFriends: function () {
       return _currentFriends.slice(0);
     },
-    userPictures: function () {
+    userProfPic: function () {
       return _userPics[0].pic_url;
+    },
+    getPictures: function () {
+      return _userPics.slice(0);
     },
     getFriendById: function (id) {
       for (var i = 0; i < _currentFriends.length; i++) {
@@ -44,12 +47,15 @@
         case FriendzConstants.CURRENT_USER_RECEIVED:
           setCurrentUser(payload.user);
           UserStore.emit(FriendzConstants.CURRENT_USER_RECEIVED);
+          break;
         case FriendzConstants.FRIENDS_RECEIVED:
           setCurrentFriends(payload.friends);
           UserStore.emit(FriendzConstants.FRIENDS_RECEIVED);
+          break;
         case FriendzConstants.PICTURES_RECEIVED:
           setUserPics(payload.pictures);
           UserStore.emit(FriendzConstants.PICTURES_RECEIVED);
+          break;
       }
     })
   });

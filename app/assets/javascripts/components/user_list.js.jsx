@@ -1,6 +1,6 @@
 var UserList = React.createClass({
   mixins: [ReactRouter.History],
-  
+
   getInitialState: function () {
     return {friends: UserStore.currentFriends()}
   },
@@ -22,8 +22,19 @@ var UserList = React.createClass({
     this.history.pushState(null,"Messages/"+ selected)
 
   },
+  welcome: function () {
+    return (
+      <div className={"inbox-welcome"}>
+        <pre>
+        {"Hello, " + LoginStore.user().username + ". Welcome to Your Inbox.\n"}
+        {"Select a user to see your conversations." }
+        </pre>
+      </div>
+    )
+  },
 
   render: function () {
+
     return (
       <div>
         <div onClick={this.handleClick} className="bar user-list">
@@ -36,7 +47,7 @@ var UserList = React.createClass({
           })}
 
         </div>
-        {this.props.children || <div>Welcome to Your Inbox</div>}
+        {this.props.children || this.welcome()}
       </div>
     );
   }

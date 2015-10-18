@@ -10,7 +10,7 @@ var Profile = React.createClass ({
     UserStore.removeChangeListener(FriendzConstants.PICTURES_RECEIVED, this.getPictures);
   },
   getPictures: function () {
-    this.setState({profilePicUrl: UserStore.userPictures()})
+    this.setState({profilePicUrl: UserStore.userProfPic()})
   },
   render: function () {
     return (
@@ -19,7 +19,7 @@ var Profile = React.createClass ({
           src={this.state.profilePicUrl}
           alt={"profile picture"}/>
         <PostStatusForm />
-        
+
       </div>
     )
   }

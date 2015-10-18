@@ -30,7 +30,7 @@ class Message < ActiveRecord::Base
     time = Time.now - created_at
 
     if time > 86400
-      return "#{(time/86400.round)} days ago"
+      return "#{(time/86400).round} days ago"
     end
     if time > 3600
       return "#{(time/3600).round} hours ago"

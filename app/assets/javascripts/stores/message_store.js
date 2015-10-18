@@ -11,7 +11,6 @@
     getMessages: function () {
       return _messages.slice(0);
     },
-
     addChangeListener: function (changeEvent, callback) {
       this.on(changeEvent, callback);
     },
@@ -23,8 +22,11 @@
         case FriendzConstants.MESSAGES_RECEIVED:
           setMessages(payload.messages);
           MessageStore.emit(FriendzConstants.MESSAGES_RECEIVED);
+          break;
         case FriendzConstants.MESSAGE_SENT:
           MessageStore.emit(FriendzConstants.MESSAGE_SENT);
+          break;
+        default:
       }
     })
   });

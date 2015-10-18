@@ -3,7 +3,14 @@ var PostStatusForm = React.createClass ({
     return {value: undefined}
   },
   componentDidMount: function () {
-
+    MessageStore.addChangeListener(FriendzConstants.MESSAGE_SENT, this.updatePosts);
+  },
+  componentWillUnmount: function () {
+    MessageStore.removeChangeListener(FriendzConstants.MESSAGE_SENT, this.updatePosts);
+  },
+  updatePosts: function () {
+    console.log("fetchingMessages")
+    ApiUtil.fetchMessages(true);
   },
   handleChange: function(event) {
     // TODO handle at back end, reject empty string.

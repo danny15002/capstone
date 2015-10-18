@@ -32,7 +32,7 @@ var routes = (
         <Route path="new" component={EventForm} />
         <Route path=":eventId" component={Event} />
       </Route>
-      <Route path="Pictures"/>
+      <Route path="Pictures" component={PictureViewer}/>
       <Route path="Profile" component={Profile}/>
       <Route path="Account" component={Account}/>
       <Route path="Locations" component={Locations}/>

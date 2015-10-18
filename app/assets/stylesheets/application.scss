@@ -260,6 +260,7 @@ header h2 {
   height: auto;
   float:left;
   background-color: #BBBBBB;
+  overflow-y: scroll;
 }
 
 .nav-friend {
@@ -311,4 +312,18 @@ header h2 {
   position: absolute;
   left: 80%;
   top: 106px;
+}
+
+.nf-status-form .status-form {
+  position: relative;
+  top: 0px;
+  margin-bottom: 30px;
+}
+////////////////////////////////////////////////////////////////////////////////
+
+.pic-viewer{
+  float: left;
+  width: 80%;
+  height: 500px;
+  border: 1px solid black;
 }

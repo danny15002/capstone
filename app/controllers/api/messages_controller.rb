@@ -3,7 +3,7 @@ class Api::MessagesController < ApplicationController
   def index
 
     if params[:user_id].nil?
-      @messages = current_user.received_messages.includes(:user_to).where(public: params[:public])
+      @messages = current_user.received_messages.includes(:user_to).where(public: params[:public]).order(:created_at).reverse_order
     else
       @messages = Message.where(public: params[:public]).where("(to_id = #{current_user.id} AND from_id = #{params[:user_id]}) OR (to_id = #{params[:user_id]} AND from_id = #{current_user.id})").includes(:user_to, :user_from).order(:created_at)
       # @messages += current_user.sent_messages.includes(:user_to, :user_from).where(public: params[:public]).where("to_id = #{params[:user_id]}")
@@ -16,7 +16,7 @@ class Api::MessagesController < ApplicationController
     @message = Message.create(message_params)
 
     if @message.save
-      render json: "success"
+      render json: {} #must return an object for AJAX success callback to trigger
     else
       render json: "failed"
     end
