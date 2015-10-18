@@ -7,7 +7,7 @@ var PictureViewer = React.createClass({
     )
   },
   handleRight: function () {
-    var idx = this.state.currentPicIdx + 1
+    var idx = (this.state.currentPicIdx + 1) % this.state.pictures.length
     this.setState({currentPicIdx: idx})
   },
   leftArrow: function () {
@@ -18,7 +18,7 @@ var PictureViewer = React.createClass({
     )
   },
   handleLeft: function () {
-    var idx = this.state.currentPicIdx - 1
+    var idx = (this.state.currentPicIdx - 1 + this.state.pictures.length) % this.state.pictures.length
     this.setState({currentPicIdx: idx})
   },
   getInitialState: function () {
