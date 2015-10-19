@@ -24,10 +24,11 @@ ApiUtil = {
       }
     });
   },
-  fetchPictures: function () {
+  fetchPictures: function (id) {
     $.ajax({
       url: '/api/pictures',
       method: 'get',
+      data: {id: id},
       success: function (pictures) {
         ApiActions.receivePictures(pictures);
       }
