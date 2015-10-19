@@ -25,7 +25,7 @@ var EventForm = React.createClass( {
     this.setState({location: event.target.value});
   },
   submitForm: function() {
-    var creator_id = 1;//UserStore.currentUser().id
+    var creator_id = LoginStore.user().id
     var myEvent = {creator_id: creator_id,
                    title: this.state.title,
                    description: this.state.description,
