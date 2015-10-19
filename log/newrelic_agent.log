@@ -3181,3 +3181,5 @@ LINE 1: ...ages"."public" = $1 AND ((to_id = 3 AND from_id = ) OR (to_i...
 [10/19/15 11:56:40 -0700 Daniels-MacBook-Pro-3.local (37857)] INFO : Doing deferred dependency-detection before Rack startup
 [10/19/15 11:56:54 -0700 Daniels-MacBook-Pro-3.local (37857)] ERROR : Invalid license key, please contact support@newrelic.com
 [10/19/15 11:56:54 -0700 Daniels-MacBook-Pro-3.local (37857)] ERROR : Visit NewRelic.com to obtain a valid license key, or to upgrade your account.
+[10/19/15 14:15:02 -0700 Daniels-MacBook-Pro-3.local (37857)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Couldn't find User with 'id'=NaN
+[10/19/15 14:15:59 -0700 Daniels-MacBook-Pro-3.local (37857)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Couldn't find User with 'id'=NaN

@@ -20,7 +20,12 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = current_user.friends + current_user.friends2
+    if params[:id]
+      @users = User.find(params[:id]).friends + User.find(params[:id]).friends2
+    else
+      @users = current_user.friends + current_user.friends2
+    end
+
     render :index
   end
 

@@ -6,8 +6,7 @@ var FriendList = React.createClass({
   },
   componentDidMount: function () {
     UserStore.addChangeListener(FriendzConstants.FRIENDS_RECEIVED, this.getFriends);
-    ApiUtil.fetchFriends();
-
+    ApiUtil.fetchFriends(this.props.params.userId);
   },
   componentWillUnmount: function () {
     UserStore.removeChangeListener(FriendzConstants.FRIENDS_RECEIVED, this.getFriends);
@@ -19,25 +18,17 @@ var FriendList = React.createClass({
   handleClick: function (event) {
     // console.log($(event.target).context.id);
     var selected = $(event.target).context.id;
-    this.history.pushState(null,"Friends/"+ selected)
-
-  },
-  welcome: function () {
-    return (
-      <div className={"inbox-welcome"}>
-        <pre>
-        {"Hello, " + LoginStore.user().username + ". Welcome to Your Inbox.\n"}
-        {"Select a user to see your conversations." }
-        </pre>
-      </div>
-    )
+    if (selected === undefined) {
+      selected = LoginStore.user().id
+    }
+    this.history.pushState(null,"User/"+ selected)
   },
 
   render: function () {
 
     return (
       <div>
-        <div onClick={this.handleClick} className="bar user-list">
+        <div onClick={this.handleClick} className="friend-list">
           {this.state.friends.map(function (friend){
             return (
               <div id={friend.id} key={friend.id} selected={false} className={"nav nav-friend"}>
@@ -45,9 +36,8 @@ var FriendList = React.createClass({
               </div>
             )
           })}
-
         </div>
-        {this.props.children || this.welcome()}
+        {this.props.childrens}
       </div>
     );
   }

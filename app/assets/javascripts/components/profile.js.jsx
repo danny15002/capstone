@@ -3,7 +3,6 @@ var Profile = React.createClass ({
     return {profilePicUrl: ""}
   },
   componentDidMount: function () {
-    
     UserStore.addChangeListener(FriendzConstants.PICTURES_RECEIVED, this.getPictures);
     ApiUtil.fetchPictures(this.props.params.userId);
   },
@@ -11,10 +10,11 @@ var Profile = React.createClass ({
     UserStore.removeChangeListener(FriendzConstants.PICTURES_RECEIVED, this.getPictures);
   },
   componentWillReceiveProps: function (nextProps) {
-    var id = parseInt(nextProps.params.userId)
-    debugger
+    var id = nextProps.params.userId;
     if (id === undefined){
-      id = LoginStore.user().id
+      id = LoginStore.user().id;
+    } else {
+      id = parseInt(id);
     }
     ApiUtil.fetchPictures(id);
   },
@@ -22,12 +22,19 @@ var Profile = React.createClass ({
     this.setState({profilePicUrl: UserStore.userProfPic()})
   },
   render: function () {
+    var id;
+    if (this.props.params.userId === undefined) {
+      id = LoginStore.user().id;
+    } else {
+      id = this.props.params.userId
+    }
     return (
       <div className={"profile"}>
         <img className={"prof-pic"}
           src={this.state.profilePicUrl}
           alt={"profile picture"}/>
-        <a href={"#/Friends"} className={"Friends"}>Friends</a>
+        <a href={"#/User/" + id + "/Friends"} className={"Friends"}>Friends</a>
+        <a href={"#/User/" + id + "/Pictures"} className={"Pictures"}>Pictures</a>
         <PostStatusForm />
       </div>
     )

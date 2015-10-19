@@ -34,10 +34,11 @@ ApiUtil = {
       }
     });
   },
-  fetchFriends: function () {
+  fetchFriends: function (id) {
     $.ajax({
       url: 'users',
       method: 'get',
+      data: {id: id},
       success: function (friends) {
         ApiActions.receiveFriends(friends);
       }
