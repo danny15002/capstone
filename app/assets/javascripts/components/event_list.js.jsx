@@ -23,6 +23,13 @@ var EventList = React.createClass({
     return (
       <div className={"my-events"}>
         My Events
+        {EventStore.userEvents().map(function (event) {
+          return (
+            <div key={event.id}>
+              {event.title}
+            </div>
+          )
+        })}
       </div>
     )
   },

@@ -332,6 +332,23 @@ header h2 {
 .pic-viewer{
   float: left;
   width: 80%;
-  height: 500px;
+  height: 85%;
   border: 1px solid black;
+}
+
+.pic-container {
+  float: left;
+  height: auto;
+  width: 80%;
+  background: black;
+}
+
+.picture {
+  float: left;
+  width: 400px;
+  display: block;
+}
+
+.pic-comment{
+  position: relative;
 }

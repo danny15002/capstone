@@ -16,7 +16,7 @@ var MessageForm = React.createClass( {
     this.setState({value: event.target.value});
   },
   submitForm: function() {
-    var from_id = UserStore.currentUser().id
+    var from_id = LoginStore.user().id
     var message = {to_id: this.state.recipientId,
                  from_id: from_id,
                  body: this.state.value,

@@ -20,10 +20,14 @@ ApiActions = {
     }
     friendzDispatcher.dispatch(payload);
   },
-  createMessage: function (message) {
+  createMessage: function (message, constant) {
     var payload ={
       actionType: FriendzConstants.MESSAGE_SENT,
       message: message
+    }
+
+    if (constant !== undefined) {
+      payload.actionType = FriendzConstants.STATUS_POSTED
     }
     friendzDispatcher.dispatch(payload);
   },
@@ -84,6 +88,11 @@ ApiActions = {
   logout: function () {
     friendzDispatcher.dispatch({
       actionType: FriendzConstants.LOGOUT
+    });
+  },
+  uploadPicture: function () {
+    friendzDispatcher.dispatch({
+      actionType: FriendzConstants.PICTURE_UPLOADED
     });
   }
 }

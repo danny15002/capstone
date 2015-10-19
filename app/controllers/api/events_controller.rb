@@ -2,6 +2,8 @@ class Api::EventsController < ApplicationController
 
   def index
     @events = current_user.getFriendEvents
+    @events += current_user.created_events
+
     render :index
   end
 
@@ -10,7 +12,7 @@ class Api::EventsController < ApplicationController
     @event = Event.create(event_params)
 
     if @event.save
-      render json: "success"
+      render json: {}
     else
       render json: "failed"
     end

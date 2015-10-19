@@ -31,7 +31,6 @@ var EventForm = React.createClass( {
                    description: this.state.description,
                    date: this.state.date,
                    location: this.state.location};
-    console.log(myEvent);
 
     ApiUtil.createEvent(myEvent);
     this.setState({title: "", description: "", date: "", location: "", value: ""})

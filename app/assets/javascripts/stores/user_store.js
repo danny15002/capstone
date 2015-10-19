@@ -56,6 +56,10 @@
           setUserPics(payload.pictures);
           UserStore.emit(FriendzConstants.PICTURES_RECEIVED);
           break;
+        case FriendzConstants.PICTURE_UPLOADED:
+          debugger;
+          UserStore.emit(FriendzConstants.PICTURE_UPLOADED)
+          break;
       }
     })
   });

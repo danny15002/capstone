@@ -18,6 +18,15 @@
         }
       }
     },
+    userEvents: function () {
+      var eventArray = []
+      for (var i = 0; i < _events.length; i++) {
+        if (_events[i].creator === LoginStore.user().username){
+          eventArray.push(_events[i])
+        }
+      }
+      return eventArray
+    },
     addChangeListener: function (changeEvent, callback) {
       this.on(changeEvent, callback);
     },
