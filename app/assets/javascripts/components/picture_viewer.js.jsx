@@ -27,7 +27,7 @@ var PictureViewer = React.createClass({
   componentDidMount: function () {
     UserStore.addChangeListener(FriendzConstants.PICTURES_RECEIVED, this.getPictures);
     UserStore.addChangeListener(FriendzConstants.PICTURE_UPLOADED, this.updatePictures)
-    ApiUtil.fetchPictures();
+    ApiUtil.fetchPictures(this.props.params.userId);
   },
   componentWillUnmount: function () {
     UserStore.removeChangeListener(FriendzConstants.PICTURES_RECEIVED, this.getPictures);
