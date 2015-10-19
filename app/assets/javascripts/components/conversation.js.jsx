@@ -29,7 +29,6 @@ var Conversation = React.createClass( {
       <div className={"conversation"}>
         <ul>
           {this.state.messages.map( function (message, idx) {
-            
             return (
               <li key={message.id} className={"message"}>
                 <div>

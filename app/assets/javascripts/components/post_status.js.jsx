@@ -3,13 +3,12 @@ var PostStatusForm = React.createClass ({
     return {value: undefined}
   },
   componentDidMount: function () {
-    MessageStore.addChangeListener(FriendzConstants.MESSAGE_SENT, this.updatePosts);
+    MessageStore.addChangeListener(FriendzConstants.STATUS_POSTED, this.updatePosts);
   },
   componentWillUnmount: function () {
-    MessageStore.removeChangeListener(FriendzConstants.MESSAGE_SENT, this.updatePosts);
+    MessageStore.removeChangeListener(FriendzConstants.STATUS_POSTED, this.updatePosts);
   },
   updatePosts: function () {
-    console.log("fetchingMessages")
     ApiUtil.fetchMessages(true);
   },
   handleChange: function(event) {
@@ -22,7 +21,7 @@ var PostStatusForm = React.createClass ({
                  from_id: id,
                  body: this.state.value,
                  public: true};
-    ApiUtil.createMessage(message);
+    ApiUtil.createMessage(message, FriendzConstants.STATUS_POSTED);
     this.setState({value: ""})
   },
 

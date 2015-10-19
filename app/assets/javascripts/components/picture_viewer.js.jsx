@@ -26,13 +26,32 @@ var PictureViewer = React.createClass({
   },
   componentDidMount: function () {
     UserStore.addChangeListener(FriendzConstants.PICTURES_RECEIVED, this.getPictures);
+    UserStore.addChangeListener(FriendzConstants.PICTURE_UPLOADED, this.updatePictures)
     ApiUtil.fetchPictures();
   },
   componentWillUnmount: function () {
     UserStore.removeChangeListener(FriendzConstants.PICTURES_RECEIVED, this.getPictures);
+    UserStore.removeChangeListener(FriendzConstants.PICTURE_UPLOADED, this.updatePictures);
   },
   getPictures: function () {
     this.setState({pictures: UserStore.getPictures()})
+  },
+  updatePictures: function () {
+    ApiUtil.fetchPictures();
+  },
+  upload: function(event) {
+    cloudinary.openUploadWidget({ cloud_name: 'danny15002', upload_preset: 'dflg7sxq'},
+      function(error, result) {
+        console.log(result);
+        this.setState({picUrl: result[0].secure_url});
+      }.bind(this));
+  },
+  submitForm: function () {
+    var picture = {
+      user_id: LoginStore.user().id,
+      pic_url: this.state.picUrl
+    };
+    ApiUtil.uploadPicture(picture);
   },
   render: function () {
     var source;
@@ -45,11 +64,15 @@ var PictureViewer = React.createClass({
     return (
       <div className={"pic-viewer"}>
         {this.leftArrow()}
-        <img className={"picture"}
-          src={source}
-          alt={"profile picture"}
-          style={{float: "left",width: "80%"}}/>
+        <div className={"pic-container"}>
+          <img className={"picture"}
+            src={source}
+            alt={"profile picture"}/>
+        </div>
         {this.rightArrow()}
+        <a onClick={this.upload} id="upload_widget_opener">Upload multiple images</a>
+        <button onClick={this.submitForm}>Upload Photo(s)</button>
+        <PictureCommentForm className={"pic-comment"} style={{display:"block"}}/>
       </div>
     )
   }

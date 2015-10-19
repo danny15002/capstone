@@ -8,10 +8,10 @@ class Api::PicturesController < ApplicationController
 
   def create
     p params
-    @picture = Message.create(picture_params)
+    @picture = Picture.create(picture_params)
 
     if @picture.save
-      render json: "success"
+      render json: {}
     else
       render json: "failed"
     end

@@ -42,14 +42,15 @@ ApiUtil = {
       }
     })
   },
-  createMessage: function (message) {
+  createMessage: function (message, constant) {
     console.log("createMessage")
     $.ajax({
       url: 'api/messages',
       method: 'post',
       data: {message: message},
       success: function (response) {
-        ApiActions.createMessage(response);
+        ApiActions.createMessage(response, constant);
+        console.log("successful message creation");
       }
     })
   },
@@ -63,12 +64,12 @@ ApiUtil = {
     })
   },
   createEvent: function (event) {
-    console.log("createMessage")
     $.ajax({
       url: 'api/events',
       method: 'post',
       data: {event: event},
       success: function () {
+        console.log("successful event creation");
         ApiActions.createEvent();
       }
     })
@@ -114,6 +115,16 @@ ApiUtil = {
         ApiActions.logout();
       }
     })
+  },
+  uploadPicture: function (picture) {
+    $.ajax({
+      url: "api/pictures",
+      method: 'POST',
+      data: {picture: picture},
+      success: function (response) {
+        ApiActions.uploadPicture()
+      }
+    });
   }
 
 }
