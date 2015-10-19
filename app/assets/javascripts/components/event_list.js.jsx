@@ -19,6 +19,14 @@ var EventList = React.createClass({
     this.history.pushState(null,"Events/"+ selected)
   },
 
+  myEventList: function () {
+    return (
+      <div className={"my-events"}>
+        My Events
+      </div>
+    )
+  },
+
   render: function () {
     return (
       <div>
@@ -33,7 +41,7 @@ var EventList = React.createClass({
           })}
 
         </div>
-        {this.props.children || <div>Welcome to Your Events</div>}
+        {this.props.children || this.myEventList()}
       </div>
     );
   }

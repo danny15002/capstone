@@ -257,7 +257,7 @@ header h2 {
   position: relative;
   border-radius: 4px;
   top: 36px;
-  height: auto;
+  height: 500px;
   float:left;
   background-color: #BBBBBB;
   overflow-y: scroll;
@@ -318,6 +318,14 @@ header h2 {
   position: relative;
   top: 0px;
   margin-bottom: 30px;
+}
+
+.my-events {
+  position: relative;
+  top: 36px;
+  float: right;
+  width: 60%;
+  border: solid black 1px;
 }
 ////////////////////////////////////////////////////////////////////////////////
 

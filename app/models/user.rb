@@ -65,7 +65,7 @@ class User < ActiveRecord::Base
   has_many :pictures
 
   def getFriendEvents
-    friends_events2 + friends_events
+    friends_events2 + friends_events + created_events
   end
 
   def get_statuses
