@@ -3,9 +3,9 @@ var WallActivity = React.createClass( {
     return {messages: []}
   },
   componentDidMount: function () {
-    var id;
     MessageStore.addChangeListener(FriendzConstants.MESSAGES_RECEIVED, this.getMessages);
     MessageStore.addChangeListener(FriendzConstants.COMMENT_CREATED, this.fetchMessages);
+    var id;
     if (this.props.userId !== undefined) {
       id = parseInt(this.props.userId);
     }

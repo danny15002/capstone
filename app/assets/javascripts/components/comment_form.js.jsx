@@ -21,6 +21,7 @@ var CommentForm = React.createClass({
       commentable_type: this.props.commentableType,
       user_id: LoginStore.user().id
     };
+    console.log(comment);
     ApiUtil.create({url: "api/comments",
                     data: {comment: comment},
                     constant: FriendzConstants.COMMENT_CREATED})
