@@ -3469,3 +3469,5 @@ LINE 1: ...ages"."public" = $1 AND ((to_id = 3 AND from_id = ) OR (to_i...
 [10/19/15 17:52:12 -0700 Daniels-MacBook-Pro-3.local (51356)] INFO : Installing Rails 4 Error instrumentation
 [10/19/15 17:52:12 -0700 Daniels-MacBook-Pro-3.local (51356)] INFO : Finished instrumentation
 [10/19/15 17:52:12 -0700 Daniels-MacBook-Pro-3.local (51356)] INFO : Doing deferred dependency-detection before Rack startup
+[10/19/15 17:59:30 -0700 Daniels-MacBook-Pro-3.local (51356)] ERROR : Invalid license key, please contact support@newrelic.com
+[10/19/15 17:59:30 -0700 Daniels-MacBook-Pro-3.local (51356)] ERROR : Visit NewRelic.com to obtain a valid license key, or to upgrade your account.
