@@ -17,10 +17,11 @@ var SubCommentList = React.createClass({
           <ul style={{display: this.state.formStyle}}>
             {this.props.comments.map(function (comment, idx) {
               return (<li>
-                <Comment className={""} key={idx} message={comment}/>
+                <Comment className={""} key={idx} message={comment} level={this.props.level}/>
               </li>)
-            })}
+            }.bind(this))}
           </ul>
+
       </div>
     )
   }

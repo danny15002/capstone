@@ -23,7 +23,7 @@ var WallActivity = React.createClass( {
         <ul>
           {this.state.messages.map(function (message, idx) {
             return (<li>
-              <Comment className={""} key={idx} message={message}/>
+              <Comment className={""} key={idx} message={message} level={1}/>
             </li>)
           })}
         </ul>
