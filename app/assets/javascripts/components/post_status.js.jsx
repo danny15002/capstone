@@ -29,7 +29,7 @@ var PostStatusForm = React.createClass ({
     var value = this.state.value
 
     return (
-      <div className={"status-form"}>
+      <div className={this.props.className + " status-form"}>
         <textarea
           onChange={this.handleChange}
           className={"status-text"}
