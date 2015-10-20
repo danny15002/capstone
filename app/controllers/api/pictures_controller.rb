@@ -2,9 +2,11 @@ class Api::PicturesController < ApplicationController
 
   def index
     if params[:id]
-      @pictures = User.find(params[:id]).pictures
+      # @pictures = User.find(params[:id]).pictures.includes(:comments)
+      @pictures = Picture.all.where(user_id: params[:id]).includes(:comments)
     else
-      @pictures = current_user.pictures
+      # @pictures = current_user.pictures.includes(:comments)
+      @pictures = Picture.all.where(user_id: current_user.id).includes(:comments)
     end
     
     render :index

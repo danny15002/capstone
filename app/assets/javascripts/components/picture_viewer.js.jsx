@@ -26,12 +26,14 @@ var PictureViewer = React.createClass({
   },
   componentDidMount: function () {
     UserStore.addChangeListener(FriendzConstants.PICTURES_RECEIVED, this.getPictures);
-    UserStore.addChangeListener(FriendzConstants.PICTURE_UPLOADED, this.updatePictures)
+    UserStore.addChangeListener(FriendzConstants.PICTURE_UPLOADED, this.updatePictures);
+    MessageStore.addChangeListener(FriendzConstants.COMMENT_CREATED, this.updatePictures);
     ApiUtil.fetchPictures(this.props.params.userId);
   },
   componentWillUnmount: function () {
     UserStore.removeChangeListener(FriendzConstants.PICTURES_RECEIVED, this.getPictures);
     UserStore.removeChangeListener(FriendzConstants.PICTURE_UPLOADED, this.updatePictures);
+    MessageStore.removeChangeListener(FriendzConstants.COMMENT_CREATED, this.updatePictures);
   },
   getPictures: function () {
     this.setState({pictures: UserStore.getPictures()})
@@ -55,10 +57,17 @@ var PictureViewer = React.createClass({
   },
   render: function () {
     var source;
+    var picture;
+    var comments = [];
+    var id;
     if (this.state.pictures.length === 0) {
-      source = ""
+      source = "";
+      id = "";
     } else {
-      source = this.state.pictures[this.state.currentPicIdx].pic_url
+      picture = this.state.pictures[this.state.currentPicIdx]
+      source = picture.pic_url
+      comments = picture.comments;
+      id = picture.id;
     }
 
     return (
@@ -72,7 +81,15 @@ var PictureViewer = React.createClass({
         {this.rightArrow()}
         <a onClick={this.upload} id="upload_widget_opener">Upload multiple images</a>
         <button onClick={this.submitForm}>Upload Photo(s)</button>
-        <PictureCommentForm className={"pic-comment"} style={{display:"block"}}/>
+        <ul>
+          {comments.map(function (comment) {
+              return (<li>
+                <Comment key={comment.id} message={comment} level={2}/>
+              </li>)
+          })}
+        </ul>
+        <CommentForm id={id} commentableType={"Picture"} />
+
       </div>
     )
   }
