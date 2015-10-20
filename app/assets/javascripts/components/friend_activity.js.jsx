@@ -3,12 +3,8 @@ var FriendActivity = React.createClass( {
     return {messages: []}
   },
   componentDidMount: function () {
-    var id;
     MessageStore.addChangeListener(FriendzConstants.MESSAGES_RECEIVED, this.getMessages);
-    if (this.props.userId !== undefined) {
-      id = parseInt(this.props.userId);
-    }
-    ApiUtil.fetchMessages(true, id);
+    ApiUtil.fetchMessages(true);
   },
   componentWillUnmount: function () {
     MessageStore.removeChangeListener(FriendzConstants.MESSAGES_RECEIVED, this.getMessages);

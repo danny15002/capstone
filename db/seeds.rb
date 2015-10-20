@@ -22,6 +22,7 @@ end
     body: (Faker::Hacker.say_something_smart + " " + Faker::Hacker.say_something_smart)
   )
 end
+
 300.times do
   Message.create(
     from_id: rand(1..25),
@@ -31,10 +32,11 @@ end
   )
 end
 
-30.times do
+
+1000.times do
   Comment.create(
     body: Faker::Hacker.adjective,
-    commentable_id: rand(400..405),
+    commentable_id: rand(301..600),
     commentable_type: "Message",
     user_id: rand(1..25)
   )

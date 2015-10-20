@@ -4,14 +4,13 @@ var Comment = React.createClass({
   },
   render: function () {
     var message = this.props.message;
-    var subComments=<div></div>
-
+    var subComments=<div></div>;
     if (message.comments) {
       if (message.comments.length > 0) {
         subComments = this.subComments(message.comments);
       }
     }
-    
+
     return (
       <div className={this.props.className + " comment"}>
         {message.body}
