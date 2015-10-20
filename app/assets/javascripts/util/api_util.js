@@ -127,6 +127,18 @@ ApiUtil = {
         ApiActions.uploadPicture()
       }
     });
+  },
+  create: function (reqInfo) {
+    var callback;
+
+    $.ajax({
+      url: reqInfo.url,
+      method: 'POST',
+      data: reqInfo.data,
+      success:  function (response) {
+        ApiActions.create(reqInfo.constant)
+      }
+    });
   }
 
 }

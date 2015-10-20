@@ -5,6 +5,7 @@ var WallActivity = React.createClass( {
   componentDidMount: function () {
     var id;
     MessageStore.addChangeListener(FriendzConstants.MESSAGES_RECEIVED, this.getMessages);
+    MessageStore.addChangeListener(FriendzConstants.COMMENT_CREATED, this.fetchMessages);
     if (this.props.userId !== undefined) {
       id = parseInt(this.props.userId);
     }
@@ -12,11 +13,18 @@ var WallActivity = React.createClass( {
   },
   componentWillUnmount: function () {
     MessageStore.removeChangeListener(FriendzConstants.MESSAGES_RECEIVED, this.getMessages);
+    MessageStore.removeChangeListener(FriendzConstants.COMMENT_CREATED, this.fetchMessages);
   },
   getMessages: function () {
     this.setState({messages: MessageStore.getMessages()})
   },
-
+  fetchMessages: function () {
+    var id;
+    if (this.props.userId !== undefined) {
+      id = parseInt(this.props.userId);
+    }
+    ApiUtil.fetchMessages(true, id);
+  },
   render: function () {
     return (
       <div className="friend-activity">

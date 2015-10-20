@@ -94,5 +94,10 @@ ApiActions = {
     friendzDispatcher.dispatch({
       actionType: FriendzConstants.PICTURE_UPLOADED
     });
+  },
+  create: function (constant) {
+    friendzDispatcher.dispatch({
+      actionType: constant
+    })
   }
 }

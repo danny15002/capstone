@@ -11,8 +11,8 @@ var Comment = React.createClass({
       }
     }
     var form = <div></div>;
-    if (this.props.level <= 3) {
-      form = <CommentForm/>
+    if (this.props.level <= 2) {
+      form = <CommentForm id={message.id} commentableType={message.type}/>
     }
 
     return (
