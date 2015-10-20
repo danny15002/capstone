@@ -1,4 +1,4 @@
-var Login2 = React.createClass({
+var Login = React.createClass({
   mixins: [React.addons.LinkedStateMixin, ReactRouter.History],
   statics: {willTransitionTo: function (nextState, replaceState) {
     if (LoginStore.isLoggedIn()) {
