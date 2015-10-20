@@ -12,7 +12,7 @@ var SubCommentList = React.createClass({
   },
   render: function () {
     return(
-      <div>
+      <div className={"comment-list"}>
         <div onClick={this.showSubComments}>{this.state.subText}</div>
           <ul style={{display: this.state.formStyle}}>
             {this.props.comments.map(function (comment, idx) {

@@ -16,9 +16,10 @@ var PostStatusForm = React.createClass ({
     this.setState({value: event.target.value});
   },
   submitForm: function() {
-    var id = LoginStore.user().id
-    var message = {to_id: id,
-                 from_id: id,
+    var from_id = LoginStore.user().id
+    var to_id = this.props.userId;
+    var message = {to_id: to_id,
+                 from_id: from_id,
                  body: this.state.value,
                  public: true};
     ApiUtil.createMessage(message, FriendzConstants.STATUS_POSTED);

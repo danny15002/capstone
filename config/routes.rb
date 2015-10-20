@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :messages, only: [:create, :index]
     resources :events, only: [:create, :index, :show]
     resources :pictures, only: [:create, :index, :show]
+    resources :comments, only: [:create, :index, :show]
   end
 
   get '*unmatched_route', to: 'application#not_found'

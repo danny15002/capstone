@@ -29,6 +29,9 @@
         case FriendzConstants.STATUS_POSTED:
           MessageStore.emit(FriendzConstants.STATUS_POSTED);
           break;
+        case FriendzConstants.COMMENT_CREATED:
+          MessageStore.emit(FriendzConstants.COMMENT_CREATED);
+          break;
         default:
       }
     })
