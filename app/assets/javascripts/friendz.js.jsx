@@ -11,8 +11,8 @@ var App = React.createClass({
         <AuthenticatedComponent>
           <TopBar />
           <div className={"container"}>
-          <LeftBar />
-          {this.props.children}
+            <LeftBar />
+            {this.props.children}
           </div>
         </AuthenticatedComponent>
       </div>)
@@ -24,7 +24,7 @@ var routes = (
     <Route path="login" onEnter={Login.willTransitionTo} component={Login}/>
     <Route path="signup" onEnter={SignUp.willTransitionTo} component={SignUp}/>
     <Route path="/" onEnter={AuthenticatedComponent.willTransitionTo} component={App}>
-      <IndexRoute component={Dashboard}/>
+      <IndexRoute component={NewsFeed}/>
       <Route path="Messages" component={UserList}>
         <Route path=":userId" component={ MessageForm} />
       </Route>
