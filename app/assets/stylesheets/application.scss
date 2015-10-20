@@ -382,10 +382,37 @@ textarea.status-text {
   margin:auto;
 }
 
+////////////////////////////////////////////////////////////////////////////////
+
 .comment {
   background: white;
   margin-bottom: 10px;
   border: 1px solid green;
+}
+
+.heading:after {
+  content: "";
+  display:block;
+  clear: both;
+}
+
+.heading * {
+  display: inline-block;
+}
+
+.time {
+  float: right;
+}
+
+.author {
+  float: left;
+}
+
+.comment .prof-pic {
+  position: relative;
+  float:left;
+  top: initial;
+  left: initial;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
