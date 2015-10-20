@@ -2,6 +2,24 @@ var Comment = React.createClass({
   subComments: function (comments, key) {
     return <SubCommentList key={key} comments={comments} level={this.props.level + 1} />
   },
+  heading: function (message) {
+    var heading = (
+      <div className={"author"}>
+        {message.author}
+      </div>
+    );
+
+    if (message.recipient && (message.recipient !== message.author)) {
+      heading = (
+        <div className={"author"}>
+          {message.author} -> {message.recipient}
+        </div>
+      );
+    }
+
+    return heading;
+  },
+
   render: function () {
     var message = this.props.message;
     var subComments=<div></div>;
@@ -17,7 +35,14 @@ var Comment = React.createClass({
 
     return (
       <div className={this.props.className + " comment"}>
-        {message.body}
+        <div className={"heading"}>
+          <ProfilePicture source={message.prof_pic}/>
+          {this.heading(message)}
+          <div className={"time"}>{message.created_at}</div>
+        </div>
+        <div className={"comment-body"}>
+          {message.body}
+        </div>
         {subComments}
         {form}
       </div>

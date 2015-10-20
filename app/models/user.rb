@@ -72,6 +72,10 @@ class User < ActiveRecord::Base
     sent_messages.where("to_id = from_id")
   end
 
+  def profile_pic
+    pictures.first.pic_url
+  end
+
   attr_reader :password
   attr_reader :password_confirmation
 

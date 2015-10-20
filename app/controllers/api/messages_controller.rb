@@ -4,7 +4,7 @@ class Api::MessagesController < ApplicationController
 
 
     if params[:user_id].nil?
-      @messages = current_user.received_messages.includes(:user_to,:user_from, comments: [:user, comments: [:user]]).where(public: params[:public]).order(:created_at).reverse_order
+      @messages = current_user.received_messages.includes(:user_to,:user_from, comments: [:user , comments: [:user]]).where(public: params[:public]).order(:created_at).reverse_order
     elsif params[:public] == 'true'
       @messages = User.find(params[:user_id]).received_messages.includes(:user_to, :user_from, comments: [:user, comments: [:user]]).where(public: params[:public]).order(:created_at).reverse_order
     else
