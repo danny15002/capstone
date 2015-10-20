@@ -1,4 +1,4 @@
-var Login2 = React.createClass({
+var Login = React.createClass({
   mixins: [React.addons.LinkedStateMixin, ReactRouter.History],
   statics: {willTransitionTo: function (nextState, replaceState) {
     if (LoginStore.isLoggedIn()) {
@@ -6,7 +6,7 @@ var Login2 = React.createClass({
     }
   }},
   getInitialState: function () {
-    return {username: "", password: "", errors: ""};
+    return {mode: "login", username: "", password: "",confirm_password: "", errors: ""};
   },
   componentDidMount: function () {
     LoginStore.addChangeListener(FriendzConstants.LOGIN_USER, this.transitionUser);
@@ -26,7 +26,26 @@ var Login2 = React.createClass({
     event.preventDefault();
     ApiUtil.login(this.state.username, this.state.password);
   },
+  signupForm: function () {
+
+  },
+  loginForm: function () {
+    return(
+      <div>
+        <input type="password" className={"form-control"} valueLink={this.linkState('password')} placeholder={"Password"} />
+        <button type="submit" className={"form-control"} onClick={this.login}>Log In</button>
+      </div>
+    )
+  },
   render() {
+    var halfForm;
+    if (this.state.mode === "signup") {
+      halfForm = this.signupForm();
+    }
+    if (this.state.mode === "login") {
+      halfForm = this.loginForm();
+    }
+
     return (
       <div>
         <div className={"top-excess"}></div>
@@ -38,8 +57,7 @@ var Login2 = React.createClass({
           <form role={"form"} className={"form-group"}>
             <div className="input-group my-input" >
               <input type="text" className={"form-control"} valueLink={this.linkState('username')} placeholder={"Username"} />
-              <input type="password" className={"form-control"} valueLink={this.linkState('password')} placeholder={"Password"} />
-              <button type="submit" className={"form-control"} onClick={this.login}>Log In</button>
+              {halfForm}
             </div>
           </form>
         </div>
