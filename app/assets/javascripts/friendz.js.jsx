@@ -45,5 +45,5 @@ var routes = (
 )
 
 $(function () {
-  React.render( routes, document.getElementById("dashboard"));
+  React.render( routes, document.getElementById("application"));
 });
