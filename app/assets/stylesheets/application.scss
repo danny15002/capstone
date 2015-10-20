@@ -372,4 +372,20 @@ textarea.status-text {
   top: 40px;
 }
 
+.friend-activity {
+  overflow-y: scroll;
+  position:relative;
+  top: 10%;
+  background: blue;
+  width: 90%;
+  height: 400px;
+  margin:auto;
+}
+
+.comment {
+  background: white;
+  margin-bottom: 10px;
+  border: 1px solid green;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
