@@ -37,7 +37,7 @@ var Profile = React.createClass ({
         <a href={"#/User/" + id + "/Pictures"} className={"Pictures"}>Pictures</a>
         <a href={"#/Messages/" + id} className={"Messages"}>Messages</a>
         <PostStatusForm />
-        <MessageIndex userId={id} />
+        <WallActivity userId={id} />
       </div>
     )
   }
