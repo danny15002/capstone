@@ -32,11 +32,11 @@ var Conversation = React.createClass( {
             return (
               <li key={message.id} className={"message"}>
                 <div>
-                  <div className={"msg-sender"}>Sent By: {message.sender_name}</div>
+                  <div className={"msg-sender"}>Sent By: {message.author}</div>
                   <div className={"msg-created"}>{message.created_at}</div>
                 </div>
                 <br></br>
-                <div className={"msg-sender"}>Sent To: {message.recipient_name}</div>
+                <div className={"msg-sender"}>Sent To: {message.recipient}</div>
                 <br></br>
                 <br></br>
                 <p className={"msg-body"}>{message.body}</p>

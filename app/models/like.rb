@@ -11,7 +11,7 @@
 #
 
 class Like < ActiveRecord::Base
-  belongs_to :likeable, polymorphic: true
+  belongs_to :likeable, polymorphic: true, dependent: :destroy
   validates: :body, :likeable_id, :likeable_type, :user_id, presence: true
 
 end

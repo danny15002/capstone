@@ -185,6 +185,7 @@ header h2 {
 }
 
 .top-bar {
+  overflow: visible;
   min-width: 900px;
   max-width: 75%;
   width: 100%;
@@ -197,7 +198,7 @@ header h2 {
   display: inline-block;
   width: 20%;
   height: 100%;
-
+  float:left;
   padding: 15px;
   color: white;
   text-align: center;
@@ -209,15 +210,46 @@ header h2 {
 }
 
 .top-bar input {
-  width: 20%;
+  width: 100%;
   background: white;
+  color: black;
   height: 36px;
   border-radius: 3px;
 }
 
-.top-bar input:hover {
-  background: white;
+.search-list {
+  position: relative;
+  overflow: visible;
+  z-index: 1;
+  padding: 0;
+  opacity: 1;
+}
+
+div.search-list {
+  width: 100%;
+  border: 0;
+  opacity: 1;
+}
+
+.search-list ul {
+  background-color: #EEEEEE;
+  opacity: 1;
+  width: 100%;
+  height: auto;
+  padding: 0;
+}
+
+.search-list li {
+  opacity: 1;
+  border-radius: 4px;
   color: black;
+  width: 100%;
+}
+
+.search-list li:hover {
+  background: red;
+  color: white;
+  width: 100%;
 }
 
 .nav {
@@ -413,6 +445,10 @@ textarea.status-text {
   float:left;
   top: initial;
   left: initial;
+}
+
+.comment-body {
+  float:left;
 }
 
 ////////////////////////////////////////////////////////////////////////////////

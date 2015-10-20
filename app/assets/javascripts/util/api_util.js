@@ -139,6 +139,18 @@ ApiUtil = {
         ApiActions.create(reqInfo.constant)
       }
     });
+  },
+  fetch: function (reqInfo) {
+    var callback;
+
+    $.ajax({
+      url: reqInfo.url,
+      method: 'GET',
+      data: reqInfo.data,
+      success:  function (response) {
+        ApiActions.fetch(response, reqInfo.constant)
+      }
+    });
   }
 
 }

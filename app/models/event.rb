@@ -17,6 +17,7 @@ class Event < ActiveRecord::Base
     :creator,
     primary_key: :id,
     foreign_key: :creator_id,
-    class_name: "User"
+    class_name: "User",
+    dependent: :destroy
   )
 end
