@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151016210825) do
+ActiveRecord::Schema.define(version: 20151019225941) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.string   "body",             null: false
+    t.integer  "commentable_id",   null: false
+    t.string   "commentable_type", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "user_id",          null: false
+  end
+
+  add_index "comments", ["commentable_id"], name: "index_comments_on_commentable_id", using: :btree
 
   create_table "events", force: :cascade do |t|
     t.integer  "creator_id",  null: false
@@ -37,6 +48,16 @@ ActiveRecord::Schema.define(version: 20151016210825) do
 
   add_index "friends", ["accepter_id"], name: "index_friends_on_accepter_id", using: :btree
   add_index "friends", ["requester_id"], name: "index_friends_on_requester_id", using: :btree
+
+  create_table "likes", force: :cascade do |t|
+    t.integer  "likeable_id",   null: false
+    t.string   "likeable_type", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "user_id",       null: false
+  end
+
+  add_index "likes", ["likeable_id"], name: "index_likes_on_likeable_id", using: :btree
 
   create_table "messages", force: :cascade do |t|
     t.integer  "from_id",                    null: false

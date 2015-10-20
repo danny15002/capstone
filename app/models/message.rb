@@ -26,6 +26,9 @@ class Message < ActiveRecord::Base
     class_name: "User"
   )
 
+  has_many :comments, as: :commentable
+  has_many :likes, as: :likeable
+
   def format_message_time
     time = Time.now - created_at
 

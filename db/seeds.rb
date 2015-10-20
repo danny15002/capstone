@@ -31,6 +31,15 @@ end
   )
 end
 
+30.times do
+  Comment.create(
+    body: Faker::Hacker.adjective,
+    commentable_id: rand(400..405),
+    commentable_type: "Message",
+    user_id: rand(1..25)
+  )
+end
+
 friendArray = [];
 
 100.times do |i|
