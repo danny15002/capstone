@@ -3818,3 +3818,4 @@ LINE 1: ...ages"."public" = $1 AND ((to_id = 3 AND from_id = ) OR (to_i...
 [10/20/15 01:42:57 -0700 Daniels-MacBook-Pro-3.local (79835)] INFO : Doing deferred dependency-detection before Rack startup
 [10/20/15 01:43:04 -0700 Daniels-MacBook-Pro-3.local (79835)] ERROR : Invalid license key, please contact support@newrelic.com
 [10/20/15 01:43:04 -0700 Daniels-MacBook-Pro-3.local (79835)] ERROR : Visit NewRelic.com to obtain a valid license key, or to upgrade your account.
+[10/20/15 14:29:28 -0700 Daniels-MacBook-Pro-3.local (79835)] INFO : Starting Agent shutdown

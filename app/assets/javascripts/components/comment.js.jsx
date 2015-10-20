@@ -39,9 +39,10 @@ var Comment = React.createClass({
           <ProfilePicture source={message.prof_pic}/>
           {this.heading(message)}
           <div className={"time"}>{message.created_at}</div>
-        </div>
-        <div className={"comment-body"}>
-          {message.body}
+          <br></br>
+          <div className={"comment-body"}>
+            {message.body}
+          </div>
         </div>
         {subComments}
         {form}

@@ -53,7 +53,7 @@ var TopBar = React.createClass ({
     return (
       <div className={"top-excess"}>
         <div className={"bar top-bar"}>
-          <input type={"text"} className={"nav-search"} placeholder={"Find a Friend"}/>
+          <OmniSearch />
           <a href={"#/"} className={"nav-messages"}>Home</a>
           <a href={"#/Profile"} className={"nav-events"}>Profile</a>
           <a href={"#/Account"} className={"nav-pictures"}>Account</a>

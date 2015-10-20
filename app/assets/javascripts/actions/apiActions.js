@@ -13,10 +13,10 @@ ApiActions = {
     }
     friendzDispatcher.dispatch(payload);
   },
-  receiveFriends: function (friends) {
+  receiveFriends: function (response) {
     var payload ={
       actionType: FriendzConstants.FRIENDS_RECEIVED,
-      friends: friends
+      response: response
     }
     friendzDispatcher.dispatch(payload);
   },
@@ -98,6 +98,12 @@ ApiActions = {
   create: function (constant) {
     friendzDispatcher.dispatch({
       actionType: constant
+    })
+  },
+  fetch: function (response, constant) {
+    friendzDispatcher.dispatch({
+      actionType: constant,
+      response: response
     })
   }
 }

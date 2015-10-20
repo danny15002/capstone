@@ -3,6 +3,7 @@
   var _currentUser;
   var _currentFriends = [];
   var _userPics = [];
+  var _users = [];
 
   var setCurrentUser = function (user) {
     _currentUser = user;
@@ -13,6 +14,9 @@
   var setCurrentFriends = function (friends) {
     if (friends === undefined) {_currentFriends = []}
     else {_currentFriends = friends}
+  }
+  var setUsers = function (users) {
+    _users = users;
   }
 
   UserStore = root.UserStore = $.extend({}, EventEmitter.prototype, {
@@ -36,6 +40,9 @@
         }
       }
     },
+    getUsers: function () {
+      return _users;
+    },
     addChangeListener: function (changeEvent, callback) {
       this.on(changeEvent, callback);
     },
@@ -49,7 +56,7 @@
           UserStore.emit(FriendzConstants.CURRENT_USER_RECEIVED);
           break;
         case FriendzConstants.FRIENDS_RECEIVED:
-          setCurrentFriends(payload.friends);
+          setCurrentFriends(payload.response);
           UserStore.emit(FriendzConstants.FRIENDS_RECEIVED);
           break;
         case FriendzConstants.PICTURES_RECEIVED:
@@ -57,8 +64,10 @@
           UserStore.emit(FriendzConstants.PICTURES_RECEIVED);
           break;
         case FriendzConstants.PICTURE_UPLOADED:
-          debugger;
           UserStore.emit(FriendzConstants.PICTURE_UPLOADED)
+        case FriendzConstants.USERS_RECEIVED:
+          setUsers(payload.response)
+          UserStore.emit(FriendzConstants.USERS_RECEIVED)
           break;
       }
     })
