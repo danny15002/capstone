@@ -9,7 +9,10 @@ var PostStatusForm = React.createClass ({
   },
   submitForm: function() {
     var from_id = LoginStore.user().id
-    var to_id = this.props.userId;
+    var to_id = from_id;
+    if (this.props.userId) {
+      to_id = this.props.userId;
+    }
     var message = {to_id: to_id,
                  from_id: from_id,
                  body: this.state.value,
