@@ -12,10 +12,10 @@
 #
 
 class Comment < ActiveRecord::Base
-  belongs_to :commentable, polymorphic: true
+  belongs_to :commentable, dependent: :destroy, polymorphic: true
   belongs_to :user
 
-  has_many :comments, as: :commentable, dependent: :destroy
+  has_many :comments, as: :commentable
   validates :body, :commentable_id, :commentable_type, :user_id, presence: true
 
   def format_comment_time
