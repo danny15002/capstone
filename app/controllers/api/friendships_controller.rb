@@ -19,15 +19,16 @@ class Api::FriendshipsController < ApplicationController
     if @friendship.save && @inverse_friendship.save
       render json: {}
     else
-      render json: status: 420
+      render json: "failed"
     end
   end
 
-  def delete
+  def destroy
     @friendship = Friendship.find(params[:id])
     @inverse_friendship = Friendship.where(user_id: @friendship.friend_id, friend_id: @friendship.user_id)
-    @friendship.destroy
-    @inverse_friendship.destroy
+    Friendship.destroy(@friendship)
+    Friendship.destroy(@inverse_friendship)
+    
     render json: {}
   end
 

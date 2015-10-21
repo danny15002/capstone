@@ -5,12 +5,16 @@ var Profile = React.createClass ({
   componentDidMount: function () {
     UserStore.addChangeListener(FriendzConstants.PICTURES_RECEIVED, this.getPictures);
     LoginStore.addChangeListener(FriendzConstants.MY_FRIENDS_RECEIVED, this.getFriends);
+    LoginStore.addChangeListener(FriendzConstants.FRIEND_DELETED, this.fetchFriends);
+    LoginStore.addChangeListener(FriendzConstants.FRIEND_ADDED, this.fetchFriends);
     ApiUtil.fetchPictures(this.props.params.userId);
-    ApiUtil.fetch({url: "users", data: {}, constant: FriendzConstants.MY_FRIENDS_RECEIVED});
+    ApiUtil.fetch({url: "api/friendships", data: {}, constant: FriendzConstants.MY_FRIENDS_RECEIVED});
   },
   componentWillUnmount: function () {
     UserStore.removeChangeListener(FriendzConstants.PICTURES_RECEIVED, this.getPictures);
     LoginStore.removeChangeListener(FriendzConstants.MY_FRIENDS_RECEIVED, this.getFriends);
+    LoginStore.removeChangeListener(FriendzConstants.FRIEND_DELETED, this.fetchFriends);
+    LoginStore.removeChangeListener(FriendzConstants.FRIEND_ADDED, this.fetchFriends);
   },
   componentWillReceiveProps: function (nextProps) {
     var id = nextProps.params.userId;
@@ -27,26 +31,29 @@ var Profile = React.createClass ({
   getFriends: function () {
     this.setState({friends: LoginStore.getMyFriends()})
   },
+  fetchFriends: function () {
+    ApiUtil.fetch({url: "api/friendships", data: {}, constant: FriendzConstants.MY_FRIENDS_RECEIVED});
+  },
   friendText: function (id) {
     var text="";
     var request;
 
-    if (LoginStore.user().id !== id){
+    if (LoginStore.user().id !== parseInt(id)){
       if (this.state.friends.some(function (friend) {
-        return parseInt(friend.id) === parseInt(id)
+        return parseInt(friend.friend_id) === parseInt(id)
       })) {
         text = "Unfriend";
-        friendship_id = getFriendShipId(id);
-        request = {url: "api/friends/" + friendship_id,
+        friendship_id = LoginStore.getFriendShipId(parseInt(id));
+        request = {url: "api/friendships/" + friendship_id,
                    method: "DELETE",
                    data: {},
                    constant: FriendzConstants.FRIEND_DELETED};
       } else {
         text="Add Friend";
-        request = {url: "api/friends/",
+        request = {url: "api/friendships/",
                    method: "POST",
-                   data: {requester_id: LoginStore.user().id,
-                          accepter_id: id},
+                   data: {friendship: {user_id: LoginStore.user().id,
+                                       friend_id: id}},
                    constant: FriendzConstants.FRIEND_ADDED};
       }
     }
@@ -55,7 +62,7 @@ var Profile = React.createClass ({
   handleClick: function (request) {
     return function () {
       console.log(request);
-      // ApiUtil.request(request);
+      ApiUtil.request(request);
     }
   },
   render: function () {

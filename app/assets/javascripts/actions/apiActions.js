@@ -105,5 +105,11 @@ ApiActions = {
       actionType: constant,
       response: response
     })
+  },
+  request: function (response, constant) {
+    friendzDispatcher.dispatch({
+      actionType: constant,
+      response: response
+    })
   }
 }
