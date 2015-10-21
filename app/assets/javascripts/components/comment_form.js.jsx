@@ -23,7 +23,7 @@ var CommentForm = React.createClass({
     };
     ApiUtil.create({url: "api/comments",
                     data: {comment: comment},
-                    constant: FriendzConstants.COMMENT_CREATED})
+                    constant: FriendzConstants.STATUS_POSTED})
     this.setState({value: ""})
   },
   render: function () {

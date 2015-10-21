@@ -199,14 +199,23 @@ header h2 {
   width: 20%;
   height: 100%;
   float:left;
-  padding: 15px;
   color: white;
   text-align: center;
 }
 
+.top-bar a {
+  position: relative;
+  padding-top: 5px;
+  top: 15px;
+  height: 30px;
+  margin: 0 4%;
+  width: 12%;
+  border-radius: 2px;
+}
+
 .top-bar a:hover {
   color: white;
-  background: red;
+  background: #550000;
 }
 
 .top-bar input {
@@ -215,6 +224,10 @@ header h2 {
   color: black;
   height: 36px;
   border-radius: 3px;
+}
+
+div.nav-search {
+  padding: 15px 0px;
 }
 
 .search-list {
@@ -229,6 +242,7 @@ div.search-list {
   width: 100%;
   border: 0;
   opacity: 1;
+  padding: 0;
 }
 
 .search-list ul {
@@ -310,15 +324,23 @@ div.search-list {
 
 .profile {
   position: relative;
+
   width: 80%;
   float: left;
   height: 700px;
 }
 
+.profile .status-form {
+  float: left;
+  width: 69%;
+}
+
+.profile-menu {
+  width: 100%;
+}
+
 .prof-pic {
-  position:relative;
-  top: 36px;
-  left: 36px;
+  float: left;
   height: 200px;
   width: 200px;
 }
@@ -327,11 +349,11 @@ div.search-list {
 
 .status-form {
   position: relative;
-  background: red;
+  background: #BBBBBB;
   margin: auto;
   width: 100%;
   height: 175px;
-  border: solid black 1px;
+  // border: solid black 1px;
   border-radius: 10px;
 }
 
@@ -396,22 +418,36 @@ textarea.status-text {
   height: (800 - $header_height_pixels) + px;
   float: left;
   width: 80%;
-  background: black;
+  background: #DDDDDD;
 }
 
 .news-feed .status-form {
   position: relative;
   top: 40px;
+  width: 90%;
+}
+
+.news-feed .friend-activity {
+  top: 8%;
 }
 
 .friend-activity {
   overflow-y: scroll;
   position:relative;
-  top: 10%;
-  background: blue;
+
   width: 90%;
   height: 400px;
   margin:auto;
+}
+
+.friend-activity ul {
+  background: #BBBBBB;
+  padding: 0px;
+  border-radius: 2px;
+}
+.friend-activity li {
+  margin: auto;
+  width: 90%;
 }
 
 ////////////////////////////////////////////////////////////////////////////////

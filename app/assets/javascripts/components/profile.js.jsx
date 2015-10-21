@@ -77,16 +77,20 @@ var Profile = React.createClass ({
 
     return (
       <div className={"profile"}>
-        <img className={"prof-pic"}
-          src={this.state.profilePicUrl}
-          alt={"profile picture"}/>
-        <a href={"#/User/" + id + "/Friends"} className={"Friends"}>Friends</a>
-        <a href={"#/User/" + id + "/Pictures"} className={"Pictures"}>Pictures</a>
-        <a href={"#/Messages/" + id} className={"Messages"}>Messages</a>
-        <div onClick={this.handleClick(friendObject.request)}>
-          {friendObject.text}
+        <div style={{margin: "36px 36px"}}>
+          <div className={"profile-menu"}>
+            <a href={"#/User/" + id + "/Friends"} className={"Friends"}>Friends</a>
+            <a href={"#/User/" + id + "/Pictures"} className={"Pictures"}>Pictures</a>
+            <a href={"#/Messages/" + id} className={"Messages"}>Messages</a>
+            <div onClick={this.handleClick(friendObject.request)}>
+              {friendObject.text}
+            </div>
+          </div>
+          <img className={"prof-pic"}
+            src={this.state.profilePicUrl}
+            alt={"profile picture"}/>
+          <PostStatusForm userId={id}/>
         </div>
-        <PostStatusForm userId={id}/>
         <WallActivity userId={id} />
       </div>
     )

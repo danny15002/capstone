@@ -1,7 +1,7 @@
 class Api::EventsController < ApplicationController
 
   def index
-    @events = current_user.getFriendEvents
+    @events = current_user.friends_events
     @events += current_user.created_events
 
     render :index
