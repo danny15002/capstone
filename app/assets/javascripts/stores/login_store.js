@@ -31,8 +31,8 @@
 
     getFriendShipId: function (id) {
       for (var i = 0; i < _myFriends.length; i++) {
-        if (id === _myFriends[i].accepter_id || id === _myFriends[i].requester_id) {
-          return _myFriends[i].friendship
+        if (id === _myFriends[i].friend_id ) {
+          return _myFriends[i].id
         }
       }
     },
@@ -82,7 +82,9 @@
         case FriendzConstants.MY_FRIENDS_RECEIVED:
           setMyFriends(payload.response);
           LoginStore.emit(FriendzConstants.MY_FRIENDS_RECEIVED);
+          break;
         default:
+          LoginStore.emit(payload.actionType)
           break;
       };
     })

@@ -6,7 +6,9 @@ var FriendList = React.createClass({
   },
   componentDidMount: function () {
     UserStore.addChangeListener(FriendzConstants.FRIENDS_RECEIVED, this.getFriends);
-    ApiUtil.fetchFriends(this.props.params.userId);
+    ApiUtil.fetch({url: "api/friendships",
+                   data: {id: this.props.params.userId},
+                   constant: FriendzConstants.FRIENDS_RECEIVED});
   },
   componentWillUnmount: function () {
     UserStore.removeChangeListener(FriendzConstants.FRIENDS_RECEIVED, this.getFriends);
@@ -31,8 +33,8 @@ var FriendList = React.createClass({
         <div onClick={this.handleClick} className="friend-list">
           {this.state.friends.map(function (friend){
             return (
-              <div id={friend.id} key={friend.id} selected={false} className={"nav nav-friend"}>
-                {friend.name}
+              <div id={friend.friend_id} key={friend.id} selected={false} className={"nav nav-friend"}>
+                {friend.friend}
               </div>
             )
           })}

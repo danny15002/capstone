@@ -158,7 +158,7 @@ ApiUtil = {
       method: reqInfo.method,
       data: reqInfo.data,
       success:  function (response) {
-        ApiActions.fetch(response, reqInfo.constant)
+        ApiActions.request(response, reqInfo.constant)
       }
     });
   }
