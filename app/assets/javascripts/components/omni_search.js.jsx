@@ -29,6 +29,9 @@ var OmniSearch = React.createClass({
     }
     this.setState({matches: matches, value :event.target.value})
   },
+  handleClick: function () {
+    this.matchUsers("");
+  },
   render: function () {
     var display = "none";
     if (this.state.matches.length > 0) {
@@ -47,9 +50,9 @@ var OmniSearch = React.createClass({
             {this.state.matches.map(function (match) {
               href = "#/User/" + match.id
               return (
-                 <li className={"search-result"}><a href={href}>{match.name}</a></li>
+                 <li className={"search-result"}><a onClick={this.handleClick} href={href}>{match.name}</a></li>
               )
-            })}
+            }.bind(this))}
           </ul>
         </div>
       </div>

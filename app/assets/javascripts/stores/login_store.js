@@ -3,8 +3,13 @@
   var _jwt = localStorage.jwt;
   var _user = null;
   var _error = "";
+  var _myFriends = [];
   if (_jwt) {
     _user = jwt_decode(_jwt);
+  }
+
+  var setMyFriends = function (friends) {
+    _myFriends = friends;
   }
 
   LoginStore = root.LoginStore = $.extend({}, EventEmitter.prototype, {
@@ -18,6 +23,18 @@
 
     getError: function () {
       return _error;
+    },
+
+    getMyFriends: function () {
+      return _myFriends.slice();
+    },
+
+    getFriendShipId: function (id) {
+      for (var i = 0; i < _myFriends.length; i++) {
+        if (id === _myFriends[i].accepter_id || id === _myFriends[i].requester_id) {
+          return _myFriends[i].friendship
+        }
+      }
     },
 
     isLoggedIn: function () {
@@ -62,6 +79,9 @@
           LoginStore.resetSession();
           LoginStore.emit(FriendzConstants.LOGOUT);
           break;
+        case FriendzConstants.MY_FRIENDS_RECEIVED:
+          setMyFriends(payload.response);
+          LoginStore.emit(FriendzConstants.MY_FRIENDS_RECEIVED);
         default:
           break;
       };
