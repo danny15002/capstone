@@ -49,7 +49,7 @@
       this.on(changeEvent, callback);
     },
     removeChangeListener: function (changeEvent, callback) {
-      this.on(changeEvent, callback);
+      this.removeListener(changeEvent, callback);
     },
     dispatcherID: friendzDispatcher.register( function(payload) {
       switch(payload.actionType) {

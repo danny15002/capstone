@@ -2,15 +2,7 @@ var PostStatusForm = React.createClass ({
   getInitialState: function () {
     return {value: undefined}
   },
-  componentDidMount: function () {
-    MessageStore.addChangeListener(FriendzConstants.STATUS_POSTED, this.updatePosts);
-  },
-  componentWillUnmount: function () {
-    MessageStore.removeChangeListener(FriendzConstants.STATUS_POSTED, this.updatePosts);
-  },
-  updatePosts: function () {
-    ApiUtil.fetchMessages(true);
-  },
+
   handleChange: function(event) {
     // TODO handle at back end, reject empty string.
     this.setState({value: event.target.value});
@@ -23,6 +15,7 @@ var PostStatusForm = React.createClass ({
                  body: this.state.value,
                  public: true};
     ApiUtil.createMessage(message, FriendzConstants.STATUS_POSTED);
+    // console.log(message);
     this.setState({value: ""})
   },
 
@@ -39,7 +32,7 @@ var PostStatusForm = React.createClass ({
         </textarea>
         <br></br>
         <br></br>
-        <button className={"status-button"} onClick={this.submitForm}>Post Status</button>
+        <button className={"status-button"} onClick={this.submitForm}>Post</button>
       </div>)
   }
 })
