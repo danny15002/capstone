@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151019225941) do
+ActiveRecord::Schema.define(version: 20151021015610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,15 +39,15 @@ ActiveRecord::Schema.define(version: 20151019225941) do
 
   add_index "events", ["creator_id"], name: "index_events_on_creator_id", using: :btree
 
-  create_table "friends", force: :cascade do |t|
-    t.integer  "requester_id", null: false
-    t.integer  "accepter_id",  null: false
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+  create_table "friendships", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "friend_id",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "friends", ["accepter_id"], name: "index_friends_on_accepter_id", using: :btree
-  add_index "friends", ["requester_id"], name: "index_friends_on_requester_id", using: :btree
+  add_index "friendships", ["friend_id"], name: "index_friendships_on_friend_id", using: :btree
+  add_index "friendships", ["user_id"], name: "index_friendships_on_user_id", using: :btree
 
   create_table "likes", force: :cascade do |t|
     t.integer  "likeable_id",   null: false
@@ -71,6 +71,16 @@ ActiveRecord::Schema.define(version: 20151019225941) do
   add_index "messages", ["from_id"], name: "index_messages_on_from_id", using: :btree
   add_index "messages", ["to_id"], name: "index_messages_on_to_id", using: :btree
 
+  create_table "pending_friendships", force: :cascade do |t|
+    t.integer  "requester_id", null: false
+    t.integer  "accepter_id",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "pending_friendships", ["accepter_id"], name: "index_pending_friendships_on_accepter_id", using: :btree
+  add_index "pending_friendships", ["requester_id"], name: "index_pending_friendships_on_requester_id", using: :btree
+
   create_table "pictures", force: :cascade do |t|
     t.integer  "user_id",    null: false
     t.string   "pic_url",    null: false
@@ -79,6 +89,16 @@ ActiveRecord::Schema.define(version: 20151019225941) do
   end
 
   add_index "pictures", ["user_id"], name: "index_pictures_on_user_id", using: :btree
+
+  create_table "profile_pictures", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "picture_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "profile_pictures", ["picture_id"], name: "index_profile_pictures_on_picture_id", unique: true, using: :btree
+  add_index "profile_pictures", ["user_id"], name: "index_profile_pictures_on_user_id", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "username",        null: false

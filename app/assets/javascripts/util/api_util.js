@@ -151,6 +151,15 @@ ApiUtil = {
         ApiActions.fetch(response, reqInfo.constant)
       }
     });
+  },
+  request: function (reqInfo) {
+    $.ajax({
+      url: reqInfo.url,
+      method: reqInfo.method,
+      data: reqInfo.data,
+      success:  function (response) {
+        ApiActions.fetch(response, reqInfo.constant)
+      }
+    });
   }
-
 }

@@ -28,29 +28,13 @@ class User < ActiveRecord::Base
   )
 
   has_many(
-    :created_events,
+    :friendships,
     primary_key: :id,
-    foreign_key: :creator_id,
-    class_name: "Event"
+    foreign_key: :user_id,
+    class_name: "Friendship"
   )
 
-  has_many(
-    :requested_friends,
-    primary_key: :id,
-    foreign_key: :requester_id,
-    class_name: "Friend"
-  )
-
-  has_many :friends, through: :requested_friends, source: :accepter
-
-  has_many(
-    :accepted_friends,
-    primary_key: :id,
-    foreign_key: :accepter_id,
-    class_name: "Friend"
-  )
-
-  has_many :friends2, through: :accepted_friends, source: :requester
+  has_many :friends, through: :friendships, source: :friend
 
   has_many(
     :created_events,
@@ -60,12 +44,15 @@ class User < ActiveRecord::Base
   )
 
   has_many :friends_events, through: :friends, source: :created_events
-  has_many :friends_events2, through: :friends2, source: :created_events
 
   has_many :pictures
 
   def getFriendEvents
     friends_events2 + friends_events
+  end
+
+  def get_friends
+    friends + friends2
   end
 
   def get_statuses

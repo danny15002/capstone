@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
 
+  def index
+    @users = User.all.limit(100)
+    render :index
+  end
+
   def new
     @user = User.new
     render :new
@@ -19,17 +24,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def index
-    if params[:id]
-      @users = User.find(params[:id]).friends + User.find(params[:id]).friends2
-    elsif params[:all]
-      @users = User.all
-    else
-      @users = current_user.friends + current_user.friends2
-    end
-
-    render :index
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

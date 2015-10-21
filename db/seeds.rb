@@ -44,12 +44,14 @@ end
 
 friendArray = [];
 
-100.times do |i|
-  friendArray.push([rand(1..25),rand(1..25)])
-end
-friendArray = friendArray.sort
-friendArray.each do |el|
-  Friend.create(requester_id: el[0],accepter_id: el[1])
+120.times do
+  i = rand(1..25)
+  j = rand(1..25)
+
+  if i != j
+    Friendship.create(user_id: i, friend_id: j)
+    Friendship.create(user_id: j, friend_id: i)
+  end
 end
 
 30.times do
