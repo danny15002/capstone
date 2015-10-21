@@ -5,11 +5,11 @@ var OmniSearch = React.createClass({
   componentDidMount: function () {
     UserStore.addChangeListener(FriendzConstants.USERS_RECEIVED, this.getUsers);
     ApiUtil.fetch({url: "users", data: {all: true}, constant: FriendzConstants.USERS_RECEIVED});
-    window.addEventListener('mousedown', this.hide);
+    // window.addEventListener('mousedown', this.hide);
   },
   componentWillUnmount: function () {
     UserStore.removeChangeListener(FriendzConstants.USERS_RECEIVED, this.getUsers);
-    window.removeEventListener('mousedown', this.hide);
+    // window.removeEventListener('mousedown', this.hide);
   },
   getUsers: function () {
     this.setState({users: UserStore.getUsers()})
