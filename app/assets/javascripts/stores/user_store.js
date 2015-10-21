@@ -35,7 +35,7 @@
     },
     getFriendById: function (id) {
       for (var i = 0; i < _currentFriends.length; i++) {
-        if (id === _currentFriends[i].id) {
+        if (id === _currentFriends[i].friend_id) {
           return _currentFriends[i];
         }
       }

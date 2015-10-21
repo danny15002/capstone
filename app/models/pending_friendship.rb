@@ -10,4 +10,18 @@
 #
 
 class PendingFriendship < ActiveRecord::Base
+
+  belongs_to(
+    :requestee,
+    primary_key: :id,
+    foreign_key: :accepter_id,
+    class_name: "PendingFriendship"
+  )
+
+  belongs_to(
+    :requestor,
+    primary_key: :id,
+    foreign_key: :requester_id,
+    class_name: "PendingFriendship"
+  )
 end

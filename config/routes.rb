@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :pictures, only: [:create, :index, :show, :destroy]
     resources :comments, only: [:create, :index, :show, :destroy]
     resources :friendships, only: [:index, :create, :destroy]
+    resources :pending_friendships, only: [:index, :create, :destroy]
   end
 
   get '*unmatched_route', to: 'application#not_found'

@@ -3956,3 +3956,20 @@ LINE 1: ...ages"."public" = $1 AND ((to_id = 3 AND from_id = ) OR (to_i...
 [10/20/15 20:05:04 -0700 Daniels-MacBook-Pro-3.local (484)] INFO : Doing deferred dependency-detection before Rack startup
 [10/20/15 20:05:16 -0700 Daniels-MacBook-Pro-3.local (484)] ERROR : Invalid license key, please contact support@newrelic.com
 [10/20/15 20:05:16 -0700 Daniels-MacBook-Pro-3.local (484)] ERROR : Visit NewRelic.com to obtain a valid license key, or to upgrade your account.
+[10/21/15 09:50:18 -0700 Daniels-MacBook-Pro-3.local (484)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Unknown key: :class. Valid keys are: :class_name, :anonymous_class, :foreign_key, :validate, :autosave, :table_name, :before_add, :after_add, :before_remove, :after_remove, :extend, :primary_key, :dependent, :as, :through, :source, :source_type, :inverse_of, :counter_cache, :join_table, :foreign_type
+[10/21/15 11:11:22 -0700 Daniels-MacBook-Pro-3.local (484)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: SyntaxError: unknown: Unexpected token (5:2)
+  3 |     window.addEventListener('mousedown', this.hide);
+  4 |   }
+> 5 |   render: function () {
+    |   ^
+  6 |     return (
+  7 |       <div>
+  8 |         <ul>
+[10/21/15 11:24:03 -0700 Daniels-MacBook-Pro-3.local (484)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: SyntaxError: unknown: Unexpected type cast (27:18)
+  25 |     }
+  26 |     ApiUtil.fetchPictures(id);
+> 27 |     this.setState(id: id);
+     |                   ^
+  28 |   },
+  29 |   getPictures: function () {
+  30 |     this.setState({profilePicUrl: UserStore.userProfPic()})
