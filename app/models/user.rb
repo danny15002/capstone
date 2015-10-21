@@ -47,6 +47,20 @@ class User < ActiveRecord::Base
 
   has_many :pictures
 
+  has_many(
+    :pending_friendships,
+    primary_key: :id,
+    foreign_key: :accepter_id,
+    class_name: "PendingFriendship"
+  )
+
+  has_many(
+    :pending_requests,
+    primary_key: :id,
+    foreign_key: :accepter_id,
+    class_name: "PendingFriendship"
+  )
+
   def get_friends
     friends + friends2
   end

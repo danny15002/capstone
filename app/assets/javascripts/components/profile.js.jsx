@@ -1,6 +1,6 @@
 var Profile = React.createClass ({
   getInitialState: function () {
-    return {profilePicUrl: "", friends: []}
+    return {id: this.props.params.userId, friends: []}
   },
   componentDidMount: function () {
     UserStore.addChangeListener(FriendzConstants.PICTURES_RECEIVED, this.getPictures);
@@ -24,6 +24,7 @@ var Profile = React.createClass ({
       id = parseInt(id);
     }
     ApiUtil.fetchPictures(id);
+    this.setState({id: id});
   },
   getPictures: function () {
     this.setState({profilePicUrl: UserStore.userProfPic()})
@@ -89,9 +90,9 @@ var Profile = React.createClass ({
           <img className={"prof-pic"}
             src={this.state.profilePicUrl}
             alt={"profile picture"}/>
-          <PostStatusForm userId={id}/>
+          <PostStatusForm userId={this.state.id}/>
         </div>
-        <WallActivity userId={id} />
+        <WallActivity userId={this.state.id} />
       </div>
     )
   }

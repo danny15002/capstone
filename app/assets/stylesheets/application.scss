@@ -203,17 +203,17 @@ header h2 {
   text-align: center;
 }
 
-.top-bar a {
+.top-bar > a {
   position: relative;
   padding-top: 5px;
   top: 15px;
   height: 30px;
   margin: 0 4%;
-  width: 12%;
+  width: 5%;
   border-radius: 2px;
 }
 
-.top-bar a:hover {
+.top-bar > a:hover {
   color: white;
   background: #550000;
 }
@@ -258,6 +258,11 @@ div.search-list {
   border-radius: 4px;
   color: black;
   width: 100%;
+}
+
+.search-list a {
+  color:black;
+  padding: 0px;
 }
 
 .search-list li:hover {

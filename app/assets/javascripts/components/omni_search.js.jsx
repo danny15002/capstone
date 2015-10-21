@@ -5,9 +5,11 @@ var OmniSearch = React.createClass({
   componentDidMount: function () {
     UserStore.addChangeListener(FriendzConstants.USERS_RECEIVED, this.getUsers);
     ApiUtil.fetch({url: "users", data: {all: true}, constant: FriendzConstants.USERS_RECEIVED});
+    window.addEventListener('mousedown', this.hide);
   },
   componentWillUnmount: function () {
     UserStore.removeChangeListener(FriendzConstants.USERS_RECEIVED, this.getUsers);
+    window.removeEventListener('mousedown', this.hide);
   },
   getUsers: function () {
     this.setState({users: UserStore.getUsers()})
@@ -29,8 +31,15 @@ var OmniSearch = React.createClass({
     }
     this.setState({matches: matches, value :event.target.value})
   },
-  handleClick: function () {
+  hide: function () {
+    console.log("clicky")
     this.matchUsers("");
+  },
+  listen: function () {
+    window.addEventListener('mousedown', this.hide);
+  },
+  stopListening: function () {
+    window.removeEventListener('mousedown', this.hide);
   },
   render: function () {
     var display = "none";
@@ -40,7 +49,7 @@ var OmniSearch = React.createClass({
     var href = "";
 
     return (
-      <div className={"nav-search"}>
+      <div onMouseEnter={this.stopListening} onMouseLeave={this.listen} className={"nav-search"}>
         <input type={"text"}
                placeholder={"Find a Friend"}
                value={this.state.value}
@@ -50,7 +59,7 @@ var OmniSearch = React.createClass({
             {this.state.matches.map(function (match) {
               href = "#/User/" + match.id
               return (
-                 <li className={"search-result"}><a onClick={this.handleClick} href={href}>{match.name}</a></li>
+                 <li className={"search-result"}><a href={href}>{match.name}</a></li>
               )
             }.bind(this))}
           </ul>

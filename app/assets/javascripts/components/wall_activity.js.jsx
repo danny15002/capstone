@@ -17,6 +17,10 @@ var WallActivity = React.createClass( {
     MessageStore.removeChangeListener(FriendzConstants.COMMENT_CREATED, this.fetchMessages);
     MessageStore.removeChangeListener(FriendzConstants.STATUS_POSTED, this.updatePosts);
   },
+  componentWillReceiveProps: function (nextProps) {
+    console.log(nextProps)
+    ApiUtil.fetchMessages(true, nextProps.userId);
+  },
   updatePosts: function () {
     var id;
     if (this.props.userId !== undefined) {
