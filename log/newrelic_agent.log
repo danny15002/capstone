@@ -3973,3 +3973,6 @@ LINE 1: ...ages"."public" = $1 AND ((to_id = 3 AND from_id = ) OR (to_i...
   28 |   },
   29 |   getPictures: function () {
   30 |     this.setState({profilePicUrl: UserStore.userProfPic()})
+[10/21/15 14:27:47 -0700 Daniels-MacBook-Pro-3.local (484)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: ERROR:  null value in column "to_id" violates not-null constraint
+DETAIL:  Failing row contains (652, 10, null, hey, t, 2015-10-21 21:27:47.341312, 2015-10-21 21:27:47.341312).
+
