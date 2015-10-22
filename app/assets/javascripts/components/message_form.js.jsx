@@ -29,16 +29,17 @@ var MessageForm = React.createClass( {
     if (this.state.recipientId === undefined) {
       return <div></div>
     }
-    var value= this.state.value;
 
+    var name = UserStore.getFriendById(this.state.recipientId).friend
+    var value= this.state.value;
     return (
       <div className={"message-form"}>
-        <Conversation params={this.props.params}/>
+        <Conversation params={this.props.params} name={name}/>
 
         <textarea
           onChange={this.handleChange}
           className={"message-text"}
-          placeholder={"Type a message for " + UserStore.getFriendById(this.state.recipientId).name}
+          placeholder={"Type a message for " + name}
           value={value}>
 
         </textarea>

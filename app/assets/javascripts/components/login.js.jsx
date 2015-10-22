@@ -26,6 +26,9 @@ var Login = React.createClass({
     event.preventDefault();
     ApiUtil.login(this.state.username, this.state.password);
   },
+  inputGuestInfo: function () {
+    ApiUtil.login("guest", "password");
+  },
   render() {
     return (
       <div>
@@ -33,7 +36,7 @@ var Login = React.createClass({
         <div className={"credentials-form"} >
           <div className={"jumbotron"}><h1> Friendz! </h1></div>
           <h4> Go ahead and log in! Or <a href={"/#/signup"}>Sign Up.</a> </h4>
-
+          <h4> You can also sign in as a <a onClick={this.inputGuestInfo}>Guest.</a> </h4>
           <h4 className={"errors"}> {this.state.errors} </h4>
           <form role={"form"} className={"form-group"}>
             <div className="input-group my-input" >

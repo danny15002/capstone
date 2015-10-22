@@ -32,7 +32,6 @@ var OmniSearch = React.createClass({
     this.setState({matches: matches, value :event.target.value})
   },
   hide: function () {
-    console.log("clicky")
     this.matchUsers("");
   },
   listen: function () {

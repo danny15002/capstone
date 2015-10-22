@@ -26,7 +26,7 @@ var LeftBar = React.createClass ({
   render: function () {
     return (
       <div onClick={this.handleClick} className={"bar left-bar"}>
-        <div className={"nav nav-messages"}>Messages</div>
+        <div className={"nav nav-messages"}><span className={"glyphicon glyphicon-message"}></span>Messages</div>
         <div className={"nav nav-events"}>Events</div>
         <div className={"nav nav-pictures"}>Pictures</div>
         <div className={"nav nav-locations"}>Locations</div>
