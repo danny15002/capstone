@@ -477,11 +477,12 @@ button {
 .comment {
   background: white;
   margin-bottom: 10px;
-  border: 1px solid green;
+  // border: 1px solid green;
 }
 
 .main-comment {
   position:relative;
+  border: outset 1px;
 }
 
 .main-comment:after {

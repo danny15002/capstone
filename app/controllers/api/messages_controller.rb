@@ -53,7 +53,7 @@ class Api::MessagesController < ApplicationController
             #{current_user.id} = friendships.user_id
         ))) AND messages.public = true
       ORDER BY
-        messages.created_at
+        messages.created_at DESC
       SQL
 
     @messages = Message.find_by_sql(sql_query)
@@ -66,7 +66,7 @@ class Api::MessagesController < ApplicationController
     @message = Message.create(message_params)
 
     if @message.save
-      Message.activity(@message)
+      # Message.activity(@message)
       render json: {} #must return an object for AJAX success callback to trigger
     else
       render json: "failed"
