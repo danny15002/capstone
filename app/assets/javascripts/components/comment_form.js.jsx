@@ -32,7 +32,7 @@ var CommentForm = React.createClass({
         <div onClick={this.showForm}>{this.state.subText}</div>
         <div style={{display: this.state.formStyle}}>
           <textarea placeholder={"Leave a comment."} onChange={this.handleChange} value={this.state.value}/>
-          <button className={"comment-button"} onClick={this.submitForm}>Submit Comment</button>
+          <button className={"comment-button"} onClick={this.submitForm}>Submit</button>
         </div>
       </div>
     )

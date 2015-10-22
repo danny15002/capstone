@@ -12,7 +12,7 @@ var Comment = React.createClass({
     if (message.recipient && (message.recipient !== message.author)) {
       heading = (
         <div className={"author"}>
-          {message.author} -> {message.recipient}
+          {message.author} <span style={{color: "red"}} className={"glyphicon glyphicon-triangle-right"}></span> {message.recipient}
         </div>
       );
     }
@@ -32,14 +32,20 @@ var Comment = React.createClass({
     if (this.props.level <= 2) {
       form = <CommentForm id={message.id} commentableType={message.type}/>
     }
+
+    var picsize = 100
+    if (this.props.level > 1) {
+      picsize = 70;
+    }
+
     return (
       <div className={this.props.className + " comment"}>
+          <ProfilePicture source={message.prof_pic} style={{height: picsize + "px", width: picsize + "px"}}/>
         <div className={"heading"}>
-          <ProfilePicture source={message.prof_pic}/>
           {this.heading(message)}
           <div className={"time"}>{message.created_at}</div>
           <br></br>
-          <div className={"comment-body"}>
+          <div style={{width: "calc( 100% - " + picsize + "px )"}} className={"comment-body"}>
             {message.body}
           </div>
         </div>

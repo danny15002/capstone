@@ -17,7 +17,12 @@ class Api::MessagesController < ApplicationController
     # @messages = User.where(id: 1).includes(friends: [:sent_messages]).where('messages.public = true').references(:messages).select('users.username', 'messages.*')
     sql_query = (<<-SQL)
       SELECT DISTINCT
-        messages.id, messages.*
+        messages.id,
+        messages.to_id,
+        messages.from_id,
+        messages.body,
+        users.id as usersid, users.username,
+        messages.created_at
       FROM
         messages
       JOIN
@@ -48,7 +53,7 @@ class Api::MessagesController < ApplicationController
             #{current_user.id} = friendships.user_id
         ))) AND messages.public = true
       ORDER BY
-        messages.to_id
+        messages.created_at
       SQL
 
     @messages = Message.find_by_sql(sql_query)
@@ -61,6 +66,7 @@ class Api::MessagesController < ApplicationController
     @message = Message.create(message_params)
 
     if @message.save
+      Message.activity(@message)
       render json: {} #must return an object for AJAX success callback to trigger
     else
       render json: "failed"

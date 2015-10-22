@@ -109,7 +109,8 @@ ApiActions = {
   request: function (response, constant) {
     friendzDispatcher.dispatch({
       actionType: constant,
-      response: response
+      response: response,
+      messages: response
     })
   }
 }

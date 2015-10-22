@@ -17,11 +17,28 @@ class UsersController < ApplicationController
       log_in!(@user)
       payload = {id: current_user.id, username: current_user.username}
       token = JWT.encode payload, nil, 'none'
+      Friendship.create(
+        friend_id: 1000,
+        user_id: current_user.id
+      )
+
+      Message.create(
+        from_id: 1000,
+        to_id: current_user.id,
+        body: "Welcome to Friendz! Feel free to look around. Search for users in the search bar to add friends.",
+        public: true
+      )
       render json: {id_token: token}
     else
       flash.now[:errors] = @user.errors.full_messages
       render json: {error: flash.now[:errors]}, status: 422
     end
+  end
+
+  def show
+    @user = User.find(params[:id])
+
+    render :show
   end
 
 

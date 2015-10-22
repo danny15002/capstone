@@ -5,7 +5,7 @@ var ProfilePicture = React.createClass({
       <img className={"prof-pic"}
         src={this.props.source}
         alt={"profile picture"}
-        style={{height: "50px", width: "50px"}}/>
+        style={this.props.style}/>
     )
   }
 })

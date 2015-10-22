@@ -12,6 +12,7 @@
 
 class User < ActiveRecord::Base
   extend UsersHelper
+  DEFAULT_PROFILE_PIC = "http://vectorlogofree.com/wp-content/uploads/2014/09/21426-instagram-logo-silhouette-icon-vector-icon-vector-eps.png"
 
   has_many(
     :received_messages,
@@ -66,7 +67,12 @@ class User < ActiveRecord::Base
   end
 
   def profile_pic
-    pictures.first.pic_url
+    pic = pictures.first
+    if pic
+      return pic.pic_url
+    else
+      return DEFAULT_PROFILE_PIC
+    end
   end
 
   attr_reader :password
