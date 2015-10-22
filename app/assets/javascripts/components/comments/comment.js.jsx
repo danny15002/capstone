@@ -68,7 +68,7 @@ var Comment = React.createClass({
             <span className={"glyphicon glyphicon-thumbs-up"}></span> Like
           </div>
           <div onClick={this.handleReply} style={{paddingRight: "5px"}}>
-            {this.formText}
+            <span className={"glyphicon glyphicon-share-alt"}></span> {this.formText}
           </div>
           <div onClick={this.handleViewReplies}>
             {this.subText}

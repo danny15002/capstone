@@ -418,15 +418,14 @@ button {
 }
 
 .pic-container {
-  float: left;
   height: auto;
-  width: 80%;
+  width: 100%;
   background: black;
 }
 
 .picture {
-  float: left;
-  width: 400px;
+  width: 100%;
+  height: auto;
   display: block;
 }
 

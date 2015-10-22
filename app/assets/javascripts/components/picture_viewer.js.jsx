@@ -1,8 +1,10 @@
 var PictureViewer = React.createClass({
   rightArrow: function () {
     return (
-      <div onClick={this.handleRight} style={{float: "right", background: "red", width: "10%"}}>
-        Next
+      <div
+        onClick={this.handleRight}
+        style={{position: "absolute", top: "0", right: "0", background: "white"}}>
+        <span className={"glyphicon glyphicon-chevron-right"}></span>
       </div>
     )
   },
@@ -12,8 +14,8 @@ var PictureViewer = React.createClass({
   },
   leftArrow: function () {
     return (
-      <div onClick={this.handleLeft} style={{float: "left", background: "blue", width: "10%"}}>
-        Previous
+      <div onClick={this.handleLeft} style={{float: "left", background: "white"}}>
+        <span className={"glyphicon glyphicon-chevron-left"}></span>
       </div>
     )
   },
@@ -37,6 +39,7 @@ var PictureViewer = React.createClass({
   },
   getPictures: function () {
     this.setState({pictures: UserStore.getPictures()})
+    this.setState({currentPicIdx: (this.state.pictures.length - 1)})
   },
   updatePictures: function () {
     ApiUtil.fetchPictures();
@@ -72,15 +75,17 @@ var PictureViewer = React.createClass({
 
     return (
       <div className={"pic-viewer"}>
-        {this.leftArrow()}
-        <div className={"pic-container"}>
+        <div style={{position: "relative"}} className={"pic-container"}>
+          {this.leftArrow()}
           <img className={"picture"}
             src={source}
             alt={"profile picture"}/>
+          {this.rightArrow()}
         </div>
-        {this.rightArrow()}
-        <a onClick={this.upload} id="upload_widget_opener">Upload multiple images</a>
-        <button onClick={this.submitForm}>Upload Photo(s)</button>
+        <div>
+          <a onClick={this.upload} id="upload_widget_opener">Select an Image</a>
+          <button onClick={this.submitForm}>Upload</button>
+        </div>
         <ul>
           {comments.map(function (comment) {
               return (<li>
