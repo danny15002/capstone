@@ -480,14 +480,51 @@ button {
   border: 1px solid green;
 }
 
-.heading:after {
+.main-comment {
+  position:relative;
+}
+
+.main-comment:after {
   content: "";
   display:block;
   clear: both;
 }
 
-.heading * {
+.comment-header:after {
+  content: "";
+  display:block;
+  clear: both;
+}
+
+.comment-menu:after {
+  content: "";
+  display:block;
+  clear: both;
+}
+
+.comment-body {
+  position: relative;
+}
+
+.comment-header * {
   display: inline-block;
+}
+
+.comment-body > * {
+  width: 100%;
+}
+
+.comment-menu {
+  position: absolute;
+  bottom: 0;
+  background: #BBBBBB;
+}
+
+.comment-menu > * {
+  float: left;
+  display: inline-block;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .time {
