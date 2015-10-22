@@ -21,7 +21,7 @@ var Conversation = React.createClass( {
     if (MessageStore.getMessages().length === 0) {
       return (
         <div className={"conversation"}>
-          <div> No messages here. Why dont you send a Message!</div>
+          <div> No messages here. Why dont you send a Message to {this.props.name}!</div>
         </div>
       )
     }

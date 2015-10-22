@@ -13,6 +13,49 @@ class Api::MessagesController < ApplicationController
     render :index
   end
 
+  def show
+    # @messages = User.where(id: 1).includes(friends: [:sent_messages]).where('messages.public = true').references(:messages).select('users.username', 'messages.*')
+    sql_query = (<<-SQL)
+      SELECT DISTINCT
+        messages.id, messages.*
+      FROM
+        messages
+      JOIN
+        users ON users.id = messages.to_id
+      JOIN
+        friendships ON friendships.user_id = users.id
+      WHERE
+        ((messages.to_id = #{current_user.id} OR
+        messages.from_id = #{current_user.id}) OR (
+        messages.to_id IN (
+          SELECT
+            friendships.friend_id
+          FROM
+            friendships
+          JOIN
+            users ON friendships.user_id = users.id
+          WHERE
+            #{current_user.id} = friendships.user_id
+        ) AND
+        messages.from_id IN (
+          SELECT
+            friendships.friend_id
+          FROM
+            friendships
+          JOIN
+            users ON friendships.user_id = users.id
+          WHERE
+            #{current_user.id} = friendships.user_id
+        ))) AND messages.public = true
+      ORDER BY
+        messages.to_id
+      SQL
+
+    @messages = Message.find_by_sql(sql_query)
+
+    render :show
+  end
+
   def create
     p params
     @message = Message.create(message_params)

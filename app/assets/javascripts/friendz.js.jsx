@@ -25,7 +25,7 @@ var routes = (
     <Route path="signup" onEnter={SignUp.willTransitionTo} component={SignUp}/>
     <Route path="/" onEnter={AuthenticatedComponent.willTransitionTo} component={App}>
       <IndexRoute component={NewsFeed}/>
-      <Route path="Messages" component={UserList}>
+      <Route path="Messages" component={UserFriendsList}>
         <Route path=":userId" component={ MessageForm} />
       </Route>
       <Route path="Events" component={EventList}>

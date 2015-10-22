@@ -61,10 +61,6 @@ class User < ActiveRecord::Base
     class_name: "PendingFriendship"
   )
 
-  def get_friends
-    friends + friends2
-  end
-
   def get_statuses
     sent_messages.where("to_id = from_id")
   end

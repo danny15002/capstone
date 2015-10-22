@@ -6,6 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+User.create(
+  username: "guest",
+  password: "password",
+  password_confirmation: "password"
+)
 
 25.times do
   User.create(
@@ -17,16 +22,16 @@ end
 
 300.times do
   Message.create(
-    from_id: rand(1..25),
-    to_id: rand(1..25),
+    from_id: rand(1..26),
+    to_id: rand(1..26),
     body: (Faker::Hacker.say_something_smart + " " + Faker::Hacker.say_something_smart)
   )
 end
 
 300.times do
   Message.create(
-    from_id: rand(1..25),
-    to_id: rand(1..25),
+    from_id: rand(1..26),
+    to_id: rand(1..26),
     body: (Faker::Hacker.say_something_smart + " " + Faker::Hacker.say_something_smart),
     public: true
   )
@@ -66,7 +71,7 @@ end
 
 base = "http://assets22.pokemon.com/assets/cms2/img/pokedex/full/"
 
-25.times do |i|
+26.times do |i|
   num = sprintf '%03d', i + 1
   Picture.create(
     user_id: i,

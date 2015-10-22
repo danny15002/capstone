@@ -1,5 +1,6 @@
 var Profile = React.createClass ({
   getInitialState: function () {
+
     return {id: this.props.params.userId, friends: []}
   },
   componentDidMount: function () {
@@ -62,7 +63,6 @@ var Profile = React.createClass ({
   },
   handleClick: function (request) {
     return function () {
-      console.log(request);
       ApiUtil.request(request);
     }
   },
@@ -70,8 +70,10 @@ var Profile = React.createClass ({
     var id;
     if (this.props.params.userId === undefined) {
       id = LoginStore.user().id;
+      message_id = ""
     } else {
       id = this.props.params.userId
+      message_id = id
     }
 
     var friendObject = this.friendText(id)
@@ -82,7 +84,7 @@ var Profile = React.createClass ({
           <div className={"profile-menu"}>
             <a href={"#/User/" + id + "/Friends"} className={"Friends"}>Friends</a>
             <a href={"#/User/" + id + "/Pictures"} className={"Pictures"}>Pictures</a>
-            <a href={"#/Messages/" + id} className={"Messages"}>Messages</a>
+            <a href={"#/Messages/" + message_id} className={"Messages"}>Messages</a>
             <div onClick={this.handleClick(friendObject.request)}>
               {friendObject.text}
             </div>
