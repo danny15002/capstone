@@ -13,6 +13,13 @@ var FriendList = React.createClass({
   componentWillUnmount: function () {
     UserStore.removeChangeListener(FriendzConstants.FRIENDS_RECEIVED, this.getFriends);
   },
+  // componentWillReceiveProps: function (nextProps) {
+  //   debugger;
+  //   UserStore.addChangeListener(FriendzConstants.FRIENDS_RECEIVED, this.getFriends);
+  //   ApiUtil.fetch({url: "api/friendships",
+  //                  data: {id: this.props.params.userId},
+  //                  constant: FriendzConstants.FRIENDS_RECEIVED});
+  // },
   getFriends: function () {
     this.setState({friends: UserStore.currentFriends()})
   },

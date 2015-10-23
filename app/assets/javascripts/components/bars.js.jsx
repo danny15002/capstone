@@ -61,8 +61,7 @@ var TopBar = React.createClass ({
           <OmniSearch />
           <a href={"#/"} className={"nav-messages"}>Home</a>
           <a href={"#/Profile"} className={"nav-events"}>Profile</a>
-          <a href={"#/Requests"} className={"nav-events"}>Requests</a>
-          <a href={"#/Notifications"} className={"nav-events"}>Notifications</a>
+          
           <a href={"#/Account"} className={"nav-pictures"}>Account</a>
           <a onClick={this.handleClick} className={"nav-location"}>Logout</a>
         </div>
