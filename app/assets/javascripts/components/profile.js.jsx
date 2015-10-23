@@ -32,7 +32,7 @@ var Profile = React.createClass ({
     }
     this.setState({id: id});
     ApiUtil.fetchPictures(id);
-    ApiUtil.fetch({url: "users/" + this.state.id, data: {id: this.state.id}, constant: FriendzConstants.USER_RECEIVED})
+    ApiUtil.fetch({url: "users/" + nextProps.params.userId, data: {id: nextProps.params.userId}, constant: FriendzConstants.USER_RECEIVED})
   },
   getFriends: function () {
     this.setState({friends: LoginStore.getMyFriends()})

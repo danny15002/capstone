@@ -11,8 +11,8 @@ json.array! @messages do |message|
 
   json.prof_pic message.user_from.profile_pict
   json.likes message.number_likes
-  json.liked message.is_liked?(current_user)
-  json.myLikeId message.users_like_id(current_user)
+  json.liked message.is_liked?(@id)
+  json.myLikeId message.users_like_id(@id)
 
   json.type "Message"
   json.comments message.comments do |comment|
@@ -24,8 +24,8 @@ json.array! @messages do |message|
     json.author comment.user.username
     json.prof_pic comment.user.profile_pict
     json.likes comment.number_likes
-    json.liked comment.is_liked?(current_user)
-    json.myLikeId comment.users_like_id(current_user)
+    json.liked comment.is_liked?(@id)
+    json.myLikeId comment.users_like_id(@id)
 
 
     json.type "Comment"
@@ -39,8 +39,8 @@ json.array! @messages do |message|
       json.author comment.user.username
       json.prof_pic comment.user.profile_pict
       json.likes comment.number_likes
-      json.liked comment.is_liked?(current_user)
-      json.myLikeId comment.users_like_id(current_user)
+      json.liked comment.is_liked?(@id)
+      json.myLikeId comment.users_like_id(@id)
 
       json.type "Comment"
     end

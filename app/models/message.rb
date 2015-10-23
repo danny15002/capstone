@@ -33,15 +33,18 @@ class Message < ActiveRecord::Base
     self.likes.length;
   end
 
-  def is_liked?(current_user)
+  def is_liked?(id)
     return self.likes.any? do |like|
-      like.user_id == current_user.id
+      like.user_id == id
     end
   end
 
-  def users_like_id(current_user)
+  def users_like_id(id)
 
-    melike = self.likes.where(user_id: current_user.id, likeable_id: self.id, likeable_type: self.class)
+    # like = self.likes.where(user_id: id, likeable_id: self.id, likeable_type: self.class)
+
+    like = self.likes.select {|like| like.likeable_type == self.class.to_s && like.user_id == id}
+
     if like.first.nil?
       return nil
     else

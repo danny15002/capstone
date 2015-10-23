@@ -200,9 +200,7 @@ header h2 {
 
 .top-bar {
   overflow: visible;
-  min-width: 900px;
-  max-width: 75%;
-  width: 100%;
+  width: 850px;
   height: $header_height_pixels + px;
   margin: auto;
   opacity: 1;
@@ -217,14 +215,29 @@ header h2 {
   text-align: center;
 }
 
+.top-menu-div {
+  position: relative;
+  width: auto;
+  margin: 0px 29px;
+}
+
+.top-bar span {
+  width: auto;
+}
+
 .top-bar > a {
   position: relative;
-  padding-top: 5px;
+  padding: 5px;
   top: 15px;
   height: 30px;
-  margin: 0 4%;
-  width: 5%;
+  margin: 0 2%;
+  width: 16%;
+  color: white;
   border-radius: 2px;
+}
+
+.top-bar > a:visited {
+  color: white;
 }
 
 .top-bar > a:hover {

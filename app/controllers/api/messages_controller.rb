@@ -3,15 +3,9 @@ class Api::MessagesController < ApplicationController
   def index
 
     if params[:public] == 'true'
-      @messages = Message.all.where(public: true).where("to_id = #{current_user.id} OR from_id = #{current_user.id} OR (from_id IN (:network_ids) AND to_id IN (:network_ids))", network_ids: current_user.friend_ids).includes(:user_to, user_from: [:pictures, :profile_picture], comments: [user: [:pictures, :profile_picture], comments: [user: [:pictures, :profile_picture]]]).order(:created_at).reverse_order
+      @messages = Message.all.where(public: true).where("to_id = #{current_user.id} OR from_id = #{current_user.id} OR (from_id IN (:network_ids) AND to_id IN (:network_ids))", network_ids: current_user.friend_ids).includes(:likes, :user_to, user_from: [:likes, :pictures, :profile_picture], comments: [:likes, user: [:pictures, :profile_picture, :likes], comments: [:likes, user: [:likes, :pictures, :profile_picture]]]).order(:created_at).reverse_order
     end
-    # if params[:user_id].nil?
-    #   @messages = current_user.received_messages.includes(:user_to, :user_from, comments: [user: [:pictures, :profile_picture], comments: [user: [:pictures, :profile_picture]]]).where(public: params[:public]).order(:created_at).reverse_order
-    # elsif params[:public] == 'true'
-    #   @messages = User.find(params[:user_id]).received_messages.includes(:user_to, :user_from, comments: [user: [:pictures, :profile_picture], comments: [user: [:pictures, :profile_picture]]]).where(public: params[:public]).order(:created_at).reverse_order
-    # else
-    #   @messages = Message.where(public: params[:public]).where("(to_id = #{current_user.id} AND from_id = #{params[:user_id]}) OR (to_id = #{params[:user_id]} AND from_id = #{current_user.id})").includes(:user_to, :user_from).order(:created_at)
-    # end
+    @id = current_user.id
     render :index
   end
 
@@ -76,6 +70,8 @@ class Api::MessagesController < ApplicationController
     elsif params[:public] == 'false'
       @messages = Message.all.where(public: false).where("(to_id = #{params[:user_id]} AND from_id = #{current_user.id}) OR (to_id = #{current_user.id} AND from_id = #{params[:user_id]})").includes(:user_to, :user_from).order(:created_at).reverse_order
     end
+
+    @id = current_user.id
 
     render :show
   end
