@@ -4,7 +4,10 @@
   var _currentFriends = [];
   var _userPics = [];
   var _users = [];
+<<<<<<< HEAD
   var _profileUser = {};
+=======
+>>>>>>> 38f886d2d6c348d183e3ee7da574b6c8aef68f94
 
   var setCurrentUser = function (user) {
     _currentUser = user;
@@ -19,9 +22,12 @@
   var setUsers = function (users) {
     _users = users;
   }
+<<<<<<< HEAD
   var setProfileUser = function (user) {
     _profileUser = user;
   }
+=======
+>>>>>>> 38f886d2d6c348d183e3ee7da574b6c8aef68f94
 
   UserStore = root.UserStore = $.extend({}, EventEmitter.prototype, {
 
@@ -47,9 +53,12 @@
     getUsers: function () {
       return _users;
     },
+<<<<<<< HEAD
     getProfileUser: function () {
       return _profileUser;
     },
+=======
+>>>>>>> 38f886d2d6c348d183e3ee7da574b6c8aef68f94
     addChangeListener: function (changeEvent, callback) {
       this.on(changeEvent, callback);
     },
@@ -72,15 +81,21 @@
           break;
         case FriendzConstants.PICTURE_UPLOADED:
           UserStore.emit(FriendzConstants.PICTURE_UPLOADED)
+<<<<<<< HEAD
           break;
+=======
+>>>>>>> 38f886d2d6c348d183e3ee7da574b6c8aef68f94
         case FriendzConstants.USERS_RECEIVED:
           setUsers(payload.response)
           UserStore.emit(FriendzConstants.USERS_RECEIVED)
           break;
+<<<<<<< HEAD
         case FriendzConstants.USER_RECEIVED:
           setProfileUser(payload.response)
           UserStore.emit(FriendzConstants.USER_RECEIVED)
           break;
+=======
+>>>>>>> 38f886d2d6c348d183e3ee7da574b6c8aef68f94
       }
     })
   });

@@ -5,11 +5,16 @@ var FriendActivity = React.createClass( {
   componentDidMount: function () {
     MessageStore.addChangeListener(FriendzConstants.MESSAGES_RECEIVED, this.getMessages);
     MessageStore.addChangeListener(FriendzConstants.STATUS_POSTED, this.fetchMessages);
+<<<<<<< HEAD
     request = {url: "api/messages",
                method: "GET",
                data: {public: true},
                constant: FriendzConstants.MESSAGES_RECEIVED};
     ApiUtil.request(request)
+=======
+
+    ApiUtil.fetchMessages(true);
+>>>>>>> 38f886d2d6c348d183e3ee7da574b6c8aef68f94
   },
   componentWillUnmount: function () {
     MessageStore.removeChangeListener(FriendzConstants.MESSAGES_RECEIVED, this.getMessages);
@@ -19,11 +24,15 @@ var FriendActivity = React.createClass( {
     this.setState({messages: MessageStore.getMessages()})
   },
   fetchMessages: function () {
+<<<<<<< HEAD
     request = {url: "api/messages/",
                method: "GET",
                data: {public: true},
                constant: FriendzConstants.MESSAGES_RECEIVED};
     ApiUtil.request(request)
+=======
+    ApiUtil.fetchMessages(true);
+>>>>>>> 38f886d2d6c348d183e3ee7da574b6c8aef68f94
   },
 
   render: function () {

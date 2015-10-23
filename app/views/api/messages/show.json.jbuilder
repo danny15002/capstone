@@ -1,4 +1,5 @@
 json.array! @messages do |message|
+<<<<<<< HEAD
   json.id message.id
   json.from_id message.from_id
   json.to_id message.to_id
@@ -42,3 +43,9 @@ end
 #     json.partial! "api/comments/comment", comment: comment
 #   end
 # end
+=======
+  # json.message message
+  json.from_id message.from_id
+  json.to_id message.to_id
+end
+>>>>>>> 38f886d2d6c348d183e3ee7da574b6c8aef68f94

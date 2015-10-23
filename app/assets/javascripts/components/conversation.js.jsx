@@ -4,6 +4,7 @@ var Conversation = React.createClass( {
   },
   componentDidMount: function () {
     MessageStore.addChangeListener(FriendzConstants.MESSAGES_RECEIVED, this.getMessages);
+<<<<<<< HEAD
     MessageStore.addChangeListener(FriendzConstants.MESSAGE_SENT, this.getMessages);
     var id = this.props.params.userId;
     ApiUtil.request({url: "api/messages/" + id, data: {user_id: id, public: false}, constant: FriendzConstants.MESSAGES_RECEIVED});
@@ -16,6 +17,17 @@ var Conversation = React.createClass( {
   componentWillReceiveProps: function (nextProps) {
     var id = parseInt(nextProps.params.userId)
     ApiUtil.request({url: "api/messages/" + id, data: {user_id: id, public: false}, constant: FriendzConstants.MESSAGES_RECEIVED});
+=======
+    var id = this.props.params.userId;
+    ApiUtil.fetchMessages(false, id);
+  },
+  componentWillUnmount: function () {
+    MessageStore.removeChangeListener(FriendzConstants.MESSAGES_RECEIVED, this.getMessages);
+  },
+  componentWillReceiveProps: function (nextProps) {
+    var id = parseInt(nextProps.params.userId)
+    ApiUtil.fetchMessages(false, id);
+>>>>>>> 38f886d2d6c348d183e3ee7da574b6c8aef68f94
   },
   getMessages: function () {
     this.setState({messages: MessageStore.getMessages()})

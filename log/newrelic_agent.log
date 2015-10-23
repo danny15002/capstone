@@ -4062,6 +4062,7 @@ LINE 5:       FROM
 LINE 21:         messages.id
                  ^
 
+<<<<<<< HEAD
 [10/21/15 18:24:47 -0700 Daniels-MacBook-Pro-3.local (15544)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: ERROR:  missing FROM-clause entry for table "frienships"
 LINE 2:         messages.id, messages.*, users.*, frienships.*
                                                   ^
@@ -4276,3 +4277,5 @@ LINE 1: ...ages" WHERE "messages"."public" = $1 AND (to_id = NaN OR fro...
 LINE 1: ...ages" WHERE "messages"."public" = $1 AND (to_id = NaN OR fro...
                                                              ^
 : SELECT "messages".* FROM "messages" WHERE "messages"."public" = $1 AND (to_id = NaN OR from_id = NaN)  ORDER BY "messages"."created_at" DESC
+=======
+>>>>>>> 38f886d2d6c348d183e3ee7da574b6c8aef68f94

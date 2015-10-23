@@ -10,6 +10,7 @@
 #
 
 class ProfilePicture < ActiveRecord::Base
+<<<<<<< HEAD
   belongs_to(
     :user
   )
@@ -17,4 +18,6 @@ class ProfilePicture < ActiveRecord::Base
   belongs_to(
     :picture
   )
+=======
+>>>>>>> 38f886d2d6c348d183e3ee7da574b6c8aef68f94
 end

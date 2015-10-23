@@ -12,7 +12,10 @@
 
 class User < ActiveRecord::Base
   extend UsersHelper
+<<<<<<< HEAD
   DEFAULT_PROFILE_PIC = "http://vectorlogofree.com/wp-content/uploads/2014/09/21426-instagram-logo-silhouette-icon-vector-icon-vector-eps.png"
+=======
+>>>>>>> 38f886d2d6c348d183e3ee7da574b6c8aef68f94
 
   has_many(
     :received_messages,
@@ -62,6 +65,7 @@ class User < ActiveRecord::Base
     class_name: "PendingFriendship"
   )
 
+<<<<<<< HEAD
   has_one(
     :profile_pic,
     primary_key: :id,
@@ -71,10 +75,13 @@ class User < ActiveRecord::Base
 
   has_one(:profile_picture, through: :profile_pic, source: :picture)
 
+=======
+>>>>>>> 38f886d2d6c348d183e3ee7da574b6c8aef68f94
   def get_statuses
     sent_messages.where("to_id = from_id")
   end
 
+<<<<<<< HEAD
   def profile_pict
     pic = self.profile_picture
     if pic
@@ -86,6 +93,10 @@ class User < ActiveRecord::Base
     else
       return DEFAULT_PROFILE_PIC
     end
+=======
+  def profile_pic
+    pictures.first.pic_url
+>>>>>>> 38f886d2d6c348d183e3ee7da574b6c8aef68f94
   end
 
   attr_reader :password
@@ -130,4 +141,8 @@ class User < ActiveRecord::Base
     return nil if user.nil?
     user.is_password?(password) ? user : nil
   end
+<<<<<<< HEAD
+=======
+
+>>>>>>> 38f886d2d6c348d183e3ee7da574b6c8aef68f94
 end

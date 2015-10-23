@@ -15,6 +15,7 @@ class UsersController < ApplicationController
 
     if @user.save
       log_in!(@user)
+<<<<<<< HEAD
       payload = {id: current_user.id, username: current_user.username, prof_pic: current_user.profile_pict}
       token = JWT.encode payload, nil, 'none'
 
@@ -29,6 +30,10 @@ class UsersController < ApplicationController
         body: "Welcome to Friendz! Feel free to look around. Search for users in the search bar to add friends.",
         public: true
       )
+=======
+      payload = {id: current_user.id, username: current_user.username}
+      token = JWT.encode payload, nil, 'none'
+>>>>>>> 38f886d2d6c348d183e3ee7da574b6c8aef68f94
       render json: {id_token: token}
     else
       flash.now[:errors] = @user.errors.full_messages
@@ -36,12 +41,15 @@ class UsersController < ApplicationController
     end
   end
 
+<<<<<<< HEAD
   def show
     # fail
     @user = User.all.includes(:profile_picture, :pictures).where(id: params[:id])
     render :show
   end
 
+=======
+>>>>>>> 38f886d2d6c348d183e3ee7da574b6c8aef68f94
 
   private
     # Use callbacks to share common setup or constraints between actions.
