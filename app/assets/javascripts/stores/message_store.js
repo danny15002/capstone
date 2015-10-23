@@ -20,10 +20,6 @@
     dispatcherID: friendzDispatcher.register( function(payload) {
       switch(payload.actionType) {
         case FriendzConstants.MESSAGES_RECEIVED:
-<<<<<<< HEAD
-        
-=======
->>>>>>> 38f886d2d6c348d183e3ee7da574b6c8aef68f94
           setMessages(payload.messages);
           MessageStore.emit(FriendzConstants.MESSAGES_RECEIVED);
           break;

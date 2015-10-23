@@ -29,14 +29,10 @@ class Message < ActiveRecord::Base
   has_many :comments, as: :commentable
   has_many :likes, as: :likeable
 
-<<<<<<< HEAD
   def self.in_network(user)
     # requires user's friends to be pre-fetched
     self.where("from_id IN (:network_ids) AND to_id IN (:network_ids)", network_ids: user.friend_ids)
   end
-
-=======
->>>>>>> 38f886d2d6c348d183e3ee7da574b6c8aef68f94
   def format_message_time
     time = Time.now - created_at
 

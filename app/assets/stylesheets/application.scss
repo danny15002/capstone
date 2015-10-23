@@ -24,12 +24,7 @@ $header_height_pixels: 60;
   padding: 0;
   margin: 0 auto;
   border: 0;
-<<<<<<< HEAD
   width: 850px;
-=======
-  min-width: 900px;
-  max-width: 75%;
->>>>>>> 38f886d2d6c348d183e3ee7da574b6c8aef68f94
   overflow: hidden;
 }
 
@@ -181,7 +176,6 @@ header h2 {
   background-color: white;
 }
 
-<<<<<<< HEAD
 .bar a {
   color: black;
   text-decoration: none;
@@ -197,8 +191,6 @@ header h2 {
   text-decoration: none;
 }
 
-=======
->>>>>>> 38f886d2d6c348d183e3ee7da574b6c8aef68f94
 .top-excess {
   width: 100%;
   height: $header_height_pixels + px;
@@ -359,11 +351,7 @@ div.search-list {
 
 .profile .status-form {
   float: left;
-<<<<<<< HEAD
   width: 67%;
-=======
-  width: 69%;
->>>>>>> 38f886d2d6c348d183e3ee7da574b6c8aef68f94
 }
 
 .profile-menu {
@@ -383,7 +371,6 @@ div.search-list {
   background: #BBBBBB;
   margin: auto;
   width: 100%;
-<<<<<<< HEAD
   height: 154px;
   border: outset 2px;
 }
@@ -391,22 +378,11 @@ div.search-list {
 textarea.status-text {
   margin-top: 0px;
   width: 100%;
-=======
-  height: 175px;
-  // border: solid black 1px;
-  border-radius: 10px;
-}
-
-textarea.status-text {
-  margin: 25px 5%;
-  width: 90%;
->>>>>>> 38f886d2d6c348d183e3ee7da574b6c8aef68f94
   height: 100px;
 }
 
 .status-button {
   position: relative;
-<<<<<<< HEAD
   bottom: 15px;
   left: 75%;
 }
@@ -414,10 +390,6 @@ textarea.status-text {
 button {
   height: 30px;
   width: 100px;
-=======
-  bottom: 40px;
-  left: 83%;
->>>>>>> 38f886d2d6c348d183e3ee7da574b6c8aef68f94
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -446,25 +418,14 @@ button {
 }
 
 .pic-container {
-<<<<<<< HEAD
   height: auto;
   width: 100%;
-=======
-  float: left;
-  height: auto;
-  width: 80%;
->>>>>>> 38f886d2d6c348d183e3ee7da574b6c8aef68f94
   background: black;
 }
 
 .picture {
-<<<<<<< HEAD
   width: 100%;
   height: auto;
-=======
-  float: left;
-  width: 400px;
->>>>>>> 38f886d2d6c348d183e3ee7da574b6c8aef68f94
   display: block;
 }
 
@@ -484,12 +445,7 @@ button {
 
 .news-feed .status-form {
   position: relative;
-<<<<<<< HEAD
   top: 33px;
-=======
-  top: 40px;
-  width: 90%;
->>>>>>> 38f886d2d6c348d183e3ee7da574b6c8aef68f94
 }
 
 .news-feed .friend-activity {
@@ -520,7 +476,6 @@ button {
 .comment {
   background: white;
   margin-bottom: 10px;
-<<<<<<< HEAD
   // border: 1px solid green;
 }
 
@@ -530,18 +485,11 @@ button {
 }
 
 .main-comment:after {
-=======
-  border: 1px solid green;
-}
-
-.heading:after {
->>>>>>> 38f886d2d6c348d183e3ee7da574b6c8aef68f94
   content: "";
   display:block;
   clear: both;
 }
 
-<<<<<<< HEAD
 .comment-header:after {
   content: "";
   display:block;
@@ -583,13 +531,6 @@ button {
 .comment-menu > *:hover {
   color: red;
 }
-
-=======
-.heading * {
-  display: inline-block;
-}
-
->>>>>>> 38f886d2d6c348d183e3ee7da574b6c8aef68f94
 .time {
   float: right;
 }

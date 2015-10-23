@@ -1,15 +1,10 @@
 var PictureViewer = React.createClass({
   rightArrow: function () {
     return (
-<<<<<<< HEAD
       <div
         onClick={this.handleRight}
         style={{position: "absolute", top: "0", right: "0", background: "white"}}>
         <span className={"glyphicon glyphicon-chevron-right"}></span>
-=======
-      <div onClick={this.handleRight} style={{float: "right", background: "red", width: "10%"}}>
-        Next
->>>>>>> 38f886d2d6c348d183e3ee7da574b6c8aef68f94
       </div>
     )
   },
@@ -19,13 +14,8 @@ var PictureViewer = React.createClass({
   },
   leftArrow: function () {
     return (
-<<<<<<< HEAD
       <div onClick={this.handleLeft} style={{float: "left", background: "white"}}>
         <span className={"glyphicon glyphicon-chevron-left"}></span>
-=======
-      <div onClick={this.handleLeft} style={{float: "left", background: "blue", width: "10%"}}>
-        Previous
->>>>>>> 38f886d2d6c348d183e3ee7da574b6c8aef68f94
       </div>
     )
   },
@@ -49,10 +39,7 @@ var PictureViewer = React.createClass({
   },
   getPictures: function () {
     this.setState({pictures: UserStore.getPictures()})
-<<<<<<< HEAD
     this.setState({currentPicIdx: (this.state.pictures.length - 1)})
-=======
->>>>>>> 38f886d2d6c348d183e3ee7da574b6c8aef68f94
   },
   updatePictures: function () {
     ApiUtil.fetchPictures();
@@ -88,7 +75,6 @@ var PictureViewer = React.createClass({
 
     return (
       <div className={"pic-viewer"}>
-<<<<<<< HEAD
         <div style={{position: "relative"}} className={"pic-container"}>
           {this.leftArrow()}
           <img className={"picture"}
@@ -100,17 +86,6 @@ var PictureViewer = React.createClass({
           <a onClick={this.upload} id="upload_widget_opener">Select an Image</a>
           <button onClick={this.submitForm}>Upload</button>
         </div>
-=======
-        {this.leftArrow()}
-        <div className={"pic-container"}>
-          <img className={"picture"}
-            src={source}
-            alt={"profile picture"}/>
-        </div>
-        {this.rightArrow()}
-        <a onClick={this.upload} id="upload_widget_opener">Upload multiple images</a>
-        <button onClick={this.submitForm}>Upload Photo(s)</button>
->>>>>>> 38f886d2d6c348d183e3ee7da574b6c8aef68f94
         <ul>
           {comments.map(function (comment) {
               return (<li>
