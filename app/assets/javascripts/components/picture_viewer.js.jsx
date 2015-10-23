@@ -24,20 +24,26 @@ var PictureViewer = React.createClass({
     this.setState({currentPicIdx: idx})
   },
   getInitialState: function () {
-    return {currentPicIdx: 0, pictures: UserStore.getPictures()}
+    return {currentPicIdx: 0, pictures: UserStore.getPictures(), inactive: true}
   },
   componentDidMount: function () {
     UserStore.addChangeListener(FriendzConstants.PICTURES_RECEIVED, this.getPictures);
-    UserStore.addChangeListener(FriendzConstants.PICTURE_UPLOADED, this.updatePictures);
+    UserStore.addChangeListener(FriendzConstants.PICTURE_UPLOADED, this.uploadedPicture);
     MessageStore.addChangeListener(FriendzConstants.STATUS_POSTED, this.updatePictures);
     ApiUtil.fetchPictures(this.props.params.userId);
   },
   componentWillUnmount: function () {
     UserStore.removeChangeListener(FriendzConstants.PICTURES_RECEIVED, this.getPictures);
-    UserStore.removeChangeListener(FriendzConstants.PICTURE_UPLOADED, this.updatePictures);
+    UserStore.removeChangeListener(FriendzConstants.PICTURE_UPLOADED, this.uploadedPicture);
     MessageStore.removeChangeListener(FriendzConstants.STATUS_POSTED, this.updatePictures);
   },
+  componentWillReceiveProps: function (nextProps) {
+    ApiUtil.fetchPictures(nextProps.params.userId);
+  },
   getPictures: function () {
+    this.setState({pictures: UserStore.getPictures()})
+  },
+  uploadedPicture: function () {
     this.setState({pictures: UserStore.getPictures()})
     this.setState({currentPicIdx: (this.state.pictures.length - 1)})
   },
@@ -48,7 +54,7 @@ var PictureViewer = React.createClass({
     cloudinary.openUploadWidget({ cloud_name: 'danny15002', upload_preset: 'dflg7sxq'},
       function(error, result) {
         console.log(result);
-        this.setState({picUrl: result[0].secure_url});
+        this.setState({picUrl: result[0].secure_url, inactive: false});
       }.bind(this));
   },
   submitForm: function () {
@@ -57,21 +63,38 @@ var PictureViewer = React.createClass({
       pic_url: this.state.picUrl
     };
     ApiUtil.uploadPicture(picture);
+    this.setState({picUrl: "", inactive: true});
   },
   render: function () {
     var source;
     var picture;
     var comments = [];
     var id;
+    var commentSection;
     if (this.state.pictures.length === 0) {
       source = "";
       id = "";
+      commentSection = <div>No Pictures Yet, Upload some</div>;
     } else {
       picture = this.state.pictures[this.state.currentPicIdx]
       source = picture.pic_url
       comments = picture.comments;
       id = picture.id;
+      commentSection = (
+        <div>
+          <ul>
+            {comments.map(function (comment) {
+                return (
+                <li>
+                  <Comment key={comment.id} message={comment} level={2}/>
+                </li>)
+            })}
+          </ul>
+          <CommentForm id={id} commentableType={"Picture"} />
+        </div>
+      );
     }
+
 
     return (
       <div className={"pic-viewer"}>
@@ -79,22 +102,14 @@ var PictureViewer = React.createClass({
           {this.leftArrow()}
           <img className={"picture"}
             src={source}
-            alt={"profile picture"}/>
+            alt={"Picture"}/>
           {this.rightArrow()}
         </div>
         <div>
           <a onClick={this.upload} id="upload_widget_opener">Select an Image</a>
-          <button onClick={this.submitForm}>Upload</button>
+          <button onClick={this.submitForm} disabled={this.state.inactive}>Upload</button>
         </div>
-        <ul>
-          {comments.map(function (comment) {
-              return (<li>
-                <Comment key={comment.id} message={comment} level={2}/>
-              </li>)
-          })}
-        </ul>
-        <CommentForm id={id} commentableType={"Picture"} />
-
+        {commentSection}
       </div>
     )
   }

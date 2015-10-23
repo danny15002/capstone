@@ -11,11 +11,15 @@ var Event = React.createClass({
   },
   render: function () {
     return (
-      <div>
-        <h2> {this.state.displayEvent.title} </h2>
-        <h3> Hosted by: {this.state.displayEvent.creator}</h3>
-        <p> {this.state.displayEvent.date}</p>
-        <p> {this.state.displayEvent.location}</p>
+      <div className={"event-detail"}>
+        <h2> {(this.state.displayEvent.title).toUpperCase()} </h2>
+        <br></br>
+        <h3> <strong>Hosted by:</strong> {this.state.displayEvent.creator}</h3>
+        <br></br>
+        <p> <strong>Date:</strong> {this.state.displayEvent.date}</p>
+        <br></br>
+        <p> <strong>Address/Location:</strong> {this.state.displayEvent.location}</p>
+        <br></br>
         <p> {this.state.displayEvent.description}</p>
       </div>
     )

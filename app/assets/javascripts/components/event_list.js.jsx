@@ -22,11 +22,19 @@ var EventList = React.createClass({
   myEventList: function () {
     return (
       <div className={"my-events"}>
-        My Events
+        <h2 style={{textAlign: "center"}}>MY EVENTS</h2>
+        <br></br>
         {EventStore.userEvents().map(function (event) {
           return (
-            <div key={event.id}>
-              {event.title}
+            <div className={"my-event"} key={event.id}>
+              <a href={"#/Events/" + event.id}>
+                <div style={{paddingLeft: "5px", float: "left", fontSize: "20px"}}>
+                  {event.title}
+                </div>
+              </a>
+              <div style={{paddingRight: "5px", float: "right", fontSize: "20px"}}>
+                {event.date}
+              </div>
             </div>
           )
         })}
@@ -36,7 +44,7 @@ var EventList = React.createClass({
 
   render: function () {
     return (
-      <div>
+      <div className={"Events"}>
         <div onClick={this.handleClick} className="bar user-list">
           <div id={"new"} className={"nav nav-friend"}>Create Event</div>
           {this.state.myEvents.map(function (event){

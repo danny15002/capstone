@@ -11,7 +11,7 @@ json.array! @pictures do |picture|
     json. commentable_type comment.commentable_type
     json.created_at comment.format_comment_time
     json.author comment.user.username
-    json.prof_pic comment.user.profile_pic
+    json.prof_pic comment.user.profile_pict
     json.type "Comment"
 
     json.comments comment.comments do |comment|
@@ -21,7 +21,7 @@ json.array! @pictures do |picture|
       json. commentable_type comment.commentable_type
       json.created_at comment.format_comment_time
       json.author comment.user.username
-      json.prof_pic comment.user.profile_pic
+      json.prof_pic comment.user.profile_pict
 
       json.type "Comment"
     end

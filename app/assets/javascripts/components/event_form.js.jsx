@@ -1,16 +1,32 @@
 var EventForm = React.createClass( {
+  mixins: [ReactRouter.History],
+
   getInitialState: function () {
     return {title: "", description: "", date: "", location: "", value: ""}
   },
   componentDidMount: function () {
     EventStore.addChangeListener(FriendzConstants.EVENT_CREATED, this.sendEvent);
+    EventStore.addChangeListener(FriendzConstants.NEW_EVENTS_RECEIVED, this.redirect);
+    // EventStore.addChangeListener(FriendzConstants.EVENTS_RECEIVED, this.getEvents);
     ApiUtil.fetchEvents();
   },
   componentWillUnmount: function () {
     EventStore.removeChangeListener(FriendzConstants.EVENT_CREATED, this.sendEvent);
+    EventStore.removeChangeListener(FriendzConstants.NEW_EVENTS_RECEIVED, this.redirect);
+    // EventStore.removeChangeListener(FriendzConstants.EVENTS_RECEIVED, this.getEvents);
+  },
+  getEvents: function () {
+    ApiUtil.fetchEvents();
   },
   sendEvent: function () {
-    ApiUtil.fetchEvents();
+    console.log("send")
+    ApiUtil.request({url: 'api/events', method: 'get', data: {}, constant: FriendzConstants.NEW_EVENTS_RECEIVED});
+  },
+  redirect: function () {
+    console.log("hello")
+    var events = EventStore.myEvents()
+    var lastId = events[events.length - 1].id
+    this.history.pushState(null, "Events/" + lastId)
   },
   handleTitle: function(event) {
     this.setState({title: event.target.value});

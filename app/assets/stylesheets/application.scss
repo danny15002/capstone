@@ -551,3 +551,39 @@ button {
 }
 
 ////////////////////////////////////////////////////////////////////////////////
+
+.my-event:after {
+  content: "";
+  display:block;
+  clear: both;
+}
+
+.Events {
+  width: 680px;
+  float: right;
+}
+
+.Events .bar {
+  width: 170px;
+  float: left;
+}
+
+.event-detail {
+  // width:
+  float: left;
+  width: 510px;
+  position: relative;
+  top: 33px;
+  padding-left: 10px
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+.inbox-welcome {
+  position: relative;
+  top: 33px;
+  width: 510px;
+  padding: 10px;
+  float: right;
+  // height: 500px;
+}

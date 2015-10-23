@@ -42,6 +42,12 @@
         case FriendzConstants.EVENT_CREATED:
           EventStore.emit(FriendzConstants.EVENT_CREATED);
           break;
+        case FriendzConstants.NEW_EVENTS_RECEIVED:
+          setEvents(payload.response);
+          EventStore.emit(FriendzConstants.NEW_EVENTS_RECEIVED)
+          break;
+
+
       }
     })
   });

@@ -81,9 +81,9 @@ class User < ActiveRecord::Base
     elsif self.pictures
       if self.pictures.first
         return self.pictures.first.pic_url
+      else
+        return DEFAULT_PROFILE_PIC
       end
-    else
-      return DEFAULT_PROFILE_PIC
     end
   end
 
