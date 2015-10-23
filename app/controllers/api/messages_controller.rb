@@ -71,7 +71,7 @@ class Api::MessagesController < ApplicationController
     #
     # @messages = Message.find_by_sql(sql_query)
     if params[:public] == 'true'
-      @messages = Message.all.where(public: true).where("to_id = #{params[:user_id]} OR from_id = #{params[:user_id]}").includes(:user_to, user_from: [:pictures, :profile_picture], comments: [user: [:pictures, :profile_picture], comments: [user: [:pictures, :profile_picture]]]).order(:created_at).reverse_order
+      @messages = Message.all.where(public: true).where("to_id = #{params[:user_id]} OR from_id = #{params[:user_id]}").includes(:likes, :user_to, user_from: [:pictures, :profile_picture, :likes], comments: [:likes, user: [:likes, :pictures, :profile_picture], comments: [:likes, user: [:likes, :pictures, :profile_picture]]]).order(:created_at).reverse_order
       @public = true
     elsif params[:public] == 'false'
       @messages = Message.all.where(public: false).where("(to_id = #{params[:user_id]} AND from_id = #{current_user.id}) OR (to_id = #{current_user.id} AND from_id = #{params[:user_id]})").includes(:user_to, :user_from).order(:created_at).reverse_order

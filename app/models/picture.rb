@@ -11,5 +11,10 @@
 
 class Picture < ActiveRecord::Base
   has_many :comments, as: :commentable
+  has_many :likes, as: :likeable
   belongs_to :user, dependent: :destroy
+
+  def number_likes
+    self.likes.length;
+  end
 end

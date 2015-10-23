@@ -32,6 +32,12 @@
         case FriendzConstants.COMMENT_CREATED:
           MessageStore.emit(FriendzConstants.COMMENT_CREATED);
           break;
+        case FriendzConstants.COMMENT_LIKED:
+          MessageStore.emit(FriendzConstants.COMMENT_LIKED);
+          break;
+        case FriendzConstants.COMMENT_UNLIKED:
+          MessageStore.emit(FriendzConstants.COMMENT_UNLIKED);
+          break;
         default:
       }
     })

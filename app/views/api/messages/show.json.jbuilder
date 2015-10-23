@@ -7,8 +7,12 @@ json.array! @messages do |message|
   json.recipient message.user_to.username
   json.created_at message.format_message_time
 
+
   if @public
     json.prof_pic message.user_from.profile_pict
+    json.likes message.number_likes
+    json.liked message.is_liked?(current_user)
+    json.myLikeId message.users_like_id(current_user)
 
     json.type "Message"
     json.comments message.comments do |comment|
@@ -19,6 +23,11 @@ json.array! @messages do |message|
       json.created_at comment.format_comment_time
       json.author comment.user.username
       json.prof_pic comment.user.profile_pict
+      json.likes comment.number_likes
+      json.liked comment.is_liked?(current_user)
+      json.myLikeId comment.users_like_id(current_user)
+
+
       json.type "Comment"
 
       json.comments comment.comments do |comment|
@@ -29,6 +38,9 @@ json.array! @messages do |message|
         json.created_at comment.format_comment_time
         json.author comment.user.username
         json.prof_pic comment.user.profile_pict
+        json.likes comment.number_likes
+        json.liked comment.is_liked?(current_user)
+        json.myLikeId comment.users_like_id(current_user)
 
         json.type "Comment"
       end

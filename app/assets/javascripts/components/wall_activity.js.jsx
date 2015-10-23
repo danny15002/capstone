@@ -6,6 +6,8 @@ var WallActivity = React.createClass( {
     MessageStore.addChangeListener(FriendzConstants.MESSAGES_RECEIVED, this.getMessages);
     MessageStore.addChangeListener(FriendzConstants.COMMENT_CREATED, this.fetchMessages);
     MessageStore.addChangeListener(FriendzConstants.STATUS_POSTED, this.updatePosts);
+    MessageStore.addChangeListener(FriendzConstants.COMMENT_LIKED, this.updatePosts);
+    MessageStore.addChangeListener(FriendzConstants.COMMENT_UNLIKED, this.updatePosts);
     var id;
     if (this.props.userId !== undefined) {
       id = parseInt(this.props.userId);
@@ -18,6 +20,8 @@ var WallActivity = React.createClass( {
     MessageStore.removeChangeListener(FriendzConstants.MESSAGES_RECEIVED, this.getMessages);
     MessageStore.removeChangeListener(FriendzConstants.COMMENT_CREATED, this.fetchMessages);
     MessageStore.removeChangeListener(FriendzConstants.STATUS_POSTED, this.updatePosts);
+    MessageStore.removeChangeListener(FriendzConstants.COMMENT_LIKED, this.updatePosts);
+    MessageStore.removeChangeListener(FriendzConstants.COMMENT_UNLIKED, this.updatePosts);
   },
   componentWillReceiveProps: function (nextProps) {
     if (nextProps.userId !== undefined) {

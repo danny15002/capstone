@@ -26,8 +26,28 @@ class Message < ActiveRecord::Base
     class_name: "User"
   )
 
-  has_many :comments, as: :commentable
-  has_many :likes, as: :likeable
+  has_many :comments, as: :commentable, dependent: :destroy
+  has_many :likes, as: :likeable, dependent: :destroy
+
+  def number_likes
+    self.likes.length;
+  end
+
+  def is_liked?(current_user)
+    return self.likes.any? do |like|
+      like.user_id == current_user.id
+    end
+  end
+
+  def users_like_id(current_user)
+
+    melike = self.likes.where(user_id: current_user.id, likeable_id: self.id, likeable_type: self.class)
+    if like.first.nil?
+      return nil
+    else
+      return like.first.id
+    end
+  end
 
   def self.in_network(user)
     # requires user's friends to be pre-fetched

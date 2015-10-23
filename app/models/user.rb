@@ -70,6 +70,9 @@ class User < ActiveRecord::Base
   )
 
   has_one(:profile_picture, through: :profile_pic, source: :picture)
+
+  has_many(:likes)
+
   def get_statuses
     sent_messages.where("to_id = from_id")
   end

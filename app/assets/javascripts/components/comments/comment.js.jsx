@@ -36,6 +36,20 @@ var Comment = React.createClass({
     return heading;
   },
   handleLike: function () {
+    var liked = this.props.message.liked;
+    if (!liked) {
+      request={url: 'api/likes',
+               method: 'POST',
+               data: {like: {likeable_id: this.props.message.id, likeable_type: this.props.message.type, user_id: LoginStore.user().id}},
+               constant: FriendzConstants.COMMENT_LIKED}
+    } else {
+      var likeId = this.props.message.myLikeId;
+      request={url: 'api/likes/' + likeId,
+               method: 'DELETE',
+               data: {},
+               constant: FriendzConstants.COMMENT_UNLIKED}
+    }
+    ApiUtil.request(request);
 
   },
 
@@ -61,17 +75,33 @@ var Comment = React.createClass({
   },
 
   commentMenu: function () {
+    var likeOpt = "Like";
+    var likes = "";
+
+    if (this.props.message.liked) {
+      likeOpt = " UnLike"
+    }
+
+    if (this.props.message.likes === 1) {
+      likes = this.props.message.likes + " Like"
+    } else if (this.props.message.likes > 1) {
+      likes = this.props.message.likes + " Likes"
+    }
+
     if (this.props.level <=2 ) {
       return (
         <div className={"comment-menu"}>
           <div onClick={this.handleLike} style={{paddingRight: "5px"}}>
-            <span className={"glyphicon glyphicon-thumbs-up"}></span> Like
+            <span className={"glyphicon glyphicon-thumbs-up"}></span> {likeOpt}
           </div>
           <div onClick={this.handleReply} style={{paddingRight: "5px"}}>
             <span className={"glyphicon glyphicon-share-alt"}></span> {this.formText}
           </div>
           <div onClick={this.handleViewReplies}>
             {this.subText}
+          </div>
+          <div style={{float: "right"}}>
+            {likes}
           </div>
         </div>
       )
@@ -80,10 +110,13 @@ var Comment = React.createClass({
     return (
       <div className={"comment-menu"}>
         <div onClick={this.handleLike} style={{paddingRight: "5px"}}>
-          <span className={"glyphicon glyphicon-thumbs-up"}></span> Like
+          <span className={"glyphicon glyphicon-thumbs-up"}></span> {likeOpt}
         </div>
         <div onClick={this.props.replyFunction} style={{paddingRight: "5px"}}>
           {this.formText}
+        </div>
+        <div style={{float: "right"}}>
+          {likes}
         </div>
       </div>
     )

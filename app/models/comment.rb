@@ -12,11 +12,27 @@
 #
 
 class Comment < ActiveRecord::Base
-  belongs_to :commentable, dependent: :destroy, polymorphic: true
+  belongs_to :commentable, polymorphic: true
   belongs_to :user
 
-  has_many :comments, as: :commentable
+  has_many :comments, as: :commentable, dependent: :destroy
   validates :body, :commentable_id, :commentable_type, :user_id, presence: true
+
+  has_many :likes, as: :likeable, dependent: :destroy
+
+  def number_likes
+    self.likes.length;
+  end
+
+  def is_liked?(current_user)
+    return self.likes.any? do |like|
+      like.user_id == current_user.id
+    end
+  end
+
+  def users_like_id(current_user)
+    self.likes.select(:id).where(user_id: current_user.id, likeable_id: self.id, likeable_id: self.class)
+  end
 
   def format_comment_time
     time = Time.now - created_at
