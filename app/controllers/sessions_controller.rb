@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
 
     if @user
       log_in!(@user)
-      payload = {id: current_user.id, username: current_user.username}
+      payload = {id: current_user.id, username: current_user.username, prof_pic: current_user.profile_pict}
       token = JWT.encode payload, nil, 'none'
       render json: {id_token: token}
     else

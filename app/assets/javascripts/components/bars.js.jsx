@@ -45,7 +45,7 @@ var TopBar = React.createClass ({
     LoginStore.addChangeListener(FriendzConstants.LOGOUT, this.logoutUser);
   },
   componentWillUnmount: function () {
-    LoginStore.removeChangeListener(friendzDispatcher.LOGOUT, this.logout);
+    LoginStore.removeChangeListener(friendzDispatcher.LOGOUT, this.logoutUser);
   },
   logoutUser: function () {
     this.history.pushState(null, "/login")

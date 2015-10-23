@@ -8,6 +8,7 @@ var PostStatusFormN = React.createClass ({
     this.setState({value: event.target.value});
   },
   submitForm: function() {
+    
     var from_id = LoginStore.user().id
     var to_id = from_id;
     if (this.props.userId) {
@@ -27,7 +28,7 @@ var PostStatusFormN = React.createClass ({
 
     return (
       <div style={{width: "90%"}} className={this.props.className + "status-form status-form-n"}>
-        <ProfilePicture source={"http://assets22.pokemon.com/assets/cms2/img/pokedex/full/151.png"} style={{background: "white",height: "150px", width: "150px"}}/>
+        <ProfilePicture source={LoginStore.user().prof_pic} style={{background: "white",height: "150px", width: "150px"}}/>
         <div style={{float: "left", width: "calc(100% - 150px)"}}>
           <textarea
             style={{height: "114px", width: "100%"}}

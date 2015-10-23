@@ -45,7 +45,7 @@ var MessageForm = React.createClass( {
         </textarea>
         <br></br>
         <br></br>
-        <button className={"sendMessage"} onClick={this.submitForm}>Send Message</button>
+        <button className={"sendMessage"} onClick={this.submitForm}>Send</button>
       </div>)
   }
 })

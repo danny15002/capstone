@@ -20,6 +20,7 @@
     dispatcherID: friendzDispatcher.register( function(payload) {
       switch(payload.actionType) {
         case FriendzConstants.MESSAGES_RECEIVED:
+        
           setMessages(payload.messages);
           MessageStore.emit(FriendzConstants.MESSAGES_RECEIVED);
           break;

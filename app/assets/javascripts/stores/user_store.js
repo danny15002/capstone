@@ -4,6 +4,7 @@
   var _currentFriends = [];
   var _userPics = [];
   var _users = [];
+  var _profileUser = {};
 
   var setCurrentUser = function (user) {
     _currentUser = user;
@@ -17,6 +18,9 @@
   }
   var setUsers = function (users) {
     _users = users;
+  }
+  var setProfileUser = function (user) {
+    _profileUser = user;
   }
 
   UserStore = root.UserStore = $.extend({}, EventEmitter.prototype, {
@@ -43,6 +47,9 @@
     getUsers: function () {
       return _users;
     },
+    getProfileUser: function () {
+      return _profileUser;
+    },
     addChangeListener: function (changeEvent, callback) {
       this.on(changeEvent, callback);
     },
@@ -65,9 +72,14 @@
           break;
         case FriendzConstants.PICTURE_UPLOADED:
           UserStore.emit(FriendzConstants.PICTURE_UPLOADED)
+          break;
         case FriendzConstants.USERS_RECEIVED:
           setUsers(payload.response)
           UserStore.emit(FriendzConstants.USERS_RECEIVED)
+          break;
+        case FriendzConstants.USER_RECEIVED:
+          setProfileUser(payload.response)
+          UserStore.emit(FriendzConstants.USER_RECEIVED)
           break;
       }
     })

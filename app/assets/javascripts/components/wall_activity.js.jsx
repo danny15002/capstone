@@ -9,8 +9,10 @@ var WallActivity = React.createClass( {
     var id;
     if (this.props.userId !== undefined) {
       id = parseInt(this.props.userId);
+    } else {
+      id = LoginStore.user().id
     }
-    ApiUtil.fetchMessages(true, id);
+    ApiUtil.request({url: "api/messages/" + id, data: {user_id: id, public: true}, constant: FriendzConstants.MESSAGES_RECEIVED});
   },
   componentWillUnmount: function () {
     MessageStore.removeChangeListener(FriendzConstants.MESSAGES_RECEIVED, this.getMessages);
@@ -18,14 +20,24 @@ var WallActivity = React.createClass( {
     MessageStore.removeChangeListener(FriendzConstants.STATUS_POSTED, this.updatePosts);
   },
   componentWillReceiveProps: function (nextProps) {
-    ApiUtil.fetchMessages(true, nextProps.userId);
+    if (nextProps.userId !== undefined) {
+      id = parseInt(nextProps.userId);
+    } else {
+      id = LoginStore.user().id
+    }
+    console.log(1)
+    ApiUtil.request({url: "api/messages/" + id, data: {user_id: id, public: true}, constant: FriendzConstants.MESSAGES_RECEIVED});
   },
   updatePosts: function () {
     var id;
     if (this.props.userId !== undefined) {
       id = parseInt(this.props.userId);
+    } else {
+      id = LoginStore.user().id
     }
-    ApiUtil.fetchMessages(true, id);
+    console.log(2)
+    ApiUtil.request({url: "api/messages/" + id, data: {user_id: id, public: true}, constant: FriendzConstants.MESSAGES_RECEIVED});
+
   },
   getMessages: function () {
     this.setState({messages: MessageStore.getMessages()})
@@ -34,8 +46,12 @@ var WallActivity = React.createClass( {
     var id;
     if (this.props.userId !== undefined) {
       id = parseInt(this.props.userId);
+    } else {
+      id = LoginStore.user().id
     }
-    ApiUtil.fetchMessages(true, id);
+    console.log(3)
+
+    ApiUtil.request({url: "api/messages/" + id, data: {user_id: id, public: true}, constant: FriendzConstants.MESSAGES_RECEIVED});
   },
   render: function () {
     return (

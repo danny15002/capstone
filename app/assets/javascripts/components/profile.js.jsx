@@ -1,21 +1,28 @@
 var Profile = React.createClass ({
   getInitialState: function () {
 
-    return {id: this.props.params.userId, friends: []}
+    return {id: this.props.params.userId, friends: [], user: {prof_pic: ""}}
   },
   componentDidMount: function () {
-    UserStore.addChangeListener(FriendzConstants.PICTURES_RECEIVED, this.getPictures);
     LoginStore.addChangeListener(FriendzConstants.MY_FRIENDS_RECEIVED, this.getFriends);
     LoginStore.addChangeListener(FriendzConstants.FRIEND_DELETED, this.fetchFriends);
     LoginStore.addChangeListener(FriendzConstants.FRIEND_ADDED, this.fetchFriends);
-    ApiUtil.fetchPictures(this.props.params.userId);
+    UserStore.addChangeListener(FriendzConstants.USER_RECEIVED, this.setUser);
+    var id = this.props.params.userId
+    if (id === undefined){
+      id = LoginStore.user().id;
+    } else {
+      id = parseInt(id);
+    }
+    this.setState({id: id});
+    ApiUtil.fetch({url: "users/" + id, data: {id: id}, constant: FriendzConstants.USER_RECEIVED})
     ApiUtil.fetch({url: "api/friendships", data: {}, constant: FriendzConstants.MY_FRIENDS_RECEIVED});
   },
   componentWillUnmount: function () {
-    UserStore.removeChangeListener(FriendzConstants.PICTURES_RECEIVED, this.getPictures);
     LoginStore.removeChangeListener(FriendzConstants.MY_FRIENDS_RECEIVED, this.getFriends);
     LoginStore.removeChangeListener(FriendzConstants.FRIEND_DELETED, this.fetchFriends);
     LoginStore.removeChangeListener(FriendzConstants.FRIEND_ADDED, this.fetchFriends);
+    UserStore.removeChangeListener(FriendzConstants.USER_RECEIVED, this.setUser);
   },
   componentWillReceiveProps: function (nextProps) {
     var id = nextProps.params.userId;
@@ -24,17 +31,19 @@ var Profile = React.createClass ({
     } else {
       id = parseInt(id);
     }
-    ApiUtil.fetchPictures(id);
     this.setState({id: id});
-  },
-  getPictures: function () {
-    this.setState({profilePicUrl: UserStore.userProfPic()})
+    ApiUtil.fetchPictures(id);
+    ApiUtil.fetch({url: "users/" + this.state.id, data: {id: this.state.id}, constant: FriendzConstants.USER_RECEIVED})
+
   },
   getFriends: function () {
     this.setState({friends: LoginStore.getMyFriends()})
   },
   fetchFriends: function () {
     ApiUtil.fetch({url: "api/friendships", data: {}, constant: FriendzConstants.MY_FRIENDS_RECEIVED});
+  },
+  setUser: function () {
+    this.setState({user: UserStore.getProfileUser()})
   },
   friendText: function (id) {
     var text="";
@@ -75,9 +84,9 @@ var Profile = React.createClass ({
       id = this.props.params.userId
       message_id = id
     }
-
+    var source = this.state.user.prof_pic
     var friendObject = this.friendText(id)
-
+    var picsize = 200;
     return (
       <div className={"profile"}>
         <div style={{margin: "36px 36px"}}>
@@ -89,9 +98,7 @@ var Profile = React.createClass ({
               {friendObject.text}
             </div>
           </div>
-          <img className={"prof-pic"}
-            src={this.state.profilePicUrl}
-            alt={"profile picture"}/>
+          <ProfilePicture source={source} style={{height: picsize + "px", width: picsize + "px"}}/>
           <PostStatusForm userId={this.state.id}/>
         </div>
         <WallActivity userId={this.state.id} />

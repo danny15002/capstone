@@ -4114,3 +4114,165 @@ LINE 33:         messages.to_id
 [10/21/15 20:12:11 -0700 Daniels-MacBook-Pro-3.local (19252)] INFO : Doing deferred dependency-detection before Rack startup
 [10/21/15 20:12:21 -0700 Daniels-MacBook-Pro-3.local (19252)] ERROR : Invalid license key, please contact support@newrelic.com
 [10/21/15 20:12:21 -0700 Daniels-MacBook-Pro-3.local (19252)] ERROR : Visit NewRelic.com to obtain a valid license key, or to upgrade your account.
+[10/22/15 17:00:29 -0700 Daniels-MacBook-Pro-3.local (33757)] INFO : Starting the New Relic agent in "development" environment.
+[10/22/15 17:00:29 -0700 Daniels-MacBook-Pro-3.local (33757)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[10/22/15 17:00:29 -0700 Daniels-MacBook-Pro-3.local (33757)] WARN : No configuration file found. Working directory = /Users/SilverSurfer/Documents/Capstone
+[10/22/15 17:00:29 -0700 Daniels-MacBook-Pro-3.local (33757)] WARN : Looked in these locations (based on defaults): /Users/SilverSurfer/Documents/Capstone/config/newrelic.yml, /Users/SilverSurfer/Documents/Capstone/newrelic.yml, /Users/SilverSurfer/Documents/Capstone/config/newrelic.yml, /Users/SilverSurfer/Documents/Capstone/newrelic.yml, /Users/SilverSurfer/.newrelic/newrelic.yml, /Users/SilverSurfer/newrelic.yml
+[10/22/15 17:00:30 -0700 Daniels-MacBook-Pro-3.local (33757)] INFO : Environment: development
+[10/22/15 17:00:30 -0700 Daniels-MacBook-Pro-3.local (33757)] INFO : No known dispatcher detected.
+[10/22/15 17:00:30 -0700 Daniels-MacBook-Pro-3.local (33757)] INFO : Application: development
+[10/22/15 17:00:30 -0700 Daniels-MacBook-Pro-3.local (33757)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[10/22/15 17:00:30 -0700 Daniels-MacBook-Pro-3.local (33757)] INFO : Installing ActiveJob instrumentation
+[10/22/15 17:00:30 -0700 Daniels-MacBook-Pro-3.local (33757)] INFO : Installing ActiveRecord 4 instrumentation
+[10/22/15 17:00:30 -0700 Daniels-MacBook-Pro-3.local (33757)] INFO : Installing Net instrumentation
+[10/22/15 17:00:30 -0700 Daniels-MacBook-Pro-3.local (33757)] INFO : Installing deferred Rack instrumentation
+[10/22/15 17:00:30 -0700 Daniels-MacBook-Pro-3.local (33757)] INFO : Installing Rack::Builder middleware instrumentation
+[10/22/15 17:00:30 -0700 Daniels-MacBook-Pro-3.local (33757)] INFO : Installing Rails 3+ middleware instrumentation
+[10/22/15 17:00:30 -0700 Daniels-MacBook-Pro-3.local (33757)] INFO : Installing Rails 4 Controller instrumentation
+[10/22/15 17:00:30 -0700 Daniels-MacBook-Pro-3.local (33757)] INFO : Installing Rails 4 view instrumentation
+[10/22/15 17:00:30 -0700 Daniels-MacBook-Pro-3.local (33757)] INFO : Installing Rails 4 Error instrumentation
+[10/22/15 17:00:30 -0700 Daniels-MacBook-Pro-3.local (33757)] INFO : Finished instrumentation
+[10/22/15 17:42:59 -0700 Daniels-MacBook-Pro-3.local (19252)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Missing partial api/messages/_comment, application/_comment with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:jbuilder]}. Searched in:
+  * "/Users/SilverSurfer/Documents/Capstone/app/views"
+
+[10/22/15 18:48:44 -0700 Daniels-MacBook-Pro-3.local (19252)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined local variable or method `user' for #<Api::MessagesController:0x007f908f5be2b8>
+[10/22/15 20:04:54 -0700 Daniels-MacBook-Pro-3.local (19252)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `id' for nil:NilClass
+[10/22/15 20:05:31 -0700 Daniels-MacBook-Pro-3.local (19252)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `id' for nil:NilClass
+[10/22/15 20:05:40 -0700 Daniels-MacBook-Pro-3.local (19252)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `id' for nil:NilClass
+[10/22/15 20:05:40 -0700 Daniels-MacBook-Pro-3.local (19252)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `id' for nil:NilClass
+[10/22/15 20:06:33 -0700 Daniels-MacBook-Pro-3.local (19252)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `id' for nil:NilClass
+[10/22/15 20:06:34 -0700 Daniels-MacBook-Pro-3.local (19252)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `id' for nil:NilClass
+[10/22/15 20:07:58 -0700 Daniels-MacBook-Pro-3.local (19252)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: /Users/SilverSurfer/Documents/Capstone/app/views/api/messages/show.json.jbuilder:1: formal argument cannot be an instance variable
+....array! @@messages do |@message|
+...                               ^
+/Users/SilverSurfer/Documents/Capstone/app/views/api/messages/show.json.jbuilder:47: syntax error, unexpected keyword_ensure, expecting end-of-input
+[10/22/15 20:07:58 -0700 Daniels-MacBook-Pro-3.local (19252)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: /Users/SilverSurfer/Documents/Capstone/app/views/api/messages/show.json.jbuilder:1: formal argument cannot be an instance variable
+....array! @@messages do |@message|
+...                               ^
+/Users/SilverSurfer/Documents/Capstone/app/views/api/messages/show.json.jbuilder:47: syntax error, unexpected keyword_ensure, expecting end-of-input
+[10/22/15 20:08:15 -0700 Daniels-MacBook-Pro-3.local (19252)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: /Users/SilverSurfer/Documents/Capstone/app/views/api/messages/show.json.jbuilder:1: formal argument cannot be an instance variable
+...n.array! @messages do |@message|
+...                               ^
+/Users/SilverSurfer/Documents/Capstone/app/views/api/messages/show.json.jbuilder:47: syntax error, unexpected keyword_ensure, expecting end-of-input
+[10/22/15 20:08:16 -0700 Daniels-MacBook-Pro-3.local (19252)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: /Users/SilverSurfer/Documents/Capstone/app/views/api/messages/show.json.jbuilder:1: formal argument cannot be an instance variable
+...n.array! @messages do |@message|
+...                               ^
+/Users/SilverSurfer/Documents/Capstone/app/views/api/messages/show.json.jbuilder:47: syntax error, unexpected keyword_ensure, expecting end-of-input
+[10/22/15 20:08:33 -0700 Daniels-MacBook-Pro-3.local (19252)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: /Users/SilverSurfer/Documents/Capstone/app/views/api/messages/show.json.jbuilder:47: syntax error, unexpected keyword_ensure, expecting end-of-input
+[10/22/15 20:08:33 -0700 Daniels-MacBook-Pro-3.local (19252)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: /Users/SilverSurfer/Documents/Capstone/app/views/api/messages/show.json.jbuilder:47: syntax error, unexpected keyword_ensure, expecting end-of-input
+[10/22/15 20:18:16 -0700 Daniels-MacBook-Pro-3.local (19252)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: PG::UndefinedColumn: ERROR:  column "nan" does not exist
+LINE 1: ...ages" WHERE "messages"."public" = $1 AND (to_id = NaN OR fro...
+                                                             ^
+: SELECT "messages".* FROM "messages" WHERE "messages"."public" = $1 AND (to_id = NaN OR from_id = NaN)  ORDER BY "messages"."created_at" DESC
+[10/22/15 20:57:41 -0700 Daniels-MacBook-Pro-3.local (19252)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: SyntaxError: unknown: Unexpected token (10:77)
+   8 |     LoginStore.addChangeListener(FriendzConstants.FRIEND_DELETED, this.fetchFriends);
+   9 |     LoginStore.addChangeListener(FriendzConstants.FRIEND_ADDED, this.fetchFriends);
+> 10 |     UserStore.addChangeListener(FriendzConstants.USER_RECEIVED), this.setUser);
+     |                                                                              ^
+  11 |     var id = this.props.params.userId
+  12 |     if (id === undefined){
+  13 |       id = LoginStore.user().id;
+[10/22/15 21:04:47 -0700 Daniels-MacBook-Pro-3.local (19252)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: SyntaxError: unknown: Unexpected token (18:32)
+  16 |     }
+  17 |     this.setState({id: id});
+> 18 |     ApiUtil.fetch(url: "users/" + this.state.id, data: {id: this.state.id}, constant: FriendzConstants.USER_RECEIVED)
+     |                                 ^
+  19 |     ApiUtil.fetch({url: "api/friendships", data: {}, constant: FriendzConstants.MY_FRIENDS_RECEIVED});
+  20 |   },
+  21 |   componentWillUnmount: function () {
+[10/22/15 21:07:17 -0700 Daniels-MacBook-Pro-3.local (19252)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Couldn't find User with 'id'=undefined
+[10/22/15 21:07:21 -0700 Daniels-MacBook-Pro-3.local (19252)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `id' for #<Hash:0x007f908fce3e08>
+[10/22/15 21:08:58 -0700 Daniels-MacBook-Pro-3.local (19252)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Couldn't find User with 'id'=undefined
+[10/22/15 21:08:58 -0700 Daniels-MacBook-Pro-3.local (19252)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: PG::UndefinedColumn: ERROR:  column "nan" does not exist
+LINE 1: ...ages" WHERE "messages"."public" = $1 AND (to_id = NaN OR fro...
+                                                             ^
+: SELECT "messages".* FROM "messages" WHERE "messages"."public" = $1 AND (to_id = NaN OR from_id = NaN)  ORDER BY "messages"."created_at" DESC
+[10/22/15 21:10:16 -0700 Daniels-MacBook-Pro-3.local (19252)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Couldn't find User with 'id'=undefined
+[10/22/15 21:10:16 -0700 Daniels-MacBook-Pro-3.local (19252)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: PG::UndefinedColumn: ERROR:  column "nan" does not exist
+LINE 1: ...ages" WHERE "messages"."public" = $1 AND (to_id = NaN OR fro...
+                                                             ^
+: SELECT "messages".* FROM "messages" WHERE "messages"."public" = $1 AND (to_id = NaN OR from_id = NaN)  ORDER BY "messages"."created_at" DESC
+[10/22/15 21:12:35 -0700 Daniels-MacBook-Pro-3.local (19252)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Couldn't find User with 'id'=undefined
+[10/22/15 21:12:35 -0700 Daniels-MacBook-Pro-3.local (19252)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: PG::UndefinedColumn: ERROR:  column "nan" does not exist
+LINE 1: ...ages" WHERE "messages"."public" = $1 AND (to_id = NaN OR fro...
+                                                             ^
+: SELECT "messages".* FROM "messages" WHERE "messages"."public" = $1 AND (to_id = NaN OR from_id = NaN)  ORDER BY "messages"."created_at" DESC
+[10/22/15 21:13:23 -0700 Daniels-MacBook-Pro-3.local (19252)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Couldn't find User with 'id'=undefined
+[10/22/15 21:13:40 -0700 Daniels-MacBook-Pro-3.local (19252)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: PG::UndefinedColumn: ERROR:  column "nan" does not exist
+LINE 1: ...ages" WHERE "messages"."public" = $1 AND (to_id = NaN OR fro...
+                                                             ^
+: SELECT "messages".* FROM "messages" WHERE "messages"."public" = $1 AND (to_id = NaN OR from_id = NaN)  ORDER BY "messages"."created_at" DESC
+[10/22/15 21:13:44 -0700 Daniels-MacBook-Pro-3.local (19252)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `id' for #<Hash:0x007f907182afb0>
+[10/22/15 21:13:44 -0700 Daniels-MacBook-Pro-3.local (19252)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: PG::UndefinedColumn: ERROR:  column "nan" does not exist
+LINE 1: ...ages" WHERE "messages"."public" = $1 AND (to_id = NaN OR fro...
+                                                             ^
+: SELECT "messages".* FROM "messages" WHERE "messages"."public" = $1 AND (to_id = NaN OR from_id = NaN)  ORDER BY "messages"."created_at" DESC
+[10/22/15 21:15:42 -0700 Daniels-MacBook-Pro-3.local (19252)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: 
+[10/22/15 21:15:42 -0700 Daniels-MacBook-Pro-3.local (19252)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: PG::UndefinedColumn: ERROR:  column "nan" does not exist
+LINE 1: ...ages" WHERE "messages"."public" = $1 AND (to_id = NaN OR fro...
+                                                             ^
+: SELECT "messages".* FROM "messages" WHERE "messages"."public" = $1 AND (to_id = NaN OR from_id = NaN)  ORDER BY "messages"."created_at" DESC
+[10/22/15 21:16:03 -0700 Daniels-MacBook-Pro-3.local (19252)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: 
+[10/22/15 21:17:23 -0700 Daniels-MacBook-Pro-3.local (19252)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `includes' for #<User:0x007f909067a2a0>
+[10/22/15 21:17:39 -0700 Daniels-MacBook-Pro-3.local (19252)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Missing template users/show, application/show with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/SilverSurfer/Documents/Capstone/app/views"
+
+[10/22/15 21:19:00 -0700 Daniels-MacBook-Pro-3.local (19252)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Missing template users/show, application/show with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/SilverSurfer/Documents/Capstone/app/views"
+
+[10/22/15 21:19:18 -0700 Daniels-MacBook-Pro-3.local (19252)] INFO : Starting Agent shutdown
+[10/22/15 21:19:23 -0700 Daniels-MacBook-Pro-3.local (43899)] INFO : Starting the New Relic agent in "development" environment.
+[10/22/15 21:19:23 -0700 Daniels-MacBook-Pro-3.local (43899)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[10/22/15 21:19:23 -0700 Daniels-MacBook-Pro-3.local (43899)] WARN : No configuration file found. Working directory = /Users/SilverSurfer/Documents/Capstone
+[10/22/15 21:19:23 -0700 Daniels-MacBook-Pro-3.local (43899)] WARN : Looked in these locations (based on defaults): /Users/SilverSurfer/Documents/Capstone/config/newrelic.yml, /Users/SilverSurfer/Documents/Capstone/newrelic.yml, /Users/SilverSurfer/Documents/Capstone/config/newrelic.yml, /Users/SilverSurfer/Documents/Capstone/newrelic.yml, /Users/SilverSurfer/.newrelic/newrelic.yml, /Users/SilverSurfer/newrelic.yml
+[10/22/15 21:19:23 -0700 Daniels-MacBook-Pro-3.local (43899)] INFO : Environment: development
+[10/22/15 21:19:23 -0700 Daniels-MacBook-Pro-3.local (43899)] INFO : Dispatcher: webrick
+[10/22/15 21:19:23 -0700 Daniels-MacBook-Pro-3.local (43899)] INFO : Application: development
+[10/22/15 21:19:23 -0700 Daniels-MacBook-Pro-3.local (43899)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[10/22/15 21:19:23 -0700 Daniels-MacBook-Pro-3.local (43899)] INFO : Installing ActiveJob instrumentation
+[10/22/15 21:19:23 -0700 Daniels-MacBook-Pro-3.local (43899)] INFO : Installing ActiveRecord 4 instrumentation
+[10/22/15 21:19:23 -0700 Daniels-MacBook-Pro-3.local (43899)] INFO : Installing Net instrumentation
+[10/22/15 21:19:23 -0700 Daniels-MacBook-Pro-3.local (43899)] INFO : Installing deferred Rack instrumentation
+[10/22/15 21:19:23 -0700 Daniels-MacBook-Pro-3.local (43899)] INFO : Installing Rack::Builder middleware instrumentation
+[10/22/15 21:19:23 -0700 Daniels-MacBook-Pro-3.local (43899)] INFO : Installing Rails 3+ middleware instrumentation
+[10/22/15 21:19:23 -0700 Daniels-MacBook-Pro-3.local (43899)] INFO : Installing Rails 4 Controller instrumentation
+[10/22/15 21:19:23 -0700 Daniels-MacBook-Pro-3.local (43899)] INFO : Installing Rails 4 view instrumentation
+[10/22/15 21:19:23 -0700 Daniels-MacBook-Pro-3.local (43899)] INFO : Installing Rails 4 Error instrumentation
+[10/22/15 21:19:23 -0700 Daniels-MacBook-Pro-3.local (43899)] INFO : Finished instrumentation
+[10/22/15 21:19:23 -0700 Daniels-MacBook-Pro-3.local (43899)] INFO : Doing deferred dependency-detection before Rack startup
+[10/22/15 21:19:28 -0700 Daniels-MacBook-Pro-3.local (43899)] ERROR : Invalid license key, please contact support@newrelic.com
+[10/22/15 21:19:28 -0700 Daniels-MacBook-Pro-3.local (43899)] ERROR : Visit NewRelic.com to obtain a valid license key, or to upgrade your account.
+[10/22/15 21:20:22 -0700 Daniels-MacBook-Pro-3.local (43899)] INFO : Starting Agent shutdown
+[10/22/15 21:20:27 -0700 Daniels-MacBook-Pro-3.local (43942)] INFO : Starting the New Relic agent in "development" environment.
+[10/22/15 21:20:27 -0700 Daniels-MacBook-Pro-3.local (43942)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[10/22/15 21:20:27 -0700 Daniels-MacBook-Pro-3.local (43942)] WARN : No configuration file found. Working directory = /Users/SilverSurfer/Documents/Capstone
+[10/22/15 21:20:27 -0700 Daniels-MacBook-Pro-3.local (43942)] WARN : Looked in these locations (based on defaults): /Users/SilverSurfer/Documents/Capstone/config/newrelic.yml, /Users/SilverSurfer/Documents/Capstone/newrelic.yml, /Users/SilverSurfer/Documents/Capstone/config/newrelic.yml, /Users/SilverSurfer/Documents/Capstone/newrelic.yml, /Users/SilverSurfer/.newrelic/newrelic.yml, /Users/SilverSurfer/newrelic.yml
+[10/22/15 21:20:27 -0700 Daniels-MacBook-Pro-3.local (43942)] INFO : Environment: development
+[10/22/15 21:20:27 -0700 Daniels-MacBook-Pro-3.local (43942)] INFO : Dispatcher: webrick
+[10/22/15 21:20:27 -0700 Daniels-MacBook-Pro-3.local (43942)] INFO : Application: development
+[10/22/15 21:20:27 -0700 Daniels-MacBook-Pro-3.local (43942)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[10/22/15 21:20:27 -0700 Daniels-MacBook-Pro-3.local (43942)] INFO : Installing ActiveJob instrumentation
+[10/22/15 21:20:27 -0700 Daniels-MacBook-Pro-3.local (43942)] INFO : Installing ActiveRecord 4 instrumentation
+[10/22/15 21:20:27 -0700 Daniels-MacBook-Pro-3.local (43942)] INFO : Installing Net instrumentation
+[10/22/15 21:20:27 -0700 Daniels-MacBook-Pro-3.local (43942)] INFO : Installing deferred Rack instrumentation
+[10/22/15 21:20:27 -0700 Daniels-MacBook-Pro-3.local (43942)] INFO : Installing Rack::Builder middleware instrumentation
+[10/22/15 21:20:27 -0700 Daniels-MacBook-Pro-3.local (43942)] INFO : Installing Rails 3+ middleware instrumentation
+[10/22/15 21:20:27 -0700 Daniels-MacBook-Pro-3.local (43942)] INFO : Installing Rails 4 Controller instrumentation
+[10/22/15 21:20:27 -0700 Daniels-MacBook-Pro-3.local (43942)] INFO : Installing Rails 4 view instrumentation
+[10/22/15 21:20:27 -0700 Daniels-MacBook-Pro-3.local (43942)] INFO : Installing Rails 4 Error instrumentation
+[10/22/15 21:20:27 -0700 Daniels-MacBook-Pro-3.local (43942)] INFO : Finished instrumentation
+[10/22/15 21:20:27 -0700 Daniels-MacBook-Pro-3.local (43942)] INFO : Doing deferred dependency-detection before Rack startup
+[10/22/15 21:20:33 -0700 Daniels-MacBook-Pro-3.local (43942)] ERROR : Invalid license key, please contact support@newrelic.com
+[10/22/15 21:20:33 -0700 Daniels-MacBook-Pro-3.local (43942)] ERROR : Visit NewRelic.com to obtain a valid license key, or to upgrade your account.
+[10/22/15 21:45:08 -0700 Daniels-MacBook-Pro-3.local (43942)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: PG::UndefinedColumn: ERROR:  column "nan" does not exist
+LINE 1: ...ages" WHERE "messages"."public" = $1 AND (to_id = NaN OR fro...
+                                                             ^
+: SELECT "messages".* FROM "messages" WHERE "messages"."public" = $1 AND (to_id = NaN OR from_id = NaN)  ORDER BY "messages"."created_at" DESC
+[10/22/15 21:45:51 -0700 Daniels-MacBook-Pro-3.local (43942)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: PG::UndefinedColumn: ERROR:  column "nan" does not exist
+LINE 1: ...ages" WHERE "messages"."public" = $1 AND (to_id = NaN OR fro...
+                                                             ^
+: SELECT "messages".* FROM "messages" WHERE "messages"."public" = $1 AND (to_id = NaN OR from_id = NaN)  ORDER BY "messages"."created_at" DESC
+[10/22/15 21:46:38 -0700 Daniels-MacBook-Pro-3.local (43942)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: PG::UndefinedColumn: ERROR:  column "nan" does not exist
+LINE 1: ...ages" WHERE "messages"."public" = $1 AND (to_id = NaN OR fro...
+                                                             ^
+: SELECT "messages".* FROM "messages" WHERE "messages"."public" = $1 AND (to_id = NaN OR from_id = NaN)  ORDER BY "messages"."created_at" DESC

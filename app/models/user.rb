@@ -62,14 +62,27 @@ class User < ActiveRecord::Base
     class_name: "PendingFriendship"
   )
 
+  has_one(
+    :profile_pic,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: "ProfilePicture"
+  )
+
+  has_one(:profile_picture, through: :profile_pic, source: :picture)
+
   def get_statuses
     sent_messages.where("to_id = from_id")
   end
 
-  def profile_pic
-    pic = pictures.first
+  def profile_pict
+    pic = self.profile_picture
     if pic
       return pic.pic_url
+    elsif self.pictures
+      if self.pictures.first
+        return self.pictures.first.pic_url
+      end
     else
       return DEFAULT_PROFILE_PIC
     end
@@ -117,5 +130,4 @@ class User < ActiveRecord::Base
     return nil if user.nil?
     user.is_password?(password) ? user : nil
   end
-
 end

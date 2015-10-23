@@ -15,8 +15,9 @@ class UsersController < ApplicationController
 
     if @user.save
       log_in!(@user)
-      payload = {id: current_user.id, username: current_user.username}
+      payload = {id: current_user.id, username: current_user.username, prof_pic: current_user.profile_pict}
       token = JWT.encode payload, nil, 'none'
+
       Friendship.create(
         friend_id: 1000,
         user_id: current_user.id
@@ -36,8 +37,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-
+    # fail
+    @user = User.all.includes(:profile_picture, :pictures).where(id: params[:id])
     render :show
   end
 

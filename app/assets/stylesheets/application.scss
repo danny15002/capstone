@@ -521,10 +521,15 @@ button {
 }
 
 .comment-menu > * {
+  cursor:pointer;
   float: left;
   display: inline-block;
   margin-left: 5px;
   margin-right: 5px;
+}
+
+.comment-menu > *:hover {
+  color: red;
 }
 
 .time {
