@@ -1,7 +1,6 @@
 var Profile = React.createClass ({
   getInitialState: function () {
-
-    return {id: this.props.params.userId, friends: [], user: {prof_pic: ""}}
+    return {id: this.props.params.userId, friends: [], user: {profPic: ""}}
   },
   componentDidMount: function () {
     LoginStore.addChangeListener(FriendzConstants.MY_FRIENDS_RECEIVED, this.getFriends);
@@ -43,7 +42,7 @@ var Profile = React.createClass ({
     ApiUtil.fetch({url: "api/friendships", data: {}, constant: FriendzConstants.MY_FRIENDS_RECEIVED});
   },
   setUser: function () {
-    this.setState({user: UserStore.getProfileUser()})
+    this.setState({user: UserStore.getProfileUser()[0]})
   },
   friendText: function (id) {
     var text="";
@@ -84,7 +83,8 @@ var Profile = React.createClass ({
       id = this.props.params.userId
       message_id = id
     }
-    var source = this.state.user.prof_pic
+
+    var source = this.state.user.profPic
     var friendObject = this.friendText(id)
     var picsize = 200;
     return (
