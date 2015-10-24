@@ -47,25 +47,27 @@ var Profile = React.createClass ({
     var text="";
     var request;
 
-    if (LoginStore.user().id !== parseInt(id)){
-      if (this.state.friends.some(function (friend) {
-        return parseInt(friend.friend_id) === parseInt(id)
-      })) {
-        text = "Unfriend";
-        friendship_id = LoginStore.getFriendShipId(parseInt(id));
-        request = {url: "api/friendships/" + friendship_id,
-                   method: "DELETE",
-                   data: {},
-                   constant: FriendzConstants.FRIEND_DELETED};
+    if (this.state.user.id) {
+      console.log(this.state.user.friendship)
+      if (this.state.user.friendship === true) {
+          text = "Unfriend";
+          friendship_id = LoginStore.getFriendShipId(parseInt(id));
+          request = {url: "api/friendships/" + friendship_id,
+                     method: "DELETE",
+                     data: {},
+                     constant: FriendzConstants.FRIEND_DELETED};
+      } else if (this.state.user.friendship === "pending") {
+        text = "Friend Request Pending"
       } else {
         text="Add Friend";
-        request = {url: "api/friendships/",
+        request = {url: "api/pending_friendships/",
                    method: "POST",
-                   data: {friendship: {user_id: LoginStore.user().id,
-                                       friend_id: id}},
+                   data: {pending_friendship: {requester_id: LoginStore.user().id,
+                                       accepter_id: id}},
                    constant: FriendzConstants.FRIEND_ADDED};
       }
     }
+
     return {text: text, request: request}
   },
   handleClick: function (request) {
@@ -84,6 +86,7 @@ var Profile = React.createClass ({
     }
 
     var source = this.state.user.profPic
+
     var friendObject = this.friendText(id)
     var picsize = 200;
 

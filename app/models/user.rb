@@ -58,7 +58,7 @@ class User < ActiveRecord::Base
   has_many(
     :pending_requests,
     primary_key: :id,
-    foreign_key: :accepter_id,
+    foreign_key: :requester_id,
     class_name: "PendingFriendship"
   )
 
@@ -75,6 +75,32 @@ class User < ActiveRecord::Base
 
   def get_statuses
     sent_messages.where("to_id = from_id")
+  end
+
+  def friendship_status(current_user)
+    # true means friends, false means not friends, pending means there is a pending request
+    if self.id == current_user.id
+      return "own"
+    end
+
+    friend = current_user.friendships.where(user_id: current_user.id, friend_id: self.id)
+    id = self.id
+
+    if friend.first
+      return true
+    else
+      pending = current_user.pending_requests.where("accepter_id = #{id}")
+      pending2 = current_user.pending_friendships.where("requester_id = #{id}")
+      pending += pending2
+
+      puts "pending"
+      p pending
+      if pending.first
+        return "pending"
+      else
+        return false
+      end
+    end
   end
 
   def profile_pict

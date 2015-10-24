@@ -35,10 +35,11 @@ class UsersController < ApplicationController
       render json: {error: flash.now[:errors]}, status: 422
     end
   end
-  
+
   def show
     # fail
-    @user = User.all.includes(:profile_picture, :pictures).where(id: params[:id])
+    @user = User.all.includes(:friendships, :pending_friendships, :profile_picture, :pictures).where(id: params[:id])
+    @current_user = current_user
     render :show
   end
 

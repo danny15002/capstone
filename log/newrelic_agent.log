@@ -4357,3 +4357,15 @@ LINE 1: ...ages" WHERE "messages"."public" = $1 AND (to_id = NaN OR fro...
 [10/23/15 12:03:16 -0700 Daniels-MacBook-Pro-3.local (69020)] INFO : Installing Rails 4 view instrumentation
 [10/23/15 12:03:16 -0700 Daniels-MacBook-Pro-3.local (69020)] INFO : Installing Rails 4 Error instrumentation
 [10/23/15 12:03:16 -0700 Daniels-MacBook-Pro-3.local (69020)] INFO : Finished instrumentation
+[10/23/15 15:34:15 -0700 Daniels-MacBook-Pro-3.local (58734)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: /Users/SilverSurfer/Documents/Capstone/app/controllers/api/pending_friendships_controller.rb:10: syntax error, unexpected ':', expecting keyword_end
+      render json: status: 420
+                          ^
+[10/23/15 15:35:34 -0700 Daniels-MacBook-Pro-3.local (58734)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: param is missing or the value is empty: pending_friendship
+[10/23/15 15:43:45 -0700 Daniels-MacBook-Pro-3.local (58734)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined local variable or method `console' for #<User:0x007fabbf7881c0>
+[10/23/15 15:47:34 -0700 Daniels-MacBook-Pro-3.local (58734)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `pending' for nil:NilClass
+[10/23/15 15:47:44 -0700 Daniels-MacBook-Pro-3.local (58734)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `pending' for nil:NilClass
+[10/23/15 15:52:54 -0700 Daniels-MacBook-Pro-3.local (58734)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: PG::SyntaxError: ERROR:  syntax error at or near ")"
+LINE 1: ...ing_friendships"."requester_id" = $1 AND (accepter_id = 10))
+                                                                      ^
+: SELECT "pending_friendships".* FROM "pending_friendships" WHERE "pending_friendships"."requester_id" = $1 AND (accepter_id = 10))
+[10/23/15 20:15:14 -0700 Daniels-MacBook-Pro-3.local (58734)] INFO : Starting Agent shutdown
