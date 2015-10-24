@@ -41,6 +41,7 @@ json.array! @messages do |message|
         json.likes comment.number_likes
         json.liked comment.is_liked?(@id)
         json.myLikeId comment.users_like_id(@id)
+        json.comments []
 
         json.type "Comment"
       end

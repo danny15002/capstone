@@ -11,7 +11,7 @@ var SubCommentList = React.createClass({
               return (<li>
                 <Comment
                   className={""}
-                  key={idx}
+                  key={comment.id}
                   message={comment}
                   level={this.props.level}
                   replyFunction={replyFunction}

@@ -36,7 +36,7 @@ var FriendActivity = React.createClass( {
         <ul>
           {this.state.messages.map(function (message, idx) {
             return (<li>
-              <Comment className={""} key={idx} message={message} level={1}/>
+              <Comment className={""} key={message.id} message={message} level={1}/>
             </li>)
           })}
         </ul>

@@ -1,8 +1,16 @@
 var Comment = React.createClass({
   getInitialState: function () {
     this.formText = "Reply"
-    this.subText = "View Replies"
+    this.subText = "(No Replies)"
+    if ( this.props.message.comments.length > 0) {
+      this.subText = "View Replies"
+    }
     return {formStyle: "none", subStyle: "none"}
+  },
+  componentWillReceiveProps: function (nextProps) {
+    if (nextProps.message.comments.length > 0) {
+      this.subText = "View Replies"
+    }
   },
   subComments: function (comments, key) {
     if (this.props.level === 2) {
@@ -54,23 +62,25 @@ var Comment = React.createClass({
   },
 
   handleReply: function () {
+
     if (this.state.formStyle === "none") {
       this.setState({formStyle: "" })
     }
     if (this.state.formStyle === "") {
       this.setState({formStyle: "none" })
-
     }
   },
 
   handleViewReplies: function () {
-    if (this.state.subStyle === "none") {
-      this.setState({subStyle:""})
-      this.subText = "Hide Replies"
-    }
-    if (this.state.subStyle === "") {
-      this.setState({subStyle: "none"})
-      this.subText = "View Replies"
+    if (this.props.message.comments.length > 0 ) {
+      if (this.state.subStyle === "none") {
+        this.setState({subStyle:""})
+        this.subText = "Hide Replies"
+      }
+      if (this.state.subStyle === "") {
+        this.setState({subStyle: "none"})
+        this.subText = "View Replies"
+      }
     }
   },
 
