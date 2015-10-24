@@ -30,7 +30,7 @@ json.array! @messages do |message|
 
     json.type "Comment"
 
-    json.comments comment.comments do |comment|
+    json.comments comment.comments.reverse do |comment|
       json.id comment.id
       json.body comment.body
       json.commentable_id comment.commentable_id
