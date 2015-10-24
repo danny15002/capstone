@@ -12,6 +12,24 @@ User.create(
   password_confirmation: "password"
 )
 
+
+User.create(
+  id: 1000,
+  username: "FRIENDZ",
+  password: "password",
+  password_confirmation: "password"
+)
+
+Picture.create(
+  user_id: 1000,
+  pic_url: "http://assets22.pokemon.com/assets/cms2/img/pokedex/full/384.png"
+)
+
+ProfilePicture.create(
+  user_id: 1000,
+  picture_id: 1000
+)
+
 25.times do
   User.create(
     username: Faker::Name.first_name,
