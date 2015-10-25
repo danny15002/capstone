@@ -218,7 +218,11 @@ header h2 {
 .top-menu-div {
   position: relative;
   width: auto;
-  margin: 0px 29px;
+  margin: 0px 27px;
+}
+
+.top-bar .glyphicon {
+  padding-right: 5px;
 }
 
 .top-bar span {
@@ -418,7 +422,7 @@ button {
   position: relative;
   top: 36px;
   float: right;
-  width: 60%;
+  width: 75%;
   border: solid black 1px;
 }
 ////////////////////////////////////////////////////////////////////////////////
@@ -562,6 +566,17 @@ button {
 .comment-body {
   float:left;
 }
+
+.trashcan {
+  position: absolute;
+  display: none;
+}
+
+.main-comment:hover > .trashcan {
+  display: block;
+}
+
+
 
 ////////////////////////////////////////////////////////////////////////////////
 

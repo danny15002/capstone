@@ -8,6 +8,9 @@ var Comment = React.createClass({
     return {formStyle: "none", subStyle: "none"}
   },
   componentWillReceiveProps: function (nextProps) {
+    if (nextProps.message.comments.length === 0) {
+      this.subText = "(No Replies)"
+    }
     if (nextProps.message.comments.length > 0) {
       this.subText = "View Replies"
     }
@@ -58,6 +61,10 @@ var Comment = React.createClass({
                constant: FriendzConstants.COMMENT_UNLIKED}
     }
     ApiUtil.request(request);
+
+  },
+
+  delete: function () {
 
   },
 
@@ -165,10 +172,13 @@ var Comment = React.createClass({
             <div style={{overflowY: "scroll", paddingTop: "5px", height: (picsize - 40) + "px"}}>
               {message.body}
             </div>
+
             <br></br>
 
             {this.commentMenu()}
-
+          </div>
+          <div onClick={this.delete} className={"trashcan"}>
+            <span className={"glyphicon glyphicon-trash"}></span>
           </div>
         </div>
         <div style={{display: this.state.subStyle}}>

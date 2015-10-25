@@ -36,6 +36,7 @@ var Profile = React.createClass ({
   },
   getFriends: function () {
     this.setState({friends: LoginStore.getMyFriends()})
+    ApiUtil.fetch({url: "users/" + id, data: {id: id}, constant: FriendzConstants.USER_RECEIVED})
   },
   fetchFriends: function () {
     ApiUtil.fetch({url: "api/friendships", data: {}, constant: FriendzConstants.MY_FRIENDS_RECEIVED});
@@ -58,6 +59,8 @@ var Profile = React.createClass ({
                      constant: FriendzConstants.FRIEND_DELETED};
       } else if (this.state.user.friendship === "pending") {
         text = "Friend Request Pending"
+      } else if (this.state.user.friendship === "own") {
+        text = ""
       } else {
         text="Add Friend";
         request = {url: "api/pending_friendships/",

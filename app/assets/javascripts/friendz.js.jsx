@@ -37,6 +37,7 @@ var routes = (
       <Route path="Account" component={Account}/>
       <Route path="Locations" component={Locations}/>
       <Route path="Friends" component={FriendList}/>
+      <Route path="Requests" component={Requests} />
       <Route path="User/:userId" component={Profile}/>
       <Route path="User/:userId/Friends" component={FriendList}/>
       <Route path="User/:userId/Pictures" component={PictureViewer}/>

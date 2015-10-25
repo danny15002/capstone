@@ -1,5 +1,9 @@
 class Api::PendingFriendshipsController < ApplicationController
 
+  def index
+    @pending_friendships = current_user.pending_friendships.includes(:requester)
+    render :index
+  end
 
   def create
     @pending_friendship = PendingFriendship.create(pending_friendship_params)

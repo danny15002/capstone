@@ -15,13 +15,13 @@ class PendingFriendship < ActiveRecord::Base
     :requestee,
     primary_key: :id,
     foreign_key: :accepter_id,
-    class_name: "PendingFriendship"
+    class_name: "User"
   )
 
   belongs_to(
-    :requestor,
+    :requester,
     primary_key: :id,
     foreign_key: :requester_id,
-    class_name: "PendingFriendship"
+    class_name: "User"
   )
 end
