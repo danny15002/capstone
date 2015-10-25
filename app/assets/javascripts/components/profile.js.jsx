@@ -58,7 +58,7 @@ var Profile = React.createClass ({
                      data: {},
                      constant: FriendzConstants.FRIEND_DELETED};
       } else if (this.state.user.friendship === "pending") {
-        text = "Friend Request Pending"
+        text = "Pending"
       } else if (this.state.user.friendship === "own") {
         text = ""
       } else {
@@ -74,6 +74,10 @@ var Profile = React.createClass ({
     return {text: text, request: request}
   },
   handleClick: function (request) {
+    if (request === undefined) {
+      console.log("pending");
+      return function () {};
+    }
     return function () {
       ApiUtil.request(request);
     }
@@ -96,17 +100,16 @@ var Profile = React.createClass ({
     return (
       <div className={"profile"}>
         <div style={{margin: "36px 36px"}}>
+          <ProfilePicture source={source} style={{height: picsize + "px", width: picsize + "px"}}/>
+          <PostStatusForm userId={this.state.id}/>
           <div className={"profile-menu"}>
-            <a href={"#/User/" + id + "/Friends"} className={"Friends"}>Friends</a>
-            <a href={"#/User/" + id + "/Pictures"} className={"Pictures"}>Pictures</a>
-            <a href={"#/Messages/" + message_id} className={"Messages"}>Messages</a>
+            <a href={"#/User/" + id + "/Friends"} className={"Friends"}><div>Friends</div></a>
+            <a href={"#/User/" + id + "/Pictures"} className={"Pictures"}><div>Pictures</div></a>
+            <a href={"#/Messages/" + message_id} className={"Messages"}><div>Messages</div></a>
             <div onClick={this.handleClick(friendObject.request)}>
               {friendObject.text}
             </div>
           </div>
-          <ProfilePicture source={source} style={{height: picsize + "px", width: picsize + "px"}}/>
-
-          <PostStatusForm userId={this.state.id}/>
         </div>
         <WallActivity userId={this.state.id} />
       </div>

@@ -367,13 +367,31 @@ div.search-list {
 }
 
 .profile .status-form {
-  float: left;
+  float: right;
   width: 67%;
 }
 
 .profile-menu {
-  width: 100%;
+  width: 67%;
+  float: right;
+  height: 46px;
 }
+
+.profile-menu div {
+  width: 25%;
+  float: left;
+  padding: 13px;
+  text-align: center;
+  cursor:pointer;
+}
+
+.profile-menu:after {
+  content: "";
+  display:block;
+  clear: both;
+
+}
+
 
 .prof-pic {
   float: left;

@@ -4492,3 +4492,25 @@ LINE 1: ...ing_friendships"."requester_id" = $1 AND (accepter_id = 10))
 [10/24/15 16:55:21 -0700 Daniels-MacBook-Pro-3.local (12807)] INFO : Doing deferred dependency-detection before Rack startup
 [10/24/15 16:55:24 -0700 Daniels-MacBook-Pro-3.local (12807)] ERROR : Invalid license key, please contact support@newrelic.com
 [10/24/15 16:55:24 -0700 Daniels-MacBook-Pro-3.local (12807)] ERROR : Visit NewRelic.com to obtain a valid license key, or to upgrade your account.
+[10/24/15 20:26:47 -0700 Daniels-MacBook-Pro-3.local (12807)] INFO : Starting Agent shutdown
+[10/24/15 20:27:02 -0700 Daniels-MacBook-Pro-3.local (16939)] INFO : Starting the New Relic agent in "development" environment.
+[10/24/15 20:27:02 -0700 Daniels-MacBook-Pro-3.local (16939)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[10/24/15 20:27:02 -0700 Daniels-MacBook-Pro-3.local (16939)] WARN : No configuration file found. Working directory = /Users/SilverSurfer/Documents/Capstone
+[10/24/15 20:27:02 -0700 Daniels-MacBook-Pro-3.local (16939)] WARN : Looked in these locations (based on defaults): /Users/SilverSurfer/Documents/Capstone/config/newrelic.yml, /Users/SilverSurfer/Documents/Capstone/newrelic.yml, /Users/SilverSurfer/Documents/Capstone/config/newrelic.yml, /Users/SilverSurfer/Documents/Capstone/newrelic.yml, /Users/SilverSurfer/.newrelic/newrelic.yml, /Users/SilverSurfer/newrelic.yml
+[10/24/15 20:27:02 -0700 Daniels-MacBook-Pro-3.local (16939)] INFO : Environment: development
+[10/24/15 20:27:02 -0700 Daniels-MacBook-Pro-3.local (16939)] INFO : Dispatcher: webrick
+[10/24/15 20:27:02 -0700 Daniels-MacBook-Pro-3.local (16939)] INFO : Application: development
+[10/24/15 20:27:02 -0700 Daniels-MacBook-Pro-3.local (16939)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[10/24/15 20:27:02 -0700 Daniels-MacBook-Pro-3.local (16939)] INFO : Installing ActiveJob instrumentation
+[10/24/15 20:27:02 -0700 Daniels-MacBook-Pro-3.local (16939)] INFO : Installing ActiveRecord 4 instrumentation
+[10/24/15 20:27:03 -0700 Daniels-MacBook-Pro-3.local (16939)] INFO : Installing Net instrumentation
+[10/24/15 20:27:03 -0700 Daniels-MacBook-Pro-3.local (16939)] INFO : Installing deferred Rack instrumentation
+[10/24/15 20:27:03 -0700 Daniels-MacBook-Pro-3.local (16939)] INFO : Installing Rack::Builder middleware instrumentation
+[10/24/15 20:27:03 -0700 Daniels-MacBook-Pro-3.local (16939)] INFO : Installing Rails 3+ middleware instrumentation
+[10/24/15 20:27:03 -0700 Daniels-MacBook-Pro-3.local (16939)] INFO : Installing Rails 4 Controller instrumentation
+[10/24/15 20:27:03 -0700 Daniels-MacBook-Pro-3.local (16939)] INFO : Installing Rails 4 view instrumentation
+[10/24/15 20:27:03 -0700 Daniels-MacBook-Pro-3.local (16939)] INFO : Installing Rails 4 Error instrumentation
+[10/24/15 20:27:03 -0700 Daniels-MacBook-Pro-3.local (16939)] INFO : Finished instrumentation
+[10/24/15 20:27:03 -0700 Daniels-MacBook-Pro-3.local (16939)] INFO : Doing deferred dependency-detection before Rack startup
+[10/24/15 20:27:21 -0700 Daniels-MacBook-Pro-3.local (16939)] ERROR : Invalid license key, please contact support@newrelic.com
+[10/24/15 20:27:21 -0700 Daniels-MacBook-Pro-3.local (16939)] ERROR : Visit NewRelic.com to obtain a valid license key, or to upgrade your account.
