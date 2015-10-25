@@ -1,5 +1,6 @@
 var WallActivity = React.createClass( {
   getInitialState: function () {
+    console.log("getinitial")
     return {messages: []}
   },
   componentDidMount: function () {
@@ -14,6 +15,7 @@ var WallActivity = React.createClass( {
     } else {
       id = LoginStore.user().id
     }
+    console.log("mounted")
     ApiUtil.request({url: "api/messages/" + id, data: {user_id: id, public: true}, constant: FriendzConstants.MESSAGES_RECEIVED});
   },
   componentWillUnmount: function () {
@@ -29,6 +31,7 @@ var WallActivity = React.createClass( {
     } else {
       id = LoginStore.user().id
     }
+    console.log(nextProps)
     console.log(1)
     ApiUtil.request({url: "api/messages/" + id, data: {user_id: id, public: true}, constant: FriendzConstants.MESSAGES_RECEIVED});
   },
